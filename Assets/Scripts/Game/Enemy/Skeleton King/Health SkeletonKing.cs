@@ -6,7 +6,7 @@ public class HealthSkeletonKing : MonoBehaviour
 {
     public Animator anim;
     public float timer;
-    public float skeletonKingMaxHealth = 50;
+    public float skeletonKingMaxHealth = 5000;
     public float skeletonKingHealth;
     public bool skeletonKingalive = true;
     // Start is called before the first frame update

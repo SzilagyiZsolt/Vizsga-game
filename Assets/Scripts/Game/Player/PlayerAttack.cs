@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public SlimeHealth[] slimeHealth;
+    public SlimeHealth slimeHealth;
     public HealthSkeletonKing skeletonKingHealth;
     public float damage;
     public float timer=1;
@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         GameObject slime = GameObject.FindWithTag("Slime");
-        slimeHealth = slime.GetComponent<SlimeHealth[]>();
+        slimeHealth = slime.GetComponent<SlimeHealth>();
     }
     void Update()
     {
@@ -47,13 +47,12 @@ public class PlayerAttack : MonoBehaviour
                     Debug.Log("We hit");
                     if (enemy.gameObject.CompareTag("Slime"))
                     {
-                        Debug.Log("Kapja");
-                        slimeHealth[0].TakeDamage(damage);
-                        slimeHealth[1].TakeDamage(damage);
-                        
+                        slimeHealth.TakeDamage(damage);
                     }
-                    
-                    //skeletonKingHealth.TakeDamage(damage);
+                    else if (enemy.gameObject.CompareTag("SkeletonKing"))
+                    {
+                        skeletonKingHealth.TakeDamage(damage);
+                    }
                 }
                 timer =1;
                 spamdef = 0;
