@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4161242520627554566}
   - component: {fileID: 863257041028692805}
   - component: {fileID: 4901377425205344467}
-  - component: {fileID: 6229883018742568540}
   - component: {fileID: 8025465453257241717}
   - component: {fileID: 8646881303954483127}
   - component: {fileID: 8597425063902412936}
   - component: {fileID: 7792188953813625213}
   - component: {fileID: 6947373376838512130}
+  - component: {fileID: 6376907109344768066}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Slime
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 8777800933925491452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.743, y: 1.407, z: -0.6423028}
+  m_LocalPosition: {x: 3.819, y: 10.227, z: -0.6423028}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,30 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6229883018742568540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8777800933925491452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb35041e8822a9f479084c0e41091bfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slimeHealth: {fileID: 8646881303954483127}
-  skeletonKingHealth: {fileID: 0}
-  damage: 10
-  timer: 1
-  spamdef: 1
-  click: 0
-  playerMovement: {fileID: 0}
-  attackPoint: {fileID: 0}
-  attackRange: 0.3
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!70 &8025465453257241717
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c33e67f696fda84da1f285368451cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttack: {fileID: 0}
   anim: {fileID: 4901377425205344467}
   timer: 0
   slimeMaxHealth: 50
@@ -201,10 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 8025465453257241717}
-  wall:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   timer: 0
   slimeHealth: {fileID: 8646881303954483127}
 --- !u!114 &7792188953813625213
@@ -236,9 +209,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeHealth: {fileID: 8646881303954483127}
-  patrolPoints: []
   playerTransform: {fileID: 0}
   moveSpeed: 0.3
-  patrolDestination: 0
   chasing: 0
   chasingDistance: 3
+--- !u!50 &6376907109344768066
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777800933925491452}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.8
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.5
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -7,16 +7,13 @@ public class MovementSkeletonKing : MonoBehaviour
     public HealthSkeletonKing skeletonKingHealth;
     public Transform playerTransform;
     public float moveSpeed;
-    public int patrolDestination;
     public bool chasing;
     public int chasingDistance;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        //GameObject points = GameObject.FindWithTag("PatrolPoints");
         skeletonKingHealth = GetComponent<HealthSkeletonKing>();
         playerTransform = player.GetComponent<Transform>();
-        //playerTransform = points.GetComponent<Transform[]>();
     }
     private void Update()
     {

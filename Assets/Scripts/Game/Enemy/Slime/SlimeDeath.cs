@@ -5,16 +5,13 @@ using UnityEngine;
 
 public class SlimeDeath : MonoBehaviour
 {
-    public CapsuleCollider2D hitbox;
-    public GameObject[] wall;
+    private GameObject[] wall;
     public float timer;
     public SlimeHealth slimeHealth;
     private void Start()
     {
         GameObject walls = GameObject.FindWithTag("Wall");
-        hitbox = GetComponent<CapsuleCollider2D>();
         slimeHealth = GetComponent<SlimeHealth>();
-        //wall = walls.GetComponent<GameObject[]>();
     }
     private void Update()
     {
@@ -30,7 +27,6 @@ public class SlimeDeath : MonoBehaviour
             wall[0].SetActive(false);
             wall[1].SetActive(false);
             wall[2].SetActive(false);
-            hitbox.enabled = false;
         }
     }
 }

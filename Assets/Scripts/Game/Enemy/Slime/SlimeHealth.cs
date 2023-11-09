@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlimeHealth : MonoBehaviour
 {
+    public PlayerAttack playerAttack;
     public Animator anim;
     public float timer;
     public float slimeMaxHealth = 50;
@@ -14,6 +15,8 @@ public class SlimeHealth : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         slimeHealth = slimeMaxHealth;
+        GameObject player = GameObject.FindWithTag("Player");
+        playerAttack = player.GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -24,11 +27,36 @@ public class SlimeHealth : MonoBehaviour
         {
             anim.SetBool("Hurt", false);
         }
+        
     }
     public void TakeDamage(float damage)
     {
-        slimeHealth -= damage;
-        anim.SetBool("Hurt", true);
-        timer = 0;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                playerAttack.click++;
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                playerAttack.timer -= Time.deltaTime;
+                if (playerAttack.timer <= 0.5 && playerAttack.click <= 1)
+                {
+                    slimeHealth -= damage;
+                    anim.SetBool("Hurt", true);
+                    timer = 0;
+                    playerAttack.timer = 1;
+                    playerAttack.spamdef = 0;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                playerAttack.timer = (float)0.5;
+            }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hitbox"))
+        {
+            TakeDamage(playerAttack.damage);
+        }
     }
 }
