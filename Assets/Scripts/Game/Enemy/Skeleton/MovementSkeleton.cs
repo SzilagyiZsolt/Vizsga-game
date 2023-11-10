@@ -11,7 +11,8 @@ public class MovementSkeleton : MonoBehaviour
     public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
-    public int chasingDistance;
+    public int chasingDistanceX;
+    public int chasingDistanceY;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -25,7 +26,7 @@ public class MovementSkeleton : MonoBehaviour
         {
             if (chasing)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistance)
+                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX || Vector2.Distance(playerTransform.position, transform.position) > chasingDistanceY)
                 {
                     skeletonHealth.anim.SetBool("Walk", false);
                     chasing = false;
@@ -45,7 +46,7 @@ public class MovementSkeleton : MonoBehaviour
             }
             else
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistance)
+                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX && Vector2.Distance(playerTransform.position, transform.position) < chasingDistanceY)
                 {
                     skeletonHealth.anim.SetBool("Walk", true);
                     chasing = true;

@@ -6,6 +6,7 @@ public class DamageSkeletonKing : MonoBehaviour
 {
     public HealthSkeletonKing skeletonKingHealth;
     public int damage;
+    public float timer;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
     private void Start()
@@ -15,11 +16,16 @@ public class DamageSkeletonKing : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         playerMovement = player.GetComponent<PlayerMovement>();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player") && skeletonKingHealth.skeletonKingalive)
+        timer+=Time.deltaTime;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && skeletonKingHealth.skeletonKingalive && timer>=0.5)
         {
+            timer=0;
             playerMovement.kbCounter = playerMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {

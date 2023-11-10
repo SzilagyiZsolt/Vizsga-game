@@ -6,6 +6,7 @@ public class SlimeDamage : MonoBehaviour
 {
     public SlimeHealth slimeHealth;
     public int damage;
+    public float timer;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
     private void Start()
@@ -15,11 +16,16 @@ public class SlimeDamage : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         playerMovement = player.GetComponent<PlayerMovement>();
     }
+    private void Update()
+    {
+        timer+=Time.deltaTime;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && slimeHealth.slimealive)
+        if (collision.gameObject.CompareTag("Player") && slimeHealth.slimealive && timer>=0.5)
         {
+            timer=0;
             playerMovement.kbCounter = playerMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {

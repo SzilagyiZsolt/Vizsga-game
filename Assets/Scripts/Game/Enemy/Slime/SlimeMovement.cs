@@ -10,7 +10,8 @@ public class SlimeMovement : MonoBehaviour
     public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
-    public int chasingDistance;
+    public int chasingDistanceX;
+    public int chasingDistanceY;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -23,7 +24,7 @@ public class SlimeMovement : MonoBehaviour
         {
             if (chasing)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistance)
+                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX || Vector2.Distance(playerTransform.position, transform.position) > chasingDistanceY)
                 {
                     chasing = false;
                 }
@@ -42,7 +43,7 @@ public class SlimeMovement : MonoBehaviour
             }
             else
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistance)
+                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX && Vector2.Distance(playerTransform.position, transform.position) < chasingDistanceY)
                 {
                     chasing = true;
                 }

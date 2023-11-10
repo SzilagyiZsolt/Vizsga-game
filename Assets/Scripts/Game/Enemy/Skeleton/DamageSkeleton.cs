@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class DamageSkeleton : MonoBehaviour
 {
     public HealthSkeleton skeletonHealth;
     public int damage;
+    public float timer;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
     private void Start()
@@ -15,11 +17,16 @@ public class DamageSkeleton : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         playerMovement = player.GetComponent<PlayerMovement>();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player") && skeletonHealth.skeletonalive)
+        timer+=Time.deltaTime;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && skeletonHealth.skeletonalive && timer>=0.5)
         {
+            timer=0;
             playerMovement.kbCounter = playerMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {

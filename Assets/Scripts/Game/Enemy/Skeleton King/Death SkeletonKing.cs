@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathSkeletonKing : MonoBehaviour
 {
+    public GameObject Platform;
     public float timer;
     public HealthSkeletonKing skeletonKingHealth;
     private void Start()
@@ -20,6 +21,7 @@ public class DeathSkeletonKing : MonoBehaviour
             if (timer > 1.4)
             {
                 Destroy(gameObject);
+                Platform.SetActive(true);
             }
             skeletonKingHealth.anim.SetBool("Death", true);
             skeletonKingHealth.skeletonKingalive = false;
