@@ -29,7 +29,6 @@ public class Chest : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            text.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {   
                 open = true;
@@ -38,6 +37,7 @@ public class Chest : MonoBehaviour
                 sword.SetActive(true);
                 swordanim.SetBool("Open", true);
             }
+            text.SetActive(true);
         }
     }
 }

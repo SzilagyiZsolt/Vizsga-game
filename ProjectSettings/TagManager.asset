@@ -16,6 +16,7 @@ TagManager:
   - Slime
   - Hitbox
   - Skeleton
+  - Coin
   layers:
   - Default
   - TransparentFX
