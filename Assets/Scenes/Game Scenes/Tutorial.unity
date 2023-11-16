@@ -20097,11 +20097,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &848411915 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4304187929697390586, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-  m_PrefabInstance: {fileID: 1493447425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &848723939
 GameObject:
   m_ObjectHideFlags: 0
@@ -25393,27 +25388,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4304187929697390586, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444239430685497968, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444239430685497968, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8597425063902412936, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: coin
+    - target: {fileID: 6899507647925994960, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: coinText
       value: 
-      objectReference: {fileID: 848411915}
+      objectReference: {fileID: 1721742987}
+    - target: {fileID: 7507402578845208300, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 1721742987}
     - target: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 6899507647925994960, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    - {fileID: 7507402578845208300, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26009,11 +25999,6 @@ MonoBehaviour:
   notSelectedColor: {r: 0, g: 0, b: 0, a: 1}
   inventoryManager: {fileID: 933487819}
   buttons: {fileID: 368785637}
---- !u!1 &1578135879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4304187929697390586, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-  m_PrefabInstance: {fileID: 1986111018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1581774644
 GameObject:
   m_ObjectHideFlags: 0
@@ -44729,6 +44714,7 @@ GameObject:
   - component: {fileID: 1913723484}
   - component: {fileID: 1913723483}
   - component: {fileID: 1913723482}
+  - component: {fileID: 1913723488}
   - component: {fileID: 1913723481}
   - component: {fileID: 1913723480}
   m_Layer: 0
@@ -44984,6 +44970,20 @@ MonoBehaviour:
   playerXP: 0
   playermaxXP: 1
   playerLevel: 1
+--- !u!114 &1913723488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913723478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abc855ec478d974fbe99e99eba08aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 1721742987}
+  coinAmount: 0
 --- !u!1 &1930181067
 GameObject:
   m_ObjectHideFlags: 0
@@ -45657,10 +45657,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2732691769563326913, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: slimeXP
-      value: 900
-      objectReference: {fileID: 0}
     - target: {fileID: 4161242520627554566, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.42137
@@ -45701,25 +45697,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4304187929697390586, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6234492369262885275, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8597425063902412936, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: coin
+    - target: {fileID: 6899507647925994960, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: coinText
       value: 
-      objectReference: {fileID: 1578135879}
+      objectReference: {fileID: 1721742987}
+    - target: {fileID: 7507402578845208300, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 1721742987}
     - target: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       propertyPath: m_Name
       value: Slime (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 598598278336031181, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 6899507647925994960, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    - {fileID: 7507402578845208300, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
