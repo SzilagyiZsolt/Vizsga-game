@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SlimeDeath : MonoBehaviour
 {
-    private GameObject[] wall;
-    public GameObject coin;
+    public int coin;
     public float timer;
     public SlimeHealth slimeHealth;
     public SlimeXP slimeXP;
@@ -24,21 +23,15 @@ public class SlimeDeath : MonoBehaviour
             if (counter == 10)
             {
                 slimeXP.SlimeGiveXP();
+                slimeXP.SlimeGiveGold();
             }
             timer+=Time.deltaTime;
-            if (timer>0.2)
+            if (timer>1.4)
             {
-                coin.SetActive(true);
-                if (timer>15)
-                {
-                    Destroy(gameObject);
-                }
+                Destroy(gameObject);
             }
             slimeHealth.anim.SetBool("Death", true);
             slimeHealth.slimealive = false;
-            wall[0].SetActive(false);
-            wall[1].SetActive(false);
-            wall[2].SetActive(false);
         }
     }
 }

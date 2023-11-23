@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class LogicManager : MonoBehaviour
 {
     public GameObject settings;
     public GameObject menu;
-    public void Start()
-    {
-    }
-    void Update()
-    {
-    }
+
     public void Exit()
     {
         Application.Quit();
@@ -38,6 +34,11 @@ public class LogicManager : MonoBehaviour
         settings.gameObject.SetActive(true);
     }
     public void NewGame()
+    {
+        File.Delete(Application.dataPath+"/"+"SaveTest.dat");
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void LoadGame()
     {
         SceneManager.LoadScene("Tutorial");
     }

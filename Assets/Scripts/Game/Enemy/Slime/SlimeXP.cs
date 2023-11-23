@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class SlimeXP : MonoBehaviour
 {
     public PlayerXP playerXP;
     public SlimeHealth slimeHealth;
     public int slimeXP = 1;
+    public int slimeCoin = 1;
     public int slimeLevel = 1;
     public float timer;
 
@@ -16,16 +18,23 @@ public class SlimeXP : MonoBehaviour
         playerXP=player.GetComponent<PlayerXP>();
         slimeHealth = GetComponent<SlimeHealth>();
     }
-    void Update()
-    {
 
-    }
     public void SlimeGiveXP()
     {
         if (!slimeHealth.slimealive)
         {
             {
                 playerXP.playerXP+=slimeXP;
+            }
+        }
+    }
+    public void SlimeGiveGold()
+    {
+        if (!slimeHealth.slimealive)
+        {
+            {
+                playerXP.coinAmount+=slimeCoin;
+                playerXP.coinText.text= playerXP.coinAmount.ToString();
             }
         }
     }
