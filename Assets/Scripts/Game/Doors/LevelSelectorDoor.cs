@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectorDoor: MonoBehaviour
 {
+    public SaveManager saveManager;
     public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class LevelSelectorDoor: MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.Save();
                 SceneManager.LoadScene("Level Selector");
             }
         }
