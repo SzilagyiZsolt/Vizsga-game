@@ -25,7 +25,7 @@ public class SkeletonDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                SceneManager.LoadScene("Tutorial");
+                SceneManager.LoadScene("SkeletonBossLevel");
             }
         }
     }
