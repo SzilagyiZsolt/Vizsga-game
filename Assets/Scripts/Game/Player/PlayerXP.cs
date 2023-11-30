@@ -37,6 +37,7 @@ public class PlayerXP : MonoBehaviour
             playerXP -= playermaxXP;
             playerLevel++;
             playermaxXP++;
+            playerHealth.health=playerHealth.maxHealth;
             LevelText.text=playerLevel.ToString();
         }
     }
