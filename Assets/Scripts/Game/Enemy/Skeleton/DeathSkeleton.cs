@@ -6,7 +6,7 @@ using UnityEngine;
 public class DeathSkeleton : MonoBehaviour
 {
     public float timer;
-    public HealthSkeleton skeletonHealth;
+    [HideInInspector] public HealthSkeleton skeletonHealth;
     private void Start()
     {
         skeletonHealth = GetComponent<HealthSkeleton>();

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MovementSkeletonKing : MonoBehaviour
 {
-    public HealthSkeletonKing skeletonKingHealth;
-    public Transform playerTransform;
+    [HideInInspector] public HealthSkeletonKing skeletonKingHealth;
+    [HideInInspector] public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
     public int chasingDistanceX;

@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class SlimeSpawner : MonoBehaviour
 {
-    public GameObject slime;
-    public GameObject spawnPoint;
-    // Start is called before the first frame update
+    [HideInInspector] public GameObject slime;
+    [HideInInspector] public GameObject spawnPoint;
     void Start()
     {
         SpawnSlime();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void SpawnSlime()
     {

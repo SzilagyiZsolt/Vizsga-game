@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlimeHealth : MonoBehaviour
 {
-    public PlayerAttack playerAttack;
-    public Animator anim;
+    [HideInInspector] public PlayerAttack playerAttack;
+    [HideInInspector] public Animator anim;
     public float timer;
     public float slimeMaxHealth = 50;
     public float slimeHealth;

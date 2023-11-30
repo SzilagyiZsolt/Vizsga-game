@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class SlimeMovement : MonoBehaviour
 {
-    public SlimeHealth slimeHealth;
-    public Transform playerTransform;
+    [HideInInspector] public SlimeHealth slimeHealth;
+    [HideInInspector] public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
     public int chasingDistanceX;

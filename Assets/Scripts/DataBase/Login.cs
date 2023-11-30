@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,11 +8,11 @@ using UnityEngine.UI;
 public class Login : MonoBehaviour
 {
     public float timer;
-    public GameObject error;
-    public InputField nameField;
-    public InputField passwordField;
-
-    public Button LoginButton;
+    public CreateUserFiles createUserFiles;
+    [HideInInspector] public GameObject error;
+    [HideInInspector] public InputField nameField;
+    [HideInInspector] public InputField passwordField;
+    [HideInInspector] public Button LoginButton;
 
     private void Update()
     {
@@ -36,6 +37,10 @@ public class Login : MonoBehaviour
         {
             DBManager.username=nameField.text;
             SceneManager.LoadScene("Menu");
+            if (!File.Exists(Application.dataPath+"/"+$"{nameField.text}.dat"))
+            {
+                createUserFiles.Save();
+            }
         }
         else
         {

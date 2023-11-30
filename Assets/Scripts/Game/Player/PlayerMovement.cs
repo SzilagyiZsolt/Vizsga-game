@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     //Player
-    public Animator player;
-    public Animator anim;
-    public Rigidbody2D rb;
-    public SpriteRenderer Knight;
+    [HideInInspector] public Animator player;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public SpriteRenderer Knight;
     public bool alive=true;
 
     //Movement
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
 
     //Panels
-    public GameObject deadpanel;
+    [HideInInspector] public GameObject deadpanel;
 
     //KnockBack
     public float kbForce;

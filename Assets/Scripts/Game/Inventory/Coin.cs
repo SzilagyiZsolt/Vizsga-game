@@ -5,6 +5,6 @@ using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {
-    public Text coinText;
+    [HideInInspector] public Text coinText;
     public int coinAmount = 0;
 }

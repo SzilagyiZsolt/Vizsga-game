@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
-    public bool disable =false;
-    public bool inventoryOpen=false;
-    public Animator anim;
-    public GameObject settings;
-    public GameObject pause;
-    public GameObject deadpanel;
-    public GameObject inventory;
+     public PlayerHealth playerHealth;
+     public PlayerMovement playerMovement;
+     public bool disable =false;
+     public bool inventoryOpen=false;
+     public Animator anim;
+     public GameObject settings;
+     public GameObject pause;
+     public GameObject deadpanel;
+     public GameObject inventory;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !disable && !inventoryOpen && playerMovement.alive)
@@ -61,7 +62,8 @@ public class Pause : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        playerHealth.health=playerHealth.maxHealth;
+        SceneManager.LoadScene("Level selector");
         deadpanel.SetActive(false);
         Time.timeScale = 1f;
     }

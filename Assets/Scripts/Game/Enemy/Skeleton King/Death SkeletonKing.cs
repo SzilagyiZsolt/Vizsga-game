@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DeathSkeletonKing : MonoBehaviour
 {
-    public GameObject Platform;
+    [HideInInspector] public GameObject Platform;
     public float timer;
-    public HealthSkeletonKing skeletonKingHealth;
+    [HideInInspector] public HealthSkeletonKing skeletonKingHealth;
     private void Start()
     {
         GameObject walls = GameObject.FindWithTag("Wall");

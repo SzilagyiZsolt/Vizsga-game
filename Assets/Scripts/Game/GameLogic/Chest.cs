@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public GameObject sword;
-    public Animator anim;
-    public Animator swordanim;
-    public GameObject text;
+    [HideInInspector] public GameObject sword;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public Animator swordanim;
+    [HideInInspector] public GameObject text;
     public float timer=2;
     public bool open = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

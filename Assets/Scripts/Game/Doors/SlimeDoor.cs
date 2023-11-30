@@ -5,17 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SlimeDoor : MonoBehaviour
 {
-    public Animator anim;
-    // Start is called before the first frame update
+    public SaveManager saveManager;
+    [HideInInspector] public Animator anim;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -25,6 +19,7 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.Save();
                 SceneManager.LoadScene("Tutorial");
             }
         }

@@ -5,17 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TutorialDoor : MonoBehaviour
 {
-    public Animator anim;
+    public SaveManager saveManager;
+    [HideInInspector] public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -25,6 +20,7 @@ public class TutorialDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.Save();
                 SceneManager.LoadScene("Tutorial");
             }
         }

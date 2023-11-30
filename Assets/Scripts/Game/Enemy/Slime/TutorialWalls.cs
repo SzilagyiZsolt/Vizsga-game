@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TutorialWalls : MonoBehaviour
 {
-    public GameObject[] wall;
-    public SlimeHealth slimeHealth;
+    [HideInInspector] public GameObject[] wall;
+    [HideInInspector] public SlimeHealth slimeHealth;
 
     void Update()
     {

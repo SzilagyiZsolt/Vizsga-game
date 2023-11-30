@@ -5,14 +5,12 @@ using UnityEngine;
 public class CloudSpawn : MonoBehaviour
 {
     public float timer;
-    public GameObject clouds;
-    // Start is called before the first frame update
+    [HideInInspector] public GameObject clouds;
     void Start()
     {
         SpawnClouds();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

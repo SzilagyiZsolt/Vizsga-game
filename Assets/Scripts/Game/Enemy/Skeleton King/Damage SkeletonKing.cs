@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageSkeletonKing : MonoBehaviour
 {
-    public HealthSkeletonKing skeletonKingHealth;
+    [HideInInspector] public HealthSkeletonKing skeletonKingHealth;
     public int damage;
     public float timer;
-    public PlayerHealth playerHealth;
-    public PlayerMovement playerMovement;
+    [HideInInspector] public PlayerHealth playerHealth;
+    [HideInInspector] public PlayerMovement playerMovement;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");

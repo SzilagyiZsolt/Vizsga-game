@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class HealthSkeletonKing : MonoBehaviour
 {
-    public PlayerAttack playerAttack;
-    public Animator anim;
+    [HideInInspector] public PlayerAttack playerAttack;
+    [HideInInspector] public Animator anim;
     public float timer;
     public float skeletonKingMaxHealth = 50;
     public float skeletonKingHealth;
     public bool skeletonKingalive = true;
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -18,8 +17,6 @@ public class HealthSkeletonKing : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

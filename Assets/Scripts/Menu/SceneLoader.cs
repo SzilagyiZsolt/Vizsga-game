@@ -7,8 +7,8 @@ using System.IO;
 
 public class LogicManager : MonoBehaviour
 {
-    public GameObject settings;
-    public GameObject menu;
+    [HideInInspector] public GameObject settings;
+    [HideInInspector] public GameObject menu;
 
     public void Exit()
     {
@@ -35,12 +35,15 @@ public class LogicManager : MonoBehaviour
     }
     public void NewGame()
     {
-        File.Delete(Application.dataPath+"/"+"SaveTest.dat");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}.dat");
         SceneManager.LoadScene("Tutorial");
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene("Tutorial");
+        if (new FileInfo(Application.dataPath+"/"+$"{DBManager.username}.dat").Length!=0)
+        {
+            SceneManager.LoadScene("Level selector");
+        }
     }
     public void Levelselector()
     {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlimeXP : MonoBehaviour
 {
-    public PlayerXP playerXP;
-    public SlimeHealth slimeHealth;
+    [HideInInspector] public PlayerXP playerXP;
+    [HideInInspector] public SlimeHealth slimeHealth;
     public int slimeXP = 1;
     public int slimeCoin = 1;
     public int slimeLevel = 1;

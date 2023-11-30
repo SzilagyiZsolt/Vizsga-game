@@ -6,9 +6,9 @@ using UnityEngine.AI;
 
 public class MovementSkeleton : MonoBehaviour
 {
-    public Animator anim;
-    public HealthSkeleton skeletonHealth;
-    public Transform playerTransform;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public HealthSkeleton skeletonHealth;
+    [HideInInspector] public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
     public int chasingDistanceX;

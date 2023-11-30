@@ -10,12 +10,11 @@ using UnityEngine.UI;
 public class Registration : MonoBehaviour
 {
     public float timer;
-    public GameObject error;
-    public GameObject success;
-    public InputField nameField;
-    public InputField passwordField;
-
-    public Button RegisterButton;
+    [HideInInspector] public GameObject error;
+    [HideInInspector] public GameObject success;
+    [HideInInspector] public InputField nameField;
+    [HideInInspector] public InputField passwordField;
+    [HideInInspector] public Button RegisterButton;
 
     private void Start()
     {

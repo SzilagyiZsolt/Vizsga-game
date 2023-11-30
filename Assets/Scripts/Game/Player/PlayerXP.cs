@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class PlayerXP : MonoBehaviour
 {
-    public SaveManager saveManager;
-    public Text LevelText;
-    public Text coinText;
-    public Slider sliderXP;
-    public PlayerHealth playerHealth;
-    public PlayerAttack playerAttack;
+    [HideInInspector] public SaveManager saveManager;
+    [HideInInspector] public Text LevelText;
+    [HideInInspector] public Text coinText;
+    [HideInInspector] public Slider sliderXP;
+    [HideInInspector] public PlayerHealth playerHealth;
+    [HideInInspector] public PlayerAttack playerAttack;
     public int playerXP=0;
     public int playermaxXP=1;
     public int playerLevel = 1;

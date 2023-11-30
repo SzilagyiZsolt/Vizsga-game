@@ -5,18 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectorDoor: MonoBehaviour
 {
-    public SaveManager saveManager;
-    public Animator anim;
-    // Start is called before the first frame update
+    [HideInInspector] public SaveManager saveManager;
+    [HideInInspector] public Animator anim;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
