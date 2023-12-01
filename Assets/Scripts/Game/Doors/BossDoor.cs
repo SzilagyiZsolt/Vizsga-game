@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class BossDoor : MonoBehaviour
 {
-    public SaveManager saveManager;
     [HideInInspector] public Animator anim;
     void Start()
     {
@@ -19,7 +18,6 @@ public class BossDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
                 SceneManager.LoadScene("Level Selector");
             }
         }

@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SlimeDoor : MonoBehaviour
 {
-    public SaveManager saveManager;
-    [HideInInspector] public Animator anim;
+     public Animator anim;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -19,7 +18,6 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
                 SceneManager.LoadScene("Tutorial");
             }
         }

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SkeletonDoor : MonoBehaviour
 {
-    public SaveManager saveManager;
     [HideInInspector] public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,6 @@ public class SkeletonDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
                 SceneManager.LoadScene("Cave");
             }
         }

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [HideInInspector] public Slider HP;
-    [HideInInspector] public Slider Mana;
+    public Slider HP;
+    public Slider Mana;
     public float timer;
-    [HideInInspector] public PlayerMovement playermovement;
+    public PlayerMovement playermovement;
     public int health;
     public int maxHealth;
     // Start is called before the first frame update

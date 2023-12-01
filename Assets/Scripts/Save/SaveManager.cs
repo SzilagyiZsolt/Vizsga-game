@@ -6,8 +6,8 @@ using System.IO;
 using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
-    [HideInInspector] public PlayerXP playerXP;
-    [HideInInspector] public GameObject player;
+    public PlayerXP playerXP;
+    public GameObject player;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
@@ -38,7 +38,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayer(SaveData data)
     {
-        data.MyPlayerData=new PlayerData(playerXP.playerLevel, playerXP.playermaxXP, playerXP.playerXP, playerXP.coinAmount, playerXP.playerHealth.maxHealth, playerXP.playerHealth.health, (int)playerXP.playerAttack.damage);
+        data.MyPlayerData=new PlayerData(playerXP.coinAmount, playerXP.playerHealth.maxHealth, (int)playerXP.playerAttack.damage);
     }
     public void Load()
     {
@@ -59,12 +59,8 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayer(SaveData data) 
     {
-        playerXP.playerLevel=data.MyPlayerData.MyLevel;
-        playerXP.playermaxXP=data.MyPlayerData.MyMaxXP;
-        playerXP.playerXP=data.MyPlayerData.MyCurrentXP;
         playerXP.coinAmount=data.MyPlayerData.MyCoin;
         playerXP.playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
-        playerXP.playerHealth.health=data.MyPlayerData.MyCurrentHP;
         playerXP.playerAttack.damage=data.MyPlayerData.MyDamage;
         playerXP.UpdateLevel();
     }

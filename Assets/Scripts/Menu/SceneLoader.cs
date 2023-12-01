@@ -7,9 +7,8 @@ using System.IO;
 
 public class LogicManager : MonoBehaviour
 {
-    [HideInInspector] public GameObject settings;
-    [HideInInspector] public GameObject menu;
-
+     public GameObject settings;
+     public GameObject menu;
     public void Exit()
     {
         Application.Quit();
@@ -48,5 +47,9 @@ public class LogicManager : MonoBehaviour
     public void Levelselector()
     {
         SceneManager.LoadScene("Level selector");
+    }
+    public void Level1()
+    {
+         SceneManager.LoadScene("Arena1");
     }
 }

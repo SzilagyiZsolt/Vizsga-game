@@ -8,9 +8,9 @@ public class PlayerAttack : MonoBehaviour
     public float timer=1;
     public float spamdef=1;
     public int click=0;
-    [HideInInspector] public Collider2D hitbox;
-    [HideInInspector] public PlayerMovement playerMovement;
-    [HideInInspector] public Transform attackPoint;
+    public Collider2D hitbox;
+    public PlayerMovement playerMovement;
+    public Transform attackPoint;
     public float attackRange = 0.5f;
 
     void Update()

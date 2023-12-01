@@ -14254,39 +14254,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &384315667 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-  m_PrefabInstance: {fileID: 5776176290387820826}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &384315672 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4078465962671886303, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-  m_PrefabInstance: {fileID: 5776176290387820826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384315667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b988be5868a114195a839c4d0ecaff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &384315674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384315667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d460192e1faf1a6499db817f4bacf318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall:
-  - {fileID: 1359619167}
-  - {fileID: 469668557}
-  - {fileID: 175069337}
-  slimeHealth: {fileID: 384315672}
 --- !u!1 &469668557
 GameObject:
   m_ObjectHideFlags: 0
@@ -15447,7 +15414,7 @@ Transform:
   m_GameObject: {fileID: 1193297227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.769001, y: 2.7370002, z: -10}
+  m_LocalPosition: {x: -18.357998, y: 0.566, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33338,7 +33305,7 @@ Transform:
   m_GameObject: {fileID: 1751827882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.769001, y: 2.7370002, z: -10}
+  m_LocalPosition: {x: -18.357998, y: 0.566, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33510,7 +33477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18f570459a9ab34dafa651d3b1b88a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveManager: {fileID: 221382310}
   anim: {fileID: 1788935457}
 --- !u!1 &1913723478
 GameObject:
@@ -33546,7 +33512,7 @@ Transform:
   m_GameObject: {fileID: 1913723478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.17, y: -3.05, z: 0.41569364}
+  m_LocalPosition: {x: -71.297, y: -5.221, z: 0.41569364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35071,22 +35037,84 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8597425063902412936, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      propertyPath: coin
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5378931239895422668, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: wall.Array.data[0]
+      value: 
+      objectReference: {fileID: 1359619167}
+    - target: {fileID: 5378931239895422668, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: wall.Array.data[1]
+      value: 
+      objectReference: {fileID: 469668557}
+    - target: {fileID: 5378931239895422668, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: wall.Array.data[2]
+      value: 
+      objectReference: {fileID: 175069337}
     - target: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6947373376838512130, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 384315674}
+      insertIndex: 2
+      addedObject: {fileID: 5776176290387820836}
+    - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5776176290387820829}
   m_SourcePrefab: {fileID: 100100000, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+--- !u!1 &5776176290387820827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+  m_PrefabInstance: {fileID: 5776176290387820826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5776176290387820828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4078465962671886303, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+  m_PrefabInstance: {fileID: 5776176290387820826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776176290387820827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b988be5868a114195a839c4d0ecaff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5776176290387820829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776176290387820827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e17c765030caf48b3e304ce2ea2deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slimeHealth: {fileID: 5776176290387820828}
+  playerTransform: {fileID: 1913723479}
+  moveSpeed: 0.3
+  chasing: 0
+  chasingDistanceX: 3
+--- !u!114 &5776176290387820836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776176290387820827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d460192e1faf1a6499db817f4bacf318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall:
+  - {fileID: 1359619167}
+  - {fileID: 469668557}
+  - {fileID: 175069337}
+  slimeHealth: {fileID: 5776176290387820828}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SlimeDamage : MonoBehaviour
 {
-    [HideInInspector] public SlimeHealth slimeHealth;
+    public SlimeHealth slimeHealth;
+    public PlayerHealth playerHealth;
+    public PlayerMovement playerMovement;
     public int damage;
     public float timer;
-    [HideInInspector] public PlayerHealth playerHealth;
-    [HideInInspector] public PlayerMovement playerMovement;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class PlayerXP : MonoBehaviour
 {
-    [HideInInspector] public SaveManager saveManager;
-    [HideInInspector] public Text LevelText;
-    [HideInInspector] public Text coinText;
-    [HideInInspector] public Slider sliderXP;
-    [HideInInspector] public PlayerHealth playerHealth;
-    [HideInInspector] public PlayerAttack playerAttack;
+     public SaveManager saveManager;
+     public Text LevelText;
+    public Text coinText;
+     public Slider sliderXP;
+     public PlayerHealth playerHealth;
+     public PlayerAttack playerAttack;
     public int playerXP=0;
     public int playermaxXP=1;
     public int playerLevel = 1;
@@ -32,8 +32,8 @@ public class PlayerXP : MonoBehaviour
         sliderXP.value=playerXP;
         while (playerXP >= playermaxXP && playerLevel<999)
         {   
-            playerHealth.maxHealth+=2;
-            playerAttack.damage+=1;
+            playerHealth.maxHealth+=10;
+            playerAttack.damage+=3;
             playerXP -= playermaxXP;
             playerLevel++;
             playermaxXP++;

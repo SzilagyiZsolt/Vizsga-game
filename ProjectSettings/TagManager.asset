@@ -17,6 +17,7 @@ TagManager:
   - Hitbox
   - Skeleton
   - Coin
+  - CountDown
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Character
   - Ground
   - Enemy
-  - 
+  - Wall
   - 
   - 
   - 

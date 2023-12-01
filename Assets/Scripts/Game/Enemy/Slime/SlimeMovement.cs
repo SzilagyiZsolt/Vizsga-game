@@ -6,12 +6,10 @@ using UnityEngine.AI;
 
 public class SlimeMovement : MonoBehaviour
 {
-    [HideInInspector] public SlimeHealth slimeHealth;
-    [HideInInspector] public Transform playerTransform;
+    public SlimeHealth slimeHealth;
+    public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
-    public int chasingDistanceX;
-    public int chasingDistanceY;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -22,31 +20,16 @@ public class SlimeMovement : MonoBehaviour
     {
         if (slimeHealth.slimealive)
         {
-            if (chasing)
+            if (transform.position.x >playerTransform.position.x)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX || Vector2.Distance(playerTransform.position, transform.position) > chasingDistanceY)
-                {
-                    chasing = false;
-                }
-
-                if (transform.position.x >playerTransform.position.x)
-                {
-                    transform.localScale = new Vector3((float)0.25, (float)0.25, 1);
-                    transform.position += Vector3.left*moveSpeed*Time.deltaTime;
-                }
-
-                if (transform.position.x < playerTransform.position.x)
-                {
-                    transform.localScale = new Vector3((float)-0.25, (float)0.25, 1);
-                    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-                }
+                transform.localScale = new Vector3((float)0.25, (float)0.25, 1);
+                transform.position += Vector3.left*moveSpeed*Time.deltaTime;
             }
-            else
+
+            if (transform.position.x < playerTransform.position.x)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX && Vector2.Distance(playerTransform.position, transform.position) < chasingDistanceY)
-                {
-                    chasing = true;
-                }
+                transform.localScale = new Vector3((float)-0.25, (float)0.25, 1);
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
         }
     }

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlimeHealth : MonoBehaviour
 {
-    [HideInInspector] public PlayerAttack playerAttack;
-    [HideInInspector] public Animator anim;
+    public PlayerAttack playerAttack;
+    public Animator anim;
+    public Slider hpBar;
     public float timer;
-    public float slimeMaxHealth = 50;
+    public float slimeMaxHealth;
     public float slimeHealth;
     public bool slimealive = true;
     // Start is called before the first frame update
@@ -17,11 +19,13 @@ public class SlimeHealth : MonoBehaviour
         slimeHealth = slimeMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
+        hpBar.maxValue = slimeMaxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        hpBar.value = slimeHealth;
         timer += Time.deltaTime;
         if (timer > 0.3)
         {

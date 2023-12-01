@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloudSpawn : MonoBehaviour
 {
     public float timer;
-    [HideInInspector] public GameObject clouds;
+    public GameObject clouds;
     void Start()
     {
         SpawnClouds();

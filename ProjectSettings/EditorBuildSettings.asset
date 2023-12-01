@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Scenes/SkeletonBossLevel.unity
     guid: 06a8c0fe0ef674e44ae701361a465956
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Arena1.unity
+    guid: ffee6e54bc8ac4b45825b39bda8cbd92
   m_configObjects: {}
