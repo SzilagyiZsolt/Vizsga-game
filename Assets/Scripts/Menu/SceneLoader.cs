@@ -7,8 +7,9 @@ using System.IO;
 
 public class LogicManager : MonoBehaviour
 {
-     public GameObject settings;
-     public GameObject menu;
+    public GameObject settings;
+    public GameObject menu;
+    public SaveManager saveManager;
     public void Exit()
     {
         Application.Quit();
@@ -50,6 +51,7 @@ public class LogicManager : MonoBehaviour
     }
     public void Level1()
     {
-         SceneManager.LoadScene("Arena1");
+        saveManager.Load();
+        SceneManager.LoadScene("Arena1");
     }
 }

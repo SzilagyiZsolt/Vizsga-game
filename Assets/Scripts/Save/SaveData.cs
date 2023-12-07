@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SaveData
 {
     public PlayerData MyPlayerData {  get; set; }
+    public ShopData MyShopData { get; set; }
     public SaveData() 
     {
         
@@ -25,4 +26,16 @@ public class PlayerData
         this.MyDamage=Damage;
     }
 
+}
+
+[Serializable]
+public class ShopData
+{
+    public int HPPrice { get; set; }
+    public int DMGPrice { get; set; }
+    public ShopData(int hpprice, int dmgprice)
+    {
+        this.HPPrice=hpprice;
+        this.DMGPrice=dmgprice;
+    }
 }

@@ -16260,6 +16260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerXP: {fileID: 698764941}
   player: {fileID: 698764934}
+  hpText: {fileID: 0}
 --- !u!4 &1616598201
 Transform:
   m_ObjectHideFlags: 0

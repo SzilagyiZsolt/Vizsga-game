@@ -20,10 +20,6 @@ public class PlayerXP : MonoBehaviour
     {
         playerAttack = GetComponent<PlayerAttack>();
         playerHealth = GetComponent<PlayerHealth>();
-        if (File.Exists(Application.dataPath+"/"+"SaveTest.dat"))
-        {
-            saveManager.Load();
-        }
         
     }
     void Update()

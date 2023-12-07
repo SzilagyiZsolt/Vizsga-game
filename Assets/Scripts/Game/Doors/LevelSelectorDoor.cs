@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelectorDoor: MonoBehaviour
 {
     [HideInInspector] public Animator anim;
+    public SaveManager saveManager;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -18,6 +19,7 @@ public class LevelSelectorDoor: MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.Save();
                 SceneManager.LoadScene("Level Selector");
             }
         }

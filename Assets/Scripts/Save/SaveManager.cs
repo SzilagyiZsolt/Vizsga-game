@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public PlayerXP playerXP;
     public GameObject player;
+    public ShopHPText hpText;
+    public ShopDMGText dmgText;
+    public Text coinText;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
@@ -63,5 +67,68 @@ public class SaveManager : MonoBehaviour
         playerXP.playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
         playerXP.playerAttack.damage=data.MyPlayerData.MyDamage;
         playerXP.UpdateLevel();
+    }
+    public void SaveShop(SaveData Shopdata)
+    {
+        Shopdata.MyShopData=new ShopData(hpText.price, dmgText.price);
+        
+    }
+    public void Save2()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
+            SaveData Shopdata = new SaveData();
+            Debug.Log("Quick Shop save");
+            SaveShop(Shopdata);
+            bf.Serialize(file, Shopdata);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void LoadShopdata(SaveData Shopdata)
+    {
+        hpText.HP=Shopdata.MyPlayerData.MyMaxHP;
+        dmgText.DMG=Shopdata.MyPlayerData.MyDamage;
+        hpText.MaxHPText.text=Shopdata.MyPlayerData.MyMaxHP.ToString();
+        dmgText.DMGText.text=Shopdata.MyPlayerData.MyDamage.ToString();
+        hpText.coinText.text=Shopdata.MyPlayerData.MyCoin.ToString();
+    }
+    public void LoadShop()
+    {
+        Debug.Log($"{DBManager.username}Shop.dat");
+        try
+        {
+            if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}Shop.dat"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
+                SaveData Shopdata = (SaveData)bf.Deserialize(file);
+                Debug.Log("Quick load");
+                file.Close();
+                LoadShopdata2(Shopdata);
+            }
+            else
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
+                SaveData Shopdata = (SaveData)bf.Deserialize(file);
+                Debug.Log("First Quick load");
+                file.Close();
+                LoadShopdata(Shopdata);
+            }
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void LoadShopdata2(SaveData Shopdata)
+    {
+
     }
 }

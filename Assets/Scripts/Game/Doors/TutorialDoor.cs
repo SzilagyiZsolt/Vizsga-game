@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TutorialDoor : MonoBehaviour
 {
     [HideInInspector] public Animator anim;
+    public SaveManager saveManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class TutorialDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.Save();
                 SceneManager.LoadScene("Tutorial");
             }
         }
