@@ -7,14 +7,23 @@ public class ShopHPText : MonoBehaviour
 {
     public int price;
     public int HP;
+    public int coin;
     public Text priceText;
     public Text MaxHPText;
     public Text coinText;
+    private void Update()
+    {
+        coin=int.Parse(coinText.text);
+    }
     public void HPBuy()
     {
-        price+=2;
-        priceText.text=price.ToString();
-        HP+=10;
-        MaxHPText.text=HP.ToString();
+        if (coin>=int.Parse(priceText.text))
+        {
+            coin -= int.Parse(priceText.text);
+            price+=2;
+            priceText.text=price.ToString();
+            HP+=10;
+            MaxHPText.text=HP.ToString();
+        }
     }
 }

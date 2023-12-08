@@ -876,8 +876,8 @@ MonoBehaviour:
   Mana: {fileID: 2115938310}
   timer: 0
   playermovement: {fileID: 698764940}
-  health: 10000
-  maxHealth: 10000
+  health: 100
+  maxHealth: 100
 --- !u!114 &698764940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1120481503}
+  saveManager: {fileID: 1616598200}
 --- !u!61 &1120481502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16261,6 +16262,9 @@ MonoBehaviour:
   playerXP: {fileID: 698764941}
   player: {fileID: 698764934}
   hpText: {fileID: 0}
+  dmgText: {fileID: 0}
+  coinText: {fileID: 0}
+  shopButton: {fileID: 0}
 --- !u!4 &1616598201
 Transform:
   m_ObjectHideFlags: 0

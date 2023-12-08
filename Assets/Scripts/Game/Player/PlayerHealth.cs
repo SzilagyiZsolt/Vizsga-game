@@ -11,13 +11,17 @@ public class PlayerHealth : MonoBehaviour
     public PlayerMovement playermovement;
     public int health;
     public int maxHealth;
-    // Start is called before the first frame update
     void Start()
     {
+          
         playermovement = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
+        if (timer<1)
+        {
+            health=maxHealth;
+        }
         HP.maxValue=maxHealth;
         HP.value=health;
         timer += Time.deltaTime;

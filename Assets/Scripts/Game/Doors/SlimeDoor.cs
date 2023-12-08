@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SlimeDoor : MonoBehaviour
 {
      public Animator anim;
+    public SaveManager saveManager;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -18,7 +19,8 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                SceneManager.LoadScene("Tutorial");
+                saveManager.Save();
+                SceneManager.LoadScene("Level Selector");
             }
         }
     }

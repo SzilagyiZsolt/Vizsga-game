@@ -12,6 +12,7 @@ public class SaveManager : MonoBehaviour
     public ShopHPText hpText;
     public ShopDMGText dmgText;
     public Text coinText;
+    public Button shopButton;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
@@ -40,9 +41,30 @@ public class SaveManager : MonoBehaviour
             throw;
         }
     }
+    public void Save3()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
+            SaveData data = new SaveData();
+            Debug.Log("Quick save");
+            SavePlayer2(data);
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
     public void SavePlayer(SaveData data)
     {
         data.MyPlayerData=new PlayerData(playerXP.coinAmount, playerXP.playerHealth.maxHealth, (int)playerXP.playerAttack.damage);
+    }
+    public void SavePlayer2(SaveData data)
+    {
+        data.MyPlayerData=new PlayerData(int.Parse(coinText.text), int.Parse(hpText.MaxHPText.text), int.Parse(dmgText.DMGText.text));
     }
     public void Load()
     {
@@ -64,8 +86,6 @@ public class SaveManager : MonoBehaviour
     public void LoadPlayer(SaveData data) 
     {
         playerXP.coinAmount=data.MyPlayerData.MyCoin;
-        playerXP.playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
-        playerXP.playerAttack.damage=data.MyPlayerData.MyDamage;
         playerXP.UpdateLevel();
     }
     public void SaveShop(SaveData Shopdata)
@@ -103,24 +123,12 @@ public class SaveManager : MonoBehaviour
         Debug.Log($"{DBManager.username}Shop.dat");
         try
         {
-            if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}Shop.dat"))
-            {
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
-                SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("Quick load");
-                file.Close();
-                LoadShopdata2(Shopdata);
-            }
-            else
-            {
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
-                SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("First Quick load");
-                file.Close();
-                LoadShopdata(Shopdata);
-            }
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
+            SaveData Shopdata = (SaveData)bf.Deserialize(file);
+            Debug.Log("First Quick load");
+            file.Close();
+            LoadShopdata(Shopdata);
         }
         catch (System.Exception)
         {

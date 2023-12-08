@@ -10,6 +10,6 @@ public class LoadStats : MonoBehaviour
     public SaveManager saveManager;
     void Start()
     {
-        
+        saveManager.Load();
     }
 }
