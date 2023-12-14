@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeHealth: {fileID: 0}
   playerTransform: {fileID: 0}
-  moveSpeed: 0.6
+  moveSpeed: 0.8
   chasing: 0
 --- !u!50 &2948875609935765839
 Rigidbody2D:

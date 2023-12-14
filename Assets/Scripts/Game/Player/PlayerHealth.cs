@@ -13,15 +13,11 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     void Start()
     {
-          
         playermovement = GetComponent<PlayerMovement>();
+        health=maxHealth;
     }
     private void Update()
     {
-        if (timer<1)
-        {
-            health=maxHealth;
-        }
         HP.maxValue=maxHealth;
         HP.value=health;
         timer += Time.deltaTime;

@@ -18,6 +18,7 @@ TagManager:
   - Skeleton
   - Coin
   - CountDown
+  - ShopHP
   layers:
   - Default
   - TransparentFX

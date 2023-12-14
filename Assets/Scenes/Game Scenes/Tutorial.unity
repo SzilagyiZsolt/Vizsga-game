@@ -594,8 +594,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerXP: {fileID: 1913723487}
-  player: {fileID: 1913723478}
+  playerHealth: {fileID: 1913723483}
+  playerAttack: {fileID: 1913723482}
   hpText: {fileID: 0}
+  dmgText: {fileID: 0}
+  DMGText: {fileID: 0}
+  HPText: {fileID: 0}
+  coinText: {fileID: 0}
 --- !u!4 &221382311
 Transform:
   m_ObjectHideFlags: 0
@@ -15614,7 +15619,7 @@ Transform:
   m_GameObject: {fileID: 1193297227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.439, y: 2.617, z: -10}
+  m_LocalPosition: {x: -18.84, y: 0.6080003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16504,12 +16509,44 @@ PrefabInstance:
       value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 221382310}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1683751405}
     - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Pause, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729683871231821946, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3278856212009873865, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -16693,6 +16730,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4989011331895144313, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413518263370473703, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5589106882399908121, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
@@ -16945,6 +16986,7 @@ MonoBehaviour:
   disable: 0
   inventoryOpen: 0
   anim: {fileID: 1913723485}
+  saveManager: {fileID: 0}
   settings: {fileID: 1626294459}
   pause: {fileID: 1626294460}
   deadpanel: {fileID: 496395799}
@@ -33505,7 +33547,7 @@ Transform:
   m_GameObject: {fileID: 1751827882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.439, y: 2.617, z: -10}
+  m_LocalPosition: {x: -18.84, y: 0.6080003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33713,7 +33755,7 @@ Transform:
   m_GameObject: {fileID: 1913723478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.5, y: -3.17, z: 0.41569364}
+  m_LocalPosition: {x: -71.779, y: -5.179, z: 0.41569364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33804,7 +33846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb35041e8822a9f479084c0e41091bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 10
   timer: 1
   spamdef: 1
   click: 0

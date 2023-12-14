@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
   anim: {fileID: 0}
+  hpBar: {fileID: 0}
   timer: 0
   slimeMaxHealth: 50
   slimeHealth: 0

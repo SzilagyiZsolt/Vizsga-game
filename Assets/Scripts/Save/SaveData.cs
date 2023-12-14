@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [Serializable]
 public class SaveData
@@ -16,12 +17,12 @@ public class SaveData
 [Serializable]
 public class PlayerData
 {
-    public int MyCoin { get; set; }
     public int MyMaxHP { get; set; }
     public int MyDamage { get; set; }
-    public PlayerData( int Coin, int MaxHP, int Damage) 
+    public int MyCoin { get; set; }
+    public PlayerData(int coin,int MaxHP, int Damage) 
     {
-        this.MyCoin=Coin;
+        this.MyCoin = coin;
         this.MyMaxHP=MaxHP;
         this.MyDamage=Damage;
     }
@@ -33,9 +34,13 @@ public class ShopData
 {
     public int HPPrice { get; set; }
     public int DMGPrice { get; set; }
-    public ShopData(int hpprice, int dmgprice)
+    public int DMGText { get; set; }
+    public int HPText { get; set; }
+    public ShopData(int hpprice, int dmgprice, int dmgtext, int hptext)
     {
         this.HPPrice=hpprice;
         this.DMGPrice=dmgprice;
+        this.DMGText=dmgtext;
+        this.HPText=hptext;
     }
 }

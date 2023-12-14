@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public PlayerXP playerXP;
-    public GameObject player;
+    public PlayerHealth playerHealth;
+    public PlayerAttack playerAttack;
     public ShopHPText hpText;
     public ShopDMGText dmgText;
+    public Text DMGText;
+    public Text HPText;
     public Text coinText;
-    public Button shopButton;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
@@ -64,7 +66,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayer2(SaveData data)
     {
-        data.MyPlayerData=new PlayerData(int.Parse(coinText.text), int.Parse(hpText.MaxHPText.text), int.Parse(dmgText.DMGText.text));
+        data.MyPlayerData=new PlayerData(int.Parse(hpText.coinText.text), int.Parse(hpText.MaxHPText.text), int.Parse(dmgText.DMGText.text));
     }
     public void Load()
     {
@@ -86,12 +88,12 @@ public class SaveManager : MonoBehaviour
     public void LoadPlayer(SaveData data) 
     {
         playerXP.coinAmount=data.MyPlayerData.MyCoin;
-        playerXP.UpdateLevel();
+        playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
+        playerAttack.damage=data.MyPlayerData.MyDamage;
     }
     public void SaveShop(SaveData Shopdata)
     {
-        Shopdata.MyShopData=new ShopData(hpText.price, dmgText.price);
-        
+        Shopdata.MyShopData=new ShopData(hpText.price, dmgText.price, int.Parse(DMGText.text), int.Parse(HPText.text));
     }
     public void Save2()
     {
@@ -118,9 +120,13 @@ public class SaveManager : MonoBehaviour
         dmgText.DMGText.text=Shopdata.MyPlayerData.MyDamage.ToString();
         hpText.coinText.text=Shopdata.MyPlayerData.MyCoin.ToString();
     }
+    public void LoadShopdata2(SaveData Shopdata2)
+    {
+        dmgText.price=Shopdata2.MyShopData.DMGPrice;
+        hpText.price=Shopdata2.MyShopData.HPPrice;
+    }
     public void LoadShop()
     {
-        Debug.Log($"{DBManager.username}Shop.dat");
         try
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -135,8 +141,27 @@ public class SaveManager : MonoBehaviour
             throw;
         }
     }
-    public void LoadShopdata2(SaveData Shopdata)
+    public void LoadShop2()
     {
-
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
+            SaveData Shopdata2 = (SaveData)bf.Deserialize(file);
+            Debug.Log("Shop Quick load");
+            file.Close();
+            LoadShopdata2(Shopdata2);
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void FileCheck()
+    {
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}Shop.dat"))
+        {
+            LoadShop2();
+        }
     }
 }
