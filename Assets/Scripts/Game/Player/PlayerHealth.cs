@@ -8,16 +8,22 @@ public class PlayerHealth : MonoBehaviour
     public Slider HP;
     public Slider Mana;
     public float timer;
+    public float timer2;
     public PlayerMovement playermovement;
     public int health;
     public int maxHealth;
     void Start()
     {
+        
         playermovement = GetComponent<PlayerMovement>();
-        health=maxHealth;
     }
     private void Update()
     {
+        timer2 += Time.deltaTime;
+        if (timer2 < 1)
+        {
+            health=maxHealth;
+        }
         HP.maxValue=maxHealth;
         HP.value=health;
         timer += Time.deltaTime;

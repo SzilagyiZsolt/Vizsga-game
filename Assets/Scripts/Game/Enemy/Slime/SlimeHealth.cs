@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SlimeHealth : MonoBehaviour
 {
     public PlayerAttack playerAttack;
+    public PlayerHealth playerHealth;
     public Animator anim;
     public Slider hpBar;
     public float timer;
@@ -19,6 +20,7 @@ public class SlimeHealth : MonoBehaviour
         slimeHealth = slimeMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
+        playerHealth = player.GetComponent<PlayerHealth>();
         hpBar.maxValue = slimeMaxHealth;
     }
 
@@ -35,6 +37,8 @@ public class SlimeHealth : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        if (playerHealth.health>0)
+        {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 playerAttack.click++;
@@ -55,6 +59,7 @@ public class SlimeHealth : MonoBehaviour
             {
                 playerAttack.timer = (float)0.5;
             }
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
