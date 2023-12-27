@@ -1097,7 +1097,6 @@ GameObject:
   - component: {fileID: 391107375}
   - component: {fileID: 391107377}
   - component: {fileID: 391107379}
-  - component: {fileID: 391107380}
   - component: {fileID: 391107378}
   m_Layer: 5
   m_Name: Level2
@@ -1147,7 +1146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 14, y: 14, z: 14, w: 14}
   m_Maskable: 1
@@ -1155,13 +1154,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 75b596e54e6741a42ab6d64300e33605, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 3
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &391107379
@@ -1183,7 +1182,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1203,37 +1202,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 391107378}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1737240716}
+        m_TargetAssemblyTypeName: LevelButtons, Assembly-CSharp
+        m_MethodName: LevelLoadingArena2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &391107380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391107374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 391107378}
-  pressed: 0
 --- !u!1 &418882720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2069,6 @@ GameObject:
   - component: {fileID: 604870160}
   - component: {fileID: 604870162}
   - component: {fileID: 604870164}
-  - component: {fileID: 604870165}
   - component: {fileID: 604870163}
   m_Layer: 5
   m_Name: Level4
@@ -2207,20 +2191,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &604870165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604870159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 604870163}
-  pressed: 0
 --- !u!1 &610873597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,7 +3059,6 @@ GameObject:
   - component: {fileID: 774025980}
   - component: {fileID: 774025982}
   - component: {fileID: 774025984}
-  - component: {fileID: 774025985}
   - component: {fileID: 774025983}
   m_Layer: 5
   m_Name: Level1
@@ -3200,9 +3169,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 774025985}
+      - m_Target: {fileID: 1737240716}
         m_TargetAssemblyTypeName: LevelButtons, Assembly-CSharp
-        m_MethodName: LevelLoading
+        m_MethodName: LevelLoadingArena1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3212,20 +3181,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &774025985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774025979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 774025983}
-  pressed: 0
 --- !u!1 &863429374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7960639971850159527, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
@@ -3786,7 +3741,6 @@ GameObject:
   - component: {fileID: 1196523714}
   - component: {fileID: 1196523716}
   - component: {fileID: 1196523718}
-  - component: {fileID: 1196523719}
   - component: {fileID: 1196523717}
   m_Layer: 5
   m_Name: Level5
@@ -3909,20 +3863,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1196523719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196523713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 1196523717}
-  pressed: 0
 --- !u!1 &1226675900
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,6 +5422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1737240715}
+  - component: {fileID: 1737240716}
   m_Layer: 5
   m_Name: Levels
   m_TagString: Untagged
@@ -5513,6 +5454,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -114.99992}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1737240716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737240714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arena1: {fileID: 774025983}
+  Arena2: {fileID: 391107378}
+  pressedArean1: 0
+  pressedArean2: 0
 --- !u!1 &1740760864
 GameObject:
   m_ObjectHideFlags: 0
@@ -5657,7 +5614,6 @@ GameObject:
   - component: {fileID: 1778232350}
   - component: {fileID: 1778232352}
   - component: {fileID: 1778232354}
-  - component: {fileID: 1778232355}
   - component: {fileID: 1778232353}
   m_Layer: 5
   m_Name: Level3
@@ -5780,20 +5736,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1778232355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778232349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71ce45e2a7244a956eb5c71924c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 1778232353}
-  pressed: 0
 --- !u!1 &1798669031
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,6 @@ public class MovementSkeleton : MonoBehaviour
     [HideInInspector] public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
-    public int chasingDistanceX;
-    public int chasingDistanceY;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,34 +22,23 @@ public class MovementSkeleton : MonoBehaviour
     {
         if (skeletonHealth.skeletonalive)
         {
-            if (chasing)
+            if (transform.position.x > playerTransform.position.x)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX || Vector2.Distance(playerTransform.position, transform.position) > chasingDistanceY)
-                {
-                    skeletonHealth.anim.SetBool("Walk", false);
-                    chasing = false;
-                }
-
-                if (transform.position.x > playerTransform.position.x)
-                {
-                    transform.localScale = new Vector3((float)-0.7, (float)0.7, 1);
-                    transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-                }
-
-                if (transform.position.x < playerTransform.position.x)
-                {
-                    transform.localScale = new Vector3((float)0.7, (float)0.7, 1);
-                    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-                }
+                transform.localScale = new Vector3((float)-0.7, (float)0.7, 1);
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                skeletonHealth.anim.SetBool("Walk", true);
             }
-            else
+
+            if (transform.position.x < playerTransform.position.x)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX && Vector2.Distance(playerTransform.position, transform.position) < chasingDistanceY)
-                {
-                    skeletonHealth.anim.SetBool("Walk", true);
-                    chasing = true;
-                }
+                transform.localScale = new Vector3((float)0.7, (float)0.7, 1);
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                skeletonHealth.anim.SetBool("Walk", true);
             }
+        }
+        else
+        {
+            skeletonHealth.anim.SetBool("Walk", false);
         }
     }
 }

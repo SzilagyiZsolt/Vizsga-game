@@ -7,7 +7,7 @@ public class SlimeDeath : MonoBehaviour
 {
     public int coin;
     public float timer;
-     public SlimeHealth slimeHealth;
+    public SlimeHealth slimeHealth;
     public SlimeXP slimeXP;
     public int counter;
     private void Start()

@@ -13,7 +13,6 @@ public class SlimeHealth : MonoBehaviour
     public float slimeMaxHealth;
     public float slimeHealth;
     public bool slimealive = true;
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,8 +22,6 @@ public class SlimeHealth : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         hpBar.maxValue = slimeMaxHealth;
     }
-
-    // Update is called once per frame
     void Update()
     {
         hpBar.value = slimeHealth;
@@ -33,7 +30,6 @@ public class SlimeHealth : MonoBehaviour
         {
             anim.SetBool("Hurt", false);
         }
-        
     }
     public void TakeDamage(float damage)
     {

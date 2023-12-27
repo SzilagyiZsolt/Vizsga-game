@@ -6,22 +6,39 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LevelButtons : MonoBehaviour
 {
-    public Image image;
-    public bool pressed = false;
+    public Image Arena1;
+    public Image Arena2;
+    public bool pressedArean1 = false;
+    public bool pressedArean2 = false;
     void Update()
     {
-        if (pressed)
+        //Level1
+        if (pressedArean1)
         {
-            image.fillAmount -= Time.deltaTime;
+            Arena1.fillAmount -= Time.deltaTime;
         }
-        if (image.fillAmount==0)
+        if (Arena1.fillAmount == 0)
         {
             SceneManager.LoadScene("Arena1");
         }
-    }
 
-    public void LevelLoading()
+        //Level2
+        if (pressedArean2)
+        {
+            Arena2.fillAmount -= Time.deltaTime;
+        }
+        if (Arena2.fillAmount == 0)
+        {
+            SceneManager.LoadScene("Arena2");
+        }
+    }
+    public void LevelLoadingArena1()
     {
-        pressed = true;
+        pressedArean1 = true;
+        
+    }
+    public void LevelLoadingArena2()
+    {
+        pressedArean2 = true;
     }
 }

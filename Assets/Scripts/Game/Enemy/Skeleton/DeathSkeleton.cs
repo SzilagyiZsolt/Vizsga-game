@@ -9,7 +9,6 @@ public class DeathSkeleton : MonoBehaviour
     public float timer;
     public HealthSkeleton skeletonHealth;
     public int counter;
-
     private void Start()
     {
         skeletonHealth = GetComponent<HealthSkeleton>();
@@ -20,12 +19,12 @@ public class DeathSkeleton : MonoBehaviour
         if (skeletonHealth.skeletonHealth <= 0)
         {
             counter++;
-            timer += Time.deltaTime;
             if (counter == 10)
             {
                 xpSkeleton.SkeletonGiveXP();
                 xpSkeleton.SkeletonGiveGold();
             }
+            timer += Time.deltaTime;
             if (timer > 1.4)
             {
                 Destroy(gameObject);
