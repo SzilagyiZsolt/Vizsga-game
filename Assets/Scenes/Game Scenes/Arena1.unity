@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e75f0fef052548b00d20753df2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slime: {fileID: 8381404267008184654, guid: 97837b28d74b042408550ff6755fa36d, type: 3}
+  enemy: {fileID: 8381404267008184654, guid: 97837b28d74b042408550ff6755fa36d, type: 3}
   spawnPoint: {fileID: 422544614}
   countDown: {fileID: 2085325617}
   timer: 0
@@ -15715,7 +15715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e75f0fef052548b00d20753df2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slime: {fileID: 8381404267008184654, guid: 97837b28d74b042408550ff6755fa36d, type: 3}
+  enemy: {fileID: 8381404267008184654, guid: 97837b28d74b042408550ff6755fa36d, type: 3}
   spawnPoint: {fileID: 1429867362}
   countDown: {fileID: 2085325617}
   timer: 0
