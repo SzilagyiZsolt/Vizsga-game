@@ -17869,8 +17869,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11155191, y: 0.0035292157}
-  m_Size: {x: 0.3855167, y: 0.43447116}
+  m_Offset: {x: -0.14885592, y: -0.03228324}
+  m_Size: {x: 0.32196265, y: 0.36284676}
   m_Direction: 1
 --- !u!4 &784422903
 Transform:
@@ -53219,7 +53219,7 @@ MonoBehaviour:
   moveSpeed: 1
   chasing: 0
   inrange: 0
-  attackRange: 0.5
+  attackRange: 0.7
   chasingDistance: 4
 --- !u!114 &1174007139
 MonoBehaviour:
