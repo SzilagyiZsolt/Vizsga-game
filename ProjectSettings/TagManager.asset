@@ -19,6 +19,8 @@ TagManager:
   - Coin
   - CountDown
   - ShopHP
+  - EnemyHitbox
+  - Executioner
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,13 @@ public class PlayerHealth : MonoBehaviour
     public Slider Mana;
     public float timer;
     public float timer2;
-    public PlayerMovement playermovement;
+    public PlayerMovement playerMovement;
     public int health;
     public int maxHealth;
+    public DamageExecutioner damageExecutioner;
     void Start()
     {
-        
-        playermovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
@@ -29,14 +29,31 @@ public class PlayerHealth : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 0.3)
         {
-            playermovement.anim.SetBool("Hurt", false);
+            playerMovement.anim.SetBool("Hurt", false);
         }
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        playermovement.anim.SetBool("Hurt", true);
+        playerMovement.anim.SetBool("Hurt", true);
         timer = 0;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        timer+=Time.deltaTime;
+        if (collision.gameObject.CompareTag("EnemyHitbox") && timer>2)
+        {
+            playerMovement.kbCounter = playerMovement.kbTotalTime;
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                playerMovement.knockFromRight = false;
+            }
+            if (collision.transform.position.x >= transform.position.x)
+            {
+                playerMovement.knockFromRight = true;
+            }
+            TakeDamage(damageExecutioner.damage);
+        }
     }
 }

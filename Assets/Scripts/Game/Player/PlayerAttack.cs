@@ -11,11 +11,15 @@ public class PlayerAttack : MonoBehaviour
     public Collider2D hitbox;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
+    public HealthExecutioner healthExecutioner;
+    public Movement movementExecutioner;
     public Transform attackPoint;
     public float attackRange = 0.5f;
 
     private void Start()
     {
+        GameObject executioner=GetComponent<GameObject>();
+        healthExecutioner =executioner.GetComponent<HealthExecutioner>();
         playerHealth = GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovement>();
     }
@@ -40,6 +44,22 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             playerMovement.anim.SetInteger("Attack", 0);
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Executioner") && playerMovement.alive && timer>=0.5)
+        {
+            timer=0;
+            healthExecutioner.kbCounter = healthExecutioner.kbTotalTime;
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                healthExecutioner.knockFromRight = true;
+            }
+            if (collision.transform.position.x >= transform.position.x)
+            {
+                healthExecutioner.knockFromRight = false;
+            }
         }
     }
 }
