@@ -26,6 +26,10 @@ public class HealthExecutioner : MonoBehaviour
         playerAttack = player.GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody2D>();
     }
+    private void Update()
+    {
+        timer+=Time.deltaTime;
+    }
     public void TakeDamage(float damage)
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -48,7 +52,6 @@ public class HealthExecutioner : MonoBehaviour
                 }
                 kbCounter -= Time.deltaTime;
                 executionerHealth -= damage;
-                timer = 0;
                 playerAttack.timer = 1;
                 playerAttack.spamdef = 0;
             }
@@ -60,7 +63,8 @@ public class HealthExecutioner : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Hitbox"))
+        timer=0;
+        if (collision.gameObject.CompareTag("Hitbox") && executioneralive && timer<=1)
         {
             TakeDamage(playerAttack.damage);
         }

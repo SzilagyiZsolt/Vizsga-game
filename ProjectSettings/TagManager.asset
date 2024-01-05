@@ -21,6 +21,7 @@ TagManager:
   - ShopHP
   - EnemyHitbox
   - Executioner
+  - SummonTarget
   layers:
   - Default
   - TransparentFX

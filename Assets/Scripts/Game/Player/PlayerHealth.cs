@@ -39,21 +39,4 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.anim.SetBool("Hurt", true);
         timer = 0;
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        timer+=Time.deltaTime;
-        if (collision.gameObject.CompareTag("EnemyHitbox") && timer>2)
-        {
-            playerMovement.kbCounter = playerMovement.kbTotalTime;
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                playerMovement.knockFromRight = false;
-            }
-            if (collision.transform.position.x >= transform.position.x)
-            {
-                playerMovement.knockFromRight = true;
-            }
-            TakeDamage(damageExecutioner.damage);
-        }
-    }
 }

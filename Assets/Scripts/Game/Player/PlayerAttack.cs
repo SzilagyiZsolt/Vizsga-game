@@ -18,8 +18,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        GameObject executioner=GetComponent<GameObject>();
-        healthExecutioner =executioner.GetComponent<HealthExecutioner>();
         playerHealth = GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovement>();
     }

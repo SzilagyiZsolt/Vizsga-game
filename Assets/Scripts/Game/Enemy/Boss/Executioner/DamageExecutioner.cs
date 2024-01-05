@@ -13,6 +13,7 @@ public class DamageExecutioner : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public Collider2D hitbox;
+    public Animator anim;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -20,18 +21,23 @@ public class DamageExecutioner : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         playerAttack = player.GetComponent<PlayerAttack>();
         playerMovement = player.GetComponent<PlayerMovement>();
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {
         timer+=Time.deltaTime;
-        
+        if (timer > 0.7)
+        {
+            anim.SetBool("Skill", false);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && executionerHealth.executioneralive && timer>=0.5)
+        if (collision.gameObject.CompareTag("Player") && executionerHealth.executioneralive && timer>=1)
         {
             timer=0;
+            anim.SetBool("Skill", true);
             playerMovement.kbCounter = playerMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {

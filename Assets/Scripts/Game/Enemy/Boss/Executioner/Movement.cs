@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -7,17 +8,25 @@ public class Movement : MonoBehaviour
     public Animator anim;
     public HealthExecutioner healthExecutioner;
     public Transform playerTransform;
+    public PlayerHealth playerHealth;
+    public DamageExecutioner damageExecutioner;
+    public PlayerMovement playerMovement;
+    public GameObject player;
     public float moveSpeed;
     public bool chasing;
     public bool inrange=false;
     public float attackRange;
     public int chasingDistance;
+    public float timer;
     private void Start()
     {
         anim = GetComponent<Animator>();
-        GameObject player = GameObject.FindWithTag("Player");
+        GameObject Player = GameObject.FindWithTag("Player");
+        playerHealth=Player.GetComponent<PlayerHealth>();
         healthExecutioner = GetComponent<HealthExecutioner>();
-        playerTransform = player.GetComponent<Transform>();
+        damageExecutioner = GetComponent<DamageExecutioner>();
+        playerMovement = Player.GetComponent<PlayerMovement>();
+        playerTransform = Player.GetComponent<Transform>();
     }
     private void Update()
     {
@@ -26,6 +35,21 @@ public class Movement : MonoBehaviour
                 if (inrange)
                 {
                     anim.SetBool("Attack", true);
+                    timer+=Time.deltaTime;
+                    if (timer > 0.35)
+                    {
+                        playerHealth.TakeDamage(damageExecutioner.damage);
+                        playerMovement.kbCounter = playerMovement.kbTotalTime;
+                        if (player.transform.position.x <= transform.position.x)
+                        {
+                            playerMovement.knockFromRight = true;
+                        }
+                        if (player.transform.position.x >= transform.position.x)
+                        {
+                            playerMovement.knockFromRight = false;
+                        }
+                        timer=0;
+                    }
                     if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)
                     {
                         inrange = false;
