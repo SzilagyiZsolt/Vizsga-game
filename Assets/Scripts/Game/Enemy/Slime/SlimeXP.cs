@@ -12,7 +12,7 @@ public class SlimeXP : MonoBehaviour
     public int slimeCoin = 1;
     public int slimeLevel=1;
     public float timer;
-    public int minutes=5;
+    public int minutes=10;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");

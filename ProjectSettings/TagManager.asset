@@ -22,6 +22,7 @@ TagManager:
   - EnemyHitbox
   - Executioner
   - SummonTarget
+  - Floor
   layers:
   - Default
   - TransparentFX

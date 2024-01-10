@@ -6,15 +6,15 @@ public class SummonMovement : MonoBehaviour
 {
     public Animator anim;
     public Rigidbody2D rb;
-    public Transform summonTargetTransform;
+    public Transform Player;
     public Vector3 direction;
     public float timer;
     public float timer2;
     public float speed;
     private void Start()
     {
-        GameObject target = GameObject.FindWithTag("SummonTarget");
-        summonTargetTransform = target.GetComponent<Transform>();
+        GameObject player = GameObject.FindWithTag("Player");
+        Player = player.GetComponent<Transform>();
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody2D>();
     }
@@ -33,7 +33,7 @@ public class SummonMovement : MonoBehaviour
                 rb.velocity=new Vector2(0, 0);
                 if (timer2>1.7 && timer2<2)
                 {
-                     direction= new Vector3(summonTargetTransform.position.x,summonTargetTransform.position.y,0);
+                     direction= new Vector3(Player.position.x,Player.position.y-(float)0.4,0);
                 }
                 else if (timer2>2.1)
                 {
@@ -41,5 +41,13 @@ public class SummonMovement : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("Floor"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

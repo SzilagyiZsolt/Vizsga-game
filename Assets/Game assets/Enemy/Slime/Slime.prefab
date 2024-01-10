@@ -465,12 +465,12 @@ MonoBehaviour:
   countDown: {fileID: 0}
   playerXP: {fileID: 0}
   slimeHealth: {fileID: 2997764049406868302}
-  slimeDamage: {fileID: 0}
+  slimeDamage: {fileID: 5552882281157270659}
   slimeXP: 1
   slimeCoin: 1
   slimeLevel: 1
   timer: 0
-  minutes: 9
+  minutes: 4
 --- !u!114 &2997764049406868302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
-  anim: {fileID: 0}
+  playerHealth: {fileID: 0}
+  anim: {fileID: 8289972265222754975}
   hpBar: {fileID: 1122497026123821992}
   timer: 0
   slimeMaxHealth: 50
@@ -502,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f92ea822e26e7f45b6af8139ef1759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeHealth: {fileID: 0}
+  slimeHealth: {fileID: 2997764049406868302}
   playerHealth: {fileID: 0}
   playerMovement: {fileID: 0}
   damage: 10
@@ -521,8 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: 0
   timer: 0
-  slimeHealth: {fileID: 0}
-  slimeXP: {fileID: 0}
+  slimeHealth: {fileID: 2997764049406868302}
+  slimeXP: {fileID: 6014408489176808956}
   counter: 0
 --- !u!114 &6940605241660700604
 MonoBehaviour:
@@ -536,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae5ea3fe4018ee40a9e5abe90ed41d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeHealth: {fileID: 0}
+  slimeHealth: {fileID: 2997764049406868302}
   playerTransform: {fileID: 0}
   moveSpeed: 0.8
   chasing: 0

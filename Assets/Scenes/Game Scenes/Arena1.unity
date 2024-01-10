@@ -860,6 +860,8 @@ MonoBehaviour:
   hitbox: {fileID: 201925055}
   playerHealth: {fileID: 0}
   playerMovement: {fileID: 698764940}
+  healthExecutioner: {fileID: 0}
+  movementExecutioner: {fileID: 0}
   attackPoint: {fileID: 201925054}
   attackRange: 0.25
 --- !u!114 &698764939
@@ -878,9 +880,10 @@ MonoBehaviour:
   Mana: {fileID: 2115938310}
   timer: 0
   timer2: 0
-  playermovement: {fileID: 698764940}
+  playerMovement: {fileID: 0}
   health: 100
   maxHealth: 100
+  damageExecutioner: {fileID: 0}
 --- !u!114 &698764940
 MonoBehaviour:
   m_ObjectHideFlags: 0
