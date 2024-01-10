@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 21203295552211247}
   - component: {fileID: 8141478513461553690}
   - component: {fileID: 1123869932240627933}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: summons1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,14 +167,14 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1015
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 4294967295

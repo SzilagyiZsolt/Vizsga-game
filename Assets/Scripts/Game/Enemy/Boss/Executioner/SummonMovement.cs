@@ -17,6 +17,7 @@ public class SummonMovement : MonoBehaviour
         Player = player.GetComponent<Transform>();
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody2D>();
+        
     }
     private void Update()
     {
@@ -31,20 +32,24 @@ public class SummonMovement : MonoBehaviour
             {
                 timer2+=Time.deltaTime;
                 rb.velocity=new Vector2(0, 0);
-                if (timer2>1.7 && timer2<2)
+                if (timer2>1.7 && timer2<2.5)
                 {
-                     direction= new Vector3(Player.position.x,Player.position.y-(float)0.4,0);
+                    direction = (Player.position-transform.position).normalized;
                 }
                 else if (timer2>2.1)
                 {
-                    transform.position = Vector2.MoveTowards(this.transform.position, direction, speed*Time.deltaTime);
+                    transform.position+=direction*speed*Time.deltaTime;
                 }
             }
+        }
+        if (Vector2.Distance(transform.position,Player.position)==0)
+        {
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("Trigger"))
         {
             Destroy(gameObject);
         }
