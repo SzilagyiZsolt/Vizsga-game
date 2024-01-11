@@ -7,7 +7,9 @@ public class SummonMovement : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
     public Transform Player;
+    public PlayerHealth playerHealth;
     public Vector3 direction;
+    public int damage;
     public float timer;
     public float timer2;
     public float speed;
@@ -17,7 +19,7 @@ public class SummonMovement : MonoBehaviour
         Player = player.GetComponent<Transform>();
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody2D>();
-        
+        playerHealth=player.GetComponent<PlayerHealth>();
     }
     private void Update()
     {
@@ -49,10 +51,14 @@ public class SummonMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("Trigger"))
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.CompareTag("Trigger"))
         {
             Destroy(gameObject);
         }
-        
     }
 }

@@ -29,7 +29,7 @@ public class SkeletonDoor : MonoBehaviour
                 saveManager.Save();
                 CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;
-                knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 1f, 0f);
+                knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
                 knight.transform.position = new Vector2(25, 0);
             }
         }

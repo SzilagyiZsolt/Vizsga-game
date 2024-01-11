@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7214328446259295792, guid: 59a714a3489491645bfccdc28c662421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +124,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   rb: {fileID: 0}
   Player: {fileID: 0}
+  playerHealth: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
+  damage: 10
   timer: 0
   timer2: 0
   speed: 5

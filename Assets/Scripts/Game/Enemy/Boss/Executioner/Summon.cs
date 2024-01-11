@@ -6,7 +6,6 @@ public class Summon : MonoBehaviour
 {
     public Animator anim;
     public float timer;
-
     private void Start()
     {
         anim=GetComponent<Animator>();
@@ -29,4 +28,5 @@ public class Summon : MonoBehaviour
         
         timer=0;
     }
+    
 }

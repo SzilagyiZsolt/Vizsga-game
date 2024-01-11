@@ -1,5 +1,5 @@
 <?php
-  $con= mysqli_connect('localhost','root','','mystic realms');
+  $con= mysqli_connect('localhost','root','','gamedb');
   if(mysqli_connect_errno()){
     echo "Connection failed.";
     exit();
