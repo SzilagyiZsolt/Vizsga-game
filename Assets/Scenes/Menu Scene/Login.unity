@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 967488312}
         m_TargetAssemblyTypeName: Registration, Assembly-CSharp
-        m_MethodName: CallRegister
+        m_MethodName: OpenWeb
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -986,6 +986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
   menu: {fileID: 0}
+  saveManager: {fileID: 0}
 --- !u!4 &967488310
 Transform:
   m_ObjectHideFlags: 0
@@ -1109,12 +1110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0d471428415f04485f2cf0627afea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  error: {fileID: 567254896}
-  success: {fileID: 1733532554}
-  nameField: {fileID: 1342415800}
-  passwordField: {fileID: 628218290}
-  RegisterButton: {fileID: 37612145}
 --- !u!114 &967488313
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,17 +15,6 @@ public class SaveManager : MonoBehaviour
     public Text DMGText;
     public Text HPText;
     public Text coinText;
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F5))
-        {
-            Save();
-        }
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            Load();
-        }
-    }
     public void Save()
     {
         try

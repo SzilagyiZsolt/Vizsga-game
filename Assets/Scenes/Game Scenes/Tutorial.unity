@@ -33851,7 +33851,10 @@ MonoBehaviour:
   spamdef: 1
   click: 0
   hitbox: {fileID: 158752112}
+  playerHealth: {fileID: 0}
   playerMovement: {fileID: 1913723484}
+  healthExecutioner: {fileID: 0}
+  movementExecutioner: {fileID: 0}
   attackPoint: {fileID: 158752111}
   attackRange: 0.25
 --- !u!114 &1913723483
@@ -33869,9 +33872,11 @@ MonoBehaviour:
   HP: {fileID: 1981277909}
   Mana: {fileID: 1731588280}
   timer: 0
-  playermovement: {fileID: 1913723484}
+  timer2: 0
+  playerMovement: {fileID: 0}
   health: 100
   maxHealth: 100
+  damageExecutioner: {fileID: 0}
 --- !u!114 &1913723484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34002,7 +34007,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913723478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22dc3642f29801f4296b0f459abc0eba, type: 3}
   m_Name: 
@@ -35342,6 +35347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2732691769563326913, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4078465962671886303, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       propertyPath: hpBar
       value: 
@@ -35404,6 +35413,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6947373376838512130, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    - {fileID: 2732691769563326913, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+    - {fileID: 8597425063902412936, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4161242520627554566, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
@@ -35413,6 +35424,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       insertIndex: 2
       addedObject: {fileID: 5776176290387820836}
+    - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 5776176290387820841}
+    - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 5776176290387820840}
     - targetCorrespondingSourceObject: {fileID: 8777800933925491452, guid: e98c9fa2822d6494cb56f5d0043ff143, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5776176290387820829}
@@ -35472,6 +35489,41 @@ MonoBehaviour:
   - {fileID: 469668557}
   - {fileID: 175069337}
   slimeHealth: {fileID: 5776176290387820828}
+--- !u!114 &5776176290387820840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776176290387820827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd80e3af29d2964f962fe9c763d5664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerXP: {fileID: 0}
+  slimeHealth: {fileID: 0}
+  slimeDamage: {fileID: 0}
+  slimeXP: 1
+  slimeCoin: 1
+  slimeLevel: 1
+--- !u!114 &5776176290387820841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776176290387820827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c81ffab450c01e4da1d6bc8366ad515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: 0
+  timer: 0
+  slimeHealth: {fileID: 0}
+  tutorialSlimeXP: {fileID: 0}
+  counter: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

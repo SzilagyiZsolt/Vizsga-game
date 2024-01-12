@@ -36,6 +36,7 @@ public class LogicManager : MonoBehaviour
     public void NewGame()
     {
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}.dat");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
         SceneManager.LoadScene("Tutorial");
     }
     public void LoadGame()
