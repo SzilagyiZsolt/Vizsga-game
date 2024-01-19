@@ -48,6 +48,7 @@ public class SlimeXP : MonoBehaviour
         while (countDown.min<minutes)
         {
             slimeLevel++;
+            slimeCoin*=slimeLevel;
             slimeHealth.slimeMaxHealth*=slimeLevel;
             slimeDamage.damage*=slimeLevel;
             minutes--;

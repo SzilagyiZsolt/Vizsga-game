@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DeathSkeletonKing : MonoBehaviour
 {
-    [HideInInspector] public GameObject Platform;
     public float timer;
-    [HideInInspector] public HealthSkeletonKing skeletonKingHealth;
+    public HealthSkeletonKing skeletonKingHealth;
+    public XPSkeletonKing xpSkeletonKing;
     private void Start()
     {
         skeletonKingHealth = GetComponent<HealthSkeletonKing>();
+        xpSkeletonKing = GetComponent<XPSkeletonKing>();
     }
     private void Update()
     {
@@ -18,8 +19,8 @@ public class DeathSkeletonKing : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > 1.4)
             {
+                xpSkeletonKing.SkeletonKingGiveGold();
                 Destroy(gameObject);
-                Platform.SetActive(true);
             }
             skeletonKingHealth.anim.SetBool("Death", true);
             skeletonKingHealth.skeletonKingalive = false;

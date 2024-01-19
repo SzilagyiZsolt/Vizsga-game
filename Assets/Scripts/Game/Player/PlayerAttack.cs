@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
     public PlayerMovement playerMovement;
     public HealthExecutioner healthExecutioner;
     public Movement movementExecutioner;
+    public HealthSkeleton healthSkeleton;
+    public MovementSkeleton movementSkeleton;
     public Transform attackPoint;
     public float attackRange = 0.5f;
 

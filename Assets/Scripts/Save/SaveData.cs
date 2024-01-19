@@ -8,7 +8,10 @@ public class SaveData
 {
     public PlayerData MyPlayerData {  get; set; }
     public ShopData MyShopData { get; set; }
-    public SaveData() 
+    public SkeletonKingData SkeletonKingData { get; set; }
+    public BrownSlimeData BrownSlimeData { get; set; }
+
+public SaveData() 
     {
         
     }
@@ -27,6 +30,24 @@ public class PlayerData
         this.MyDamage=Damage;
     }
 
+}
+[Serializable]
+public class SkeletonKingData
+{
+    public int SkeletonKingXP { get; set; }
+    public SkeletonKingData(int skeletonKingXP)
+    {
+        this.SkeletonKingXP = skeletonKingXP;
+    }
+}
+[Serializable]
+public class BrownSlimeData
+{
+    public int BrownSlimeXP { get; set; }
+    public BrownSlimeData(int brownSlimeXP)
+    {
+        this.BrownSlimeXP = brownSlimeXP;
+    }
 }
 
 [Serializable]

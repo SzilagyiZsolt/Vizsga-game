@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageSkeletonKing : MonoBehaviour
+public class DamageBrownSlime : MonoBehaviour
 {
-    public HealthSkeletonKing skeletonKingHealth;
+    public HealthBrownSlime brownSlimeHealth;
     public int damage;
     public float timer;
     public PlayerHealth playerHealth;
@@ -12,7 +12,7 @@ public class DamageSkeletonKing : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        skeletonKingHealth = GetComponent<HealthSkeletonKing>();
+        brownSlimeHealth = GetComponent<HealthBrownSlime>();
         playerHealth = player.GetComponent<PlayerHealth>();
         playerMovement = player.GetComponent<PlayerMovement>();
     }
@@ -23,7 +23,7 @@ public class DamageSkeletonKing : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && skeletonKingHealth.skeletonKingalive && timer>=0.5)
+        if (collision.gameObject.CompareTag("Player") && brownSlimeHealth.brownSlimealive && timer>=0.5)
         {
             timer=0;
             playerMovement.kbCounter = playerMovement.kbTotalTime;

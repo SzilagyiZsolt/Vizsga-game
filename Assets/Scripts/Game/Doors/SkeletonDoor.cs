@@ -10,6 +10,7 @@ public class SkeletonDoor : MonoBehaviour
     public Animator anim;
     public SaveManager saveManager;
     public GameObject knight;
+    public GameObject background;
     public CinemachineVirtualCamera knightCamera;
     public GameObject camObj;
     public CinemachineFreeLook freeLook;
@@ -27,6 +28,7 @@ public class SkeletonDoor : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 saveManager.Save();
+                background.SetActive(false);
                 CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;
                 knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);

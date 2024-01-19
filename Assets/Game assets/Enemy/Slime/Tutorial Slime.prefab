@@ -182,12 +182,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
+  playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
   anim: {fileID: 0}
   hpBar: {fileID: 0}
+  rb: {fileID: 0}
   timer: 0
+  timer2: 0
   slimeMaxHealth: 50
   slimeHealth: 0
   slimealive: 1
+  kbForce: 3
+  kbCounter: 0
+  kbTotalTime: 0.2
+  knockFromRight: 0
 --- !u!114 &4218421323145510331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeHealth: {fileID: 0}
   playerTransform: {fileID: 0}
-  moveSpeed: 0.6
+  moveSpeed: 0.8
   chasing: 0
 --- !u!50 &6376907109344768066
 Rigidbody2D:

@@ -485,12 +485,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
   playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
   anim: {fileID: 8289972265222754975}
   hpBar: {fileID: 1122497026123821992}
+  rb: {fileID: 0}
   timer: 0
+  timer2: 0
   slimeMaxHealth: 50
   slimeHealth: 0
   slimealive: 1
+  kbForce: 3
+  kbCounter: 0
+  kbTotalTime: 0.2
+  knockFromRight: 0
 --- !u!114 &5552882281157270659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e36b1f4300f48542be22922e3ad81e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: 0
   timer: 0
   slimeHealth: {fileID: 2997764049406868302}
   slimeXP: {fileID: 6014408489176808956}

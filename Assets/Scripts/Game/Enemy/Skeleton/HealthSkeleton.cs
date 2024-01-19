@@ -7,12 +7,19 @@ public class HealthSkeleton : MonoBehaviour
 {
     [HideInInspector] public PlayerAttack playerAttack;
     public PlayerHealth playerHealth;
+    public PlayerMovement playerMovement;
     [HideInInspector] public Animator anim;
+    public Rigidbody2D rb;
     public Slider hpBar;
     public float timer;
+    public float timer2;
     public float skeletonMaxHealth;
     public float skeletonHealth;
     public bool skeletonalive = true;
+    public float kbForce;
+    public float kbCounter;
+    public float kbTotalTime;
+    public bool knockFromRight;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -20,12 +27,15 @@ public class HealthSkeleton : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
         playerHealth = player.GetComponent<PlayerHealth>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         hpBar.maxValue = skeletonMaxHealth;
+        rb=GetComponent<Rigidbody2D>();
     }
     void Update()
     {
         hpBar.value = skeletonHealth;
         timer += Time.deltaTime;
+        timer2 += Time.deltaTime;
         if (timer > 0.3)
         {
             anim.SetBool("Hurt", false);
@@ -42,8 +52,18 @@ public class HealthSkeleton : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerAttack.timer -= Time.deltaTime;
-                if (playerAttack.timer <= 0.5 && playerAttack.click <= 1)
+                if (timer2>=1 && playerAttack.timer <= 0.5 && playerAttack.click <= 1)
                 {
+                    if(knockFromRight)
+                    {
+                        rb.velocity = new Vector2(-kbForce, 1);
+                    }
+
+                    if (!knockFromRight)
+                    {
+                        rb.velocity = new Vector2(kbForce, 1);
+                    }
+                    kbCounter -= Time.deltaTime;
                     skeletonHealth -= damage;
                     anim.SetBool("Hurt", true);
                     timer = 0;
@@ -59,8 +79,17 @@ public class HealthSkeleton : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Hitbox"))
+        if (collision.gameObject.CompareTag("Hitbox") && playerMovement.alive && timer>=0.5)
         {
+            kbCounter = kbTotalTime;
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                knockFromRight = false;
+            }
+            if (collision.transform.position.x >= transform.position.x)
+            {
+                knockFromRight = true;
+            }
             TakeDamage(playerAttack.damage);
         }
     }

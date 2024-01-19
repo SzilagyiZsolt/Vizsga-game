@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementSkeletonKing : MonoBehaviour
+public class MovementBrownSlime : MonoBehaviour
 {
-    public HealthSkeletonKing skeletonKingHealth;
+    public HealthBrownSlime brownSlimeHealth;
     public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
@@ -13,18 +13,18 @@ public class MovementSkeletonKing : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        skeletonKingHealth = GetComponent<HealthSkeletonKing>();
+        brownSlimeHealth = GetComponent<HealthBrownSlime>();
         playerTransform = player.GetComponent<Transform>();
     }
     private void Update()
     {
-        if (skeletonKingHealth.skeletonKingalive)
+        if (brownSlimeHealth.brownSlimealive)
         {
             if (chasing)
             {
                 if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX)
                 {
-                    skeletonKingHealth.anim.SetBool("Walk", false);
+                    brownSlimeHealth.anim.SetBool("Walk", false);
                     chasing = false;
                 }
 
@@ -44,7 +44,7 @@ public class MovementSkeletonKing : MonoBehaviour
             {
                 if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX)
                 {
-                    skeletonKingHealth.anim.SetBool("Walk", true);
+                    brownSlimeHealth.anim.SetBool("Walk", true);
                     chasing = true;
                 }
             }

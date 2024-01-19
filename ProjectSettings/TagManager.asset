@@ -23,6 +23,7 @@ TagManager:
   - Executioner
   - SummonTarget
   - Floor
+  - SaveManager
   layers:
   - Default
   - TransparentFX

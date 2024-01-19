@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6197846801183334932}
   m_Layer: 8
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   skeletonCoin: 5
   skeletonLevel: 1
   timer: 0
-  minutes: 5
+  minutes: 4
 --- !u!114 &220394479704825723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,12 +197,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
   playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
   anim: {fileID: 0}
+  rb: {fileID: 6197846801183334932}
   hpBar: {fileID: 7044806544732359567}
   timer: 0
+  timer2: 0
   skeletonMaxHealth: 250
   skeletonHealth: 0
   skeletonalive: 1
+  kbForce: 3
+  kbCounter: 0
+  kbTotalTime: 0.2
+  knockFromRight: 0
 --- !u!114 &8226075635022547562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +267,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: 2b57cd8d375f84742a2a9b1a3ab5f28e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -536,7 +543,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 13
   m_TargetDisplay: 0
 --- !u!114 &8391849038641390652
 MonoBehaviour:

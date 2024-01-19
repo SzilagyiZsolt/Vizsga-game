@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSkeletonKing : MonoBehaviour
+public class HealthBrownSlime : MonoBehaviour
 {
     public PlayerAttack playerAttack;
     public Animator anim;
     public float timer;
-    public float skeletonKingMaxHealth = 50;
-    public float skeletonKingHealth;
-    public bool skeletonKingalive = true;
+    public float brownSlimeMaxHealth = 50;
+    public float brownSlimeHealth;
+    public bool brownSlimealive = true;
     void Start()
     {
         anim = GetComponent<Animator>();
-        skeletonKingHealth = skeletonKingMaxHealth;
+        brownSlimeHealth = brownSlimeMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
     }
@@ -37,7 +37,7 @@ public class HealthSkeletonKing : MonoBehaviour
             playerAttack.timer -= Time.deltaTime;
             if (playerAttack.timer <= 0.5 && playerAttack.click <= 1)
             {
-                skeletonKingHealth -= damage;
+                brownSlimeHealth -= damage;
                 anim.SetBool("Hurt", true);
                 timer = 0;
                 playerAttack.timer = 1;
