@@ -30,13 +30,13 @@ public class MovementBrownSlime : MonoBehaviour
 
                 if (transform.position.x > playerTransform.position.x)
                 {
-                    transform.localScale = new Vector3((float)0.3, (float)0.3, 1);
+                    transform.localScale = new Vector3(5, 5, 1);
                     transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                 }
 
                 if (transform.position.x < playerTransform.position.x)
                 {
-                    transform.localScale = new Vector3((float)-0.3, (float)0.3, 1);
+                    transform.localScale = new Vector3(-5, 5, 1);
                     transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 }
             }

@@ -7,8 +7,8 @@ public class HealthBrownSlime : MonoBehaviour
     public PlayerAttack playerAttack;
     public Animator anim;
     public float timer;
-    public float brownSlimeMaxHealth = 50;
-    public float brownSlimeHealth;
+    public float brownSlimeMaxHealth=500;
+    public float brownSlimeHealth=500;
     public bool brownSlimealive = true;
     void Start()
     {
@@ -38,7 +38,7 @@ public class HealthBrownSlime : MonoBehaviour
             if (playerAttack.timer <= 0.5 && playerAttack.click <= 1)
             {
                 brownSlimeHealth -= damage;
-                anim.SetBool("Hurt", true);
+                brownSlime
                 timer = 0;
                 playerAttack.timer = 1;
                 playerAttack.spamdef = 0;
