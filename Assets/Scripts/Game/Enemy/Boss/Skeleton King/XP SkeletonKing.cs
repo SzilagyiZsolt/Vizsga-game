@@ -20,7 +20,7 @@ public class XPSkeletonKing : MonoBehaviour
         damageSkeletonKing = GetComponent<DamageSkeletonKing>();
         GameObject save = GameObject.FindWithTag("SaveManager");
         saveManager=save.GetComponent<SaveManager>();
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}SecretBoss.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}SecretBossSkeletonKing.dat"))
         {
             saveManager.loadSkeletonKing();
         }
@@ -32,12 +32,10 @@ public class XPSkeletonKing : MonoBehaviour
     {
         if (!healthSkeletonKing.skeletonKingalive)
         {
-            {
-                playerXP.coinAmount+=skeletonKingCoin;
-                playerXP.coinText.text= playerXP.coinAmount.ToString();
-                skeletonKingLevel++;
-                saveManager.saveSkeletonKing();
-            }
+            playerXP.coinAmount+=skeletonKingCoin;
+            playerXP.coinText.text= playerXP.coinAmount.ToString();
+            skeletonKingLevel++;
+            saveManager.saveSkeletonKing();
         }
     }
 }

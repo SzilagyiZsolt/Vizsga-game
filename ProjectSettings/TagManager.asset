@@ -24,6 +24,7 @@ TagManager:
   - SummonTarget
   - Floor
   - SaveManager
+  - BrownSlime
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,6 @@ public class Summon : MonoBehaviour
     }
     public void summon()
     {
-        
         timer=0;
     }
     

@@ -9,7 +9,7 @@ public class MovementBrownSlime : MonoBehaviour
     public float moveSpeed;
     public bool chasing;
     public int chasingDistanceX;
-    public int chasingDistanceY;
+    public bool rightLook;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -22,30 +22,45 @@ public class MovementBrownSlime : MonoBehaviour
         {
             if (chasing)
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX)
+                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX)
                 {
-                    brownSlimeHealth.anim.SetBool("Walk", false);
+                    brownSlimeHealth.anim.SetBool("Move", false);
+                    brownSlimeHealth.anim.SetBool("Attack", true);
                     chasing = false;
                 }
 
                 if (transform.position.x > playerTransform.position.x)
                 {
+                    rightLook = false;
                     transform.localScale = new Vector3(5, 5, 1);
                     transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                 }
 
                 if (transform.position.x < playerTransform.position.x)
                 {
+                    rightLook = true;
                     transform.localScale = new Vector3(-5, 5, 1);
                     transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 }
             }
             else
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistanceX)
+                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistanceX)
                 {
-                    brownSlimeHealth.anim.SetBool("Walk", true);
+                    brownSlimeHealth.anim.SetBool("Move", true);
+                    brownSlimeHealth.anim.SetBool("Attack", false);
                     chasing = true;
+                }
+                if (transform.position.x > playerTransform.position.x)
+                {
+                    rightLook = false;
+                    transform.localScale = new Vector3(5, 5, 1);
+                }
+
+                if (transform.position.x < playerTransform.position.x)
+                {
+                    rightLook = true;
+                    transform.localScale = new Vector3(-5, 5, 1);
                 }
             }
         }

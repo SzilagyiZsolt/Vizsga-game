@@ -1,27 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class HealthBrownSlime : MonoBehaviour
 {
     public PlayerAttack playerAttack;
+    public PlayerMovement playerMovement;
     public Animator anim;
+    public SpriteRenderer brownSlime;
+    public Rigidbody2D rb;
+    public Slider hpBar;
     public float timer;
+    public float timer2;
     public float brownSlimeMaxHealth=500;
     public float brownSlimeHealth=500;
     public bool brownSlimealive = true;
+    public float kbForce;
+    public float kbCounter;
+    public float kbTotalTime;
+    public bool knockFromRight;
     void Start()
     {
         anim = GetComponent<Animator>();
         brownSlimeHealth = brownSlimeMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        hpBar.maxValue = brownSlimeMaxHealth;
+        rb=GetComponent<Rigidbody2D>();
     }
     void Update()
     {
+        hpBar.value = brownSlimeHealth;
         timer += Time.deltaTime;
+        timer2 += Time.deltaTime;
         if (timer > 0.3)
         {
+            brownSlime.color = Color.white;
             anim.SetBool("Hurt", false);
         }
 
@@ -35,10 +52,20 @@ public class HealthBrownSlime : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             playerAttack.timer -= Time.deltaTime;
-            if (playerAttack.timer <= 0.5 && playerAttack.click <= 1)
+            if (timer2>=1 && playerAttack.timer <= 0.5 && playerAttack.click <= 1)
             {
+                if (knockFromRight)
+                {
+                    rb.velocity = new Vector2(-kbForce, 1);
+                }
+
+                if (!knockFromRight)
+                {
+                    rb.velocity = new Vector2(kbForce, 1);
+                }
+                kbCounter -= Time.deltaTime;
                 brownSlimeHealth -= damage;
-                brownSlime
+                brownSlime.color = Color.red;
                 timer = 0;
                 playerAttack.timer = 1;
                 playerAttack.spamdef = 0;
@@ -51,8 +78,17 @@ public class HealthBrownSlime : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Hitbox"))
+        if (collision.gameObject.CompareTag("Hitbox") && playerMovement.alive && timer>=0.5)
         {
+            kbCounter = kbTotalTime;
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                knockFromRight = false;
+            }
+            if (collision.transform.position.x >= transform.position.x)
+            {
+                knockFromRight = true;
+            }
             TakeDamage(playerAttack.damage);
         }
     }

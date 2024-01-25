@@ -20,9 +20,9 @@ public class XPBrownSlime : MonoBehaviour
         brownSlimeDamage = GetComponent<DamageBrownSlime>();
         GameObject save = GameObject.FindWithTag("SaveManager");
         saveManager=save.GetComponent<SaveManager>();
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}SecretBoss.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}SecretBossBrownSlime.dat"))
         {
-            //saveManager.LoadSecretBoss();
+            saveManager.loadBrownSlime();
         }
         brownSlimeCoin*=brownSlimeLevel;
         brownSlimeHealth.brownSlimeMaxHealth*=brownSlimeLevel;
@@ -32,12 +32,10 @@ public class XPBrownSlime : MonoBehaviour
     {
         if (!brownSlimeHealth.brownSlimealive)
         {
-            {
-                playerXP.coinAmount+=brownSlimeCoin;
-                playerXP.coinText.text= playerXP.coinAmount.ToString();
-                brownSlimeLevel++;
-                //saveManager.SaveBoss();
-            }
+            playerXP.coinAmount+=brownSlimeCoin;
+            playerXP.coinText.text= playerXP.coinAmount.ToString();
+            brownSlimeLevel++;
+            saveManager.saveBrownSlime();
         }
     }
 }

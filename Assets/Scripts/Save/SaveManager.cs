@@ -13,6 +13,7 @@ public class SaveManager : MonoBehaviour
     public ShopHPText hpText;
     public ShopDMGText dmgText;
     public XPSkeletonKing xpSkeletonKing;
+    public XPBrownSlime brownSlimeXP;
     public Text DMGText;
     public Text HPText;
     public Text coinText;
@@ -38,10 +39,27 @@ public class SaveManager : MonoBehaviour
         try
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}SecretBoss.dat");
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}SecretBossSkeletonKing.dat");
             SaveData data = new SaveData();
             Debug.Log("Quick save");
             SaveSkeletonKing(data);
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void saveBrownSlime()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}SecretBossBrownSlime.dat");
+            SaveData data = new SaveData();
+            Debug.Log("Quick save");
+            SaveBrownSlime(data);
             bf.Serialize(file, data);
             file.Close();
         }
@@ -74,6 +92,10 @@ public class SaveManager : MonoBehaviour
     public void SaveSkeletonKing(SaveData data)
     {
         data.SkeletonKingData=new SkeletonKingData(xpSkeletonKing.skeletonKingLevel);
+    }
+    public void SaveBrownSlime(SaveData data)
+    {
+        data.BrownSlimeData=new BrownSlimeData(brownSlimeXP.brownSlimeLevel);
     }
     public void SavePlayer2(SaveData data)
     {
@@ -179,17 +201,36 @@ public class SaveManager : MonoBehaviour
     {
         xpSkeletonKing.skeletonKingLevel=data.SkeletonKingData.SkeletonKingXP;
     }
+    public void LoadBrownSlime(SaveData data)
+    {
+        brownSlimeXP.brownSlimeLevel=data.BrownSlimeData.BrownSlimeXP;
+    }
     public void loadSkeletonKing()
     {
-        Debug.Log($"{DBManager.username}.dat");
         try
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}SecretBoss.dat", FileMode.Open);
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}SecretBossSkeletonKing.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
             Debug.Log("Quick load");
             file.Close();
             LoadSkeletonKing(data);
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void loadBrownSlime()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}SecretBossBrownSlime.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            Debug.Log("Quick load");
+            file.Close();
+            LoadBrownSlime(data);
         }
         catch (System.Exception)
         {
