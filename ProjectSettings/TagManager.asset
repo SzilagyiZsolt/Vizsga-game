@@ -25,6 +25,7 @@ TagManager:
   - Floor
   - SaveManager
   - BrownSlime
+  - LogicManager
   layers:
   - Default
   - TransparentFX

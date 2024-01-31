@@ -10,8 +10,7 @@ public class BackgroundParallax : MonoBehaviour
     public float parallaxEffect;
     void Start()
     {
-        //startPosition=transform.position.x;
-        length=GetComponent<SpriteRenderer>().bounds.size.x;
+        length=20;
     }
 
     void Update()
