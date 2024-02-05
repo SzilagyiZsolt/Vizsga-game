@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseHP : MonoBehaviour
+public class UnderTaleHP : MonoBehaviour
 {
     public int HP;
     public GameObject deadPanel;
-    private void Start()
-    {
-        HP = 3;
-    }
     private void Update()
     {
         if (HP<=0)
@@ -17,5 +13,11 @@ public class MouseHP : MonoBehaviour
             deadPanel.SetActive(true);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            HP--;
+        }
+    }
 }
-
