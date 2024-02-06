@@ -15,4 +15,11 @@ public class LaserMovementLeft : MonoBehaviour
     {
         rb.velocity= Vector2.left*speed;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Despawn"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

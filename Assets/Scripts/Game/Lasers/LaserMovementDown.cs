@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserMovementRight : MonoBehaviour
+public class LaserMovementDown : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed;
@@ -13,7 +13,7 @@ public class LaserMovementRight : MonoBehaviour
 
     void Update()
     {
-        rb.velocity= Vector2.right*speed;
+        rb.velocity= Vector2.down*speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
