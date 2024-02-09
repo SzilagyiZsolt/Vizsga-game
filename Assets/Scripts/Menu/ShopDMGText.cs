@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopDMGText : MonoBehaviour
 {
     public int price;
-    public int DMG;
+    public float DMG;
     public ShopHPText shopHPText;
     public Text coinText;
     public Text priceText;

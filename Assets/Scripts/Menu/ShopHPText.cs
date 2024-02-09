@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class ShopHPText : MonoBehaviour
 {
     public int price;
-    public int HP;
+    public float HP;
     public int coin;
     public Text priceText;
     public Text MaxHPText;

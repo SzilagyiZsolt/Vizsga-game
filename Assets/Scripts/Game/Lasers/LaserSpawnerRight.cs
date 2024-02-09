@@ -7,16 +7,20 @@ public class LaserSpawnerRight : MonoBehaviour
     public GameObject laserRight;
     public GameObject laserRightWarning;
     public GameObject[] spawnPoint;
+    public SlimeKingDeath slimeKingDeath;
     public int warningRightCount;
     public float timerRight;
     private void Update()
     {
         timerRight+=Time.deltaTime;
-        SpawnEnemyRight();
+        if (slimeKingDeath.slimeKingAlive)
+        {
+            SpawnEnemyRight();
+        }
     }
     public void SpawnEnemyRight()
     {
-        if (timerRight >= 9)
+        if (timerRight >= 8)
         {
             for (int i = 0; i < spawnPoint.Length; i++)
             {
@@ -27,7 +31,7 @@ public class LaserSpawnerRight : MonoBehaviour
                 }
             }
         }
-        if (timerRight >= 10)
+        if (timerRight >= 9)
         {
             warningRightCount=0;
             for (int i = 0; i < spawnPoint.Length; i++)

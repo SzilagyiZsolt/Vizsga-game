@@ -28,10 +28,12 @@ public class PlayerXP : MonoBehaviour
         sliderXP.value=playerXP;
         while (playerXP >= playermaxXP && playerLevel<999)
         {   
-            coinAmount+=3;
+            coinAmount+=5;
             playerXP -= playermaxXP;
             playerLevel++;
             playermaxXP++;
+            playerHealth.maxHealth*=1.1f;
+            playerAttack.damage*=1.1f;
             playerHealth.health=playerHealth.maxHealth;
             LevelText.text=playerLevel.ToString();
             coinText.text=coinAmount.ToString();

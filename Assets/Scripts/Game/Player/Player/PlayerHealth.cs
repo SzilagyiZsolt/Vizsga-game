@@ -10,8 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public float timer;
     public float timer2;
     public PlayerMovement playerMovement;
-    public int health;
-    public int maxHealth;
+    public float health;
+    public float maxHealth;
     public DamageExecutioner damageExecutioner;
     void Start()
     {

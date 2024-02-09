@@ -28,6 +28,12 @@ TagManager:
   - LogicManager
   - Attack
   - Despawn
+  - Elevator
+  - LaserSpawner
+  - SpawnPointLeft
+  - SpawnPointRight
+  - SpawnPointDown
+  - SpawnPointUp
   layers:
   - Default
   - TransparentFX

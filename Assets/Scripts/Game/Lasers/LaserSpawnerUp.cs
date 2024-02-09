@@ -7,12 +7,16 @@ public class LaserSpawnerUp : MonoBehaviour
     public GameObject laserUp;
     public GameObject laserUpWarning;
     public GameObject[] spawnPoint;
+    public SlimeKingDeath slimeKingDeath;
     public float timerUp;
     public int warningUpCount;
     void Update()
     {
         timerUp += Time.deltaTime;
-        SpawnEnemyUp();
+        if (slimeKingDeath.slimeKingAlive)
+        {
+            SpawnEnemyUp();
+        }
     }
     public void SpawnEnemyUp()
     {

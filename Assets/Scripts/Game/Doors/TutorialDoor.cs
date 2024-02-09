@@ -20,7 +20,7 @@ public class TutorialDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
+                saveManager.TutorialSave();
                 SceneManager.LoadScene("Tutorial");
             }
         }

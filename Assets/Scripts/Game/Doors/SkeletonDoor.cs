@@ -27,7 +27,7 @@ public class SkeletonDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
+                saveManager.SaveCoin();
                 background.SetActive(false);
                 CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;

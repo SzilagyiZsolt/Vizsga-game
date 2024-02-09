@@ -19,7 +19,7 @@ public class LevelSelectorDoor: MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
+                saveManager.TutorialSave();
                 SceneManager.LoadScene("Level Selector");
             }
         }

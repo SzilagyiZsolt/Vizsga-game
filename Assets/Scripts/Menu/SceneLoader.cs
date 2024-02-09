@@ -52,7 +52,7 @@ public class LogicManager : MonoBehaviour
     }
     public void Level1()
     {
-        saveManager.Load();
+        saveManager.LoadPlayerStats();
         SceneManager.LoadScene("Arena1");
     }
 }

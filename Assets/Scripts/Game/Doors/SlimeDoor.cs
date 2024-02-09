@@ -19,7 +19,7 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
+                saveManager.SaveCoin();
                 SceneManager.LoadScene("Level Selector");
             }
         }

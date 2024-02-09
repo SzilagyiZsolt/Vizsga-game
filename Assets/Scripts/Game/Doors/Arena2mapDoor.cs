@@ -15,7 +15,7 @@ public class Arena2mapDoor : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.Save();
+                saveManager.SaveCoin();
                 knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 1.4f, 0f);
                 knight.transform.position = new Vector2(95, -0.2f);
                 bossTrigger.SetActive(true);
