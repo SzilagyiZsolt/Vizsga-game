@@ -49,7 +49,24 @@ public class SlimeXP : MonoBehaviour
         {
             slimeLevel++;
             slimeCoin*=slimeLevel;
-            slimeHealth.slimeMaxHealth*=slimeLevel;
+            switch (slimeLevel)
+            {
+                case 1:
+                    slimeHealth.slimeMaxHealth*=4;
+                    break;
+                case 2:
+                    slimeHealth.slimeMaxHealth*=4;
+                    break;
+                case 3:
+                    slimeHealth.slimeMaxHealth*=3;
+                    break;
+                case 4:
+                    slimeHealth.slimeMaxHealth*=2;
+                    break;
+                case 5:
+                    slimeHealth.slimeMaxHealth*=2;
+                    break;
+            }
             slimeDamage.damage*=slimeLevel;
             minutes--;
         }

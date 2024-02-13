@@ -67,7 +67,7 @@ public class SlimeHealth : MonoBehaviour
                     slimeHealth -= damage;
                     anim.SetBool("Hurt", true);
                     timer = 0;
-                    playerAttack.timer = 1;
+                    playerAttack.timer = 0.75f;
                     playerAttack.spamdef = 0;
                 }
             }

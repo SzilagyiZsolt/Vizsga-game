@@ -16,6 +16,7 @@ public class ShopDMGText : MonoBehaviour
         GameObject HPText = GameObject.FindWithTag("ShopHP");
         shopHPText=HPText.GetComponent<ShopHPText>();
         priceText.text=price.ToString();
+        DMGText.text=DMG.ToString();
     }
     private void Update()
     {

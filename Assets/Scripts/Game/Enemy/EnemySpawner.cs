@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-        if (timer >= 5 && countDown.countDown>=1)
+        if (timer >= 2.5 && countDown.countDown>=1)
         {
             Instantiate(enemy, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), transform.rotation);
             timer=0;

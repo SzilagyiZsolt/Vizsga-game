@@ -14,6 +14,7 @@ public class ShopHPText : MonoBehaviour
     private void Start()
     {
         priceText.text=price.ToString();
+        MaxHPText.text=HP.ToString();
     }
     private void Update()
     {    

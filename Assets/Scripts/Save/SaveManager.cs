@@ -229,7 +229,7 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadCoin()
     {
-        if (!File.Exists(Application.dataPath+"/"+$"{DBManager.username}Coin.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}Coin.dat"))
         {
             try
             {
@@ -279,8 +279,8 @@ public class SaveManager : MonoBehaviour
     {
         dmgText.price=Shopdata2.MyShopData.DMGPrice;
         hpText.price=Shopdata2.MyShopData.HPPrice;
-        hpText.MaxHPText.text=Shopdata2.MyShopData.HPText.ToString();
-        dmgText.DMGText.text=Shopdata2.MyShopData.DMGText.ToString();
+        hpText.HP=Shopdata2.MyShopData.HPText;
+        dmgText.DMG=Shopdata2.MyShopData.DMGText;
     }
 
 
