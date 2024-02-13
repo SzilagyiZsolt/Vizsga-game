@@ -70,8 +70,8 @@ public class SaveManager : MonoBehaviour
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
             Debug.Log("Quick load");
-            file.Close();
             LoadPlayerData(data);
+            file.Close();
         }
         catch (System.Exception)
         {
@@ -105,7 +105,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerData(SaveData data)
     {
-        data.MyPlayerData=new PlayerData(int.Parse(hpText.coinText.text), int.Parse(hpText.MaxHPText.text), int.Parse(dmgText.DMGText.text));
+        data.MyPlayerData=new PlayerData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text));
     }
 
 
@@ -142,8 +142,8 @@ public class SaveManager : MonoBehaviour
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
                 Debug.Log("First Quick load");
-                file.Close();
                 LoadDefaultShopdata(Shopdata);
+                file.Close();
             }
             catch (System.Exception)
             {
@@ -214,8 +214,8 @@ public class SaveManager : MonoBehaviour
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Coin.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
                 Debug.Log("First Shop load");
-                file.Close();
                 LoadCoinDataShop(Shopdata);
+                file.Close();
             }
             catch (System.Exception)
             {
@@ -229,7 +229,7 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadCoin()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}Coin.dat"))
+        if (!File.Exists(Application.dataPath+"/"+$"{DBManager.username}Coin.dat"))
         {
             try
             {
@@ -237,8 +237,8 @@ public class SaveManager : MonoBehaviour
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Coin.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
                 Debug.Log("First Shop load");
-                file.Close();
                 LoadCoinData(Shopdata);
+                file.Close();
             }
             catch (System.Exception)
             {
@@ -266,8 +266,9 @@ public class SaveManager : MonoBehaviour
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
             SaveData Shopdata2 = (SaveData)bf.Deserialize(file);
             Debug.Log("Shop Quick load");
-            file.Close();
             LoadShopData(Shopdata2);
+            file.Close();
+            
         }
         catch (System.Exception)
         {

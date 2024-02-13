@@ -10,6 +10,6 @@ public class LoadStats : MonoBehaviour
     void Start()
     {
         saveManager.LoadPlayerStats();
-        s
+        saveManager.LoadCoin();
     }
 }
