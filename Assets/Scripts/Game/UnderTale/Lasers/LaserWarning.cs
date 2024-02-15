@@ -8,7 +8,7 @@ public class LaserWarning : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 0.8)
+        if (timer > 0.5)
         {
             Destroy(gameObject);
         }

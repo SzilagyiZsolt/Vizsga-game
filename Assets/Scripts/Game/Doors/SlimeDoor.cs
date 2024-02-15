@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,13 @@ public class SlimeDoor : MonoBehaviour
 {
     public Animator anim;
     public SaveManager saveManager;
+    public GameObject knight;
+    public GameObject background;
+    public GameObject[] slimes;
+    public CinemachineVirtualCamera knightCamera;
+    public GameObject camObj;
+    public CinemachineFreeLook freeLook;
+    public CinemachineComposer comp;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -19,8 +27,16 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                for (int i = 0; i < slimes.Length; i++)
+                {
+                    slimes[i].SetActive(true);
+                }
                 saveManager.SaveCoin();
-                SceneManager.LoadScene("Level Selector");
+                background.SetActive(false);
+                CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+                composer.m_DeadZoneHeight = 0.05f;
+                knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
+                knight.transform.position = new Vector2(25, 0);
             }
         }
     }

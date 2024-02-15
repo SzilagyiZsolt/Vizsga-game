@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class LaserRandomMovementLeft : MonoBehaviour
@@ -8,8 +9,8 @@ public class LaserRandomMovementLeft : MonoBehaviour
 
     public LaserSummonLeft laserSummonLeft;
     public Rigidbody2D rb;
-    public float timer;
     public float speed;
+    public float timer;
     private void Start()
     {
         GameObject s = GameObject.FindGameObjectWithTag("SpawnPointLeft");
@@ -17,8 +18,8 @@ public class LaserRandomMovementLeft : MonoBehaviour
     }
     private void Update()
     {
-        timer+=Time.deltaTime;
-        if (timer>=1)
+        timer +=Time.deltaTime;
+        if (timer > 1)
         {
             rb.velocity=laserSummonLeft.playerDirection*speed;
         }

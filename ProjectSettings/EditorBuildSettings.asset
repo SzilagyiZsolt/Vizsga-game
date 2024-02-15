@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Arena1.unity
     guid: ffee6e54bc8ac4b45825b39bda8cbd92
   - enabled: 1
+    path: Assets/Scenes/Game Scenes/UnderTaleEvent.unity
+    guid: 6080cdc41e9303047bb4740f5ebcce6f
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/Arena2.unity
     guid: b5cddbd44e1ba1a468a4f0aa7028a89b
   m_configObjects: {}

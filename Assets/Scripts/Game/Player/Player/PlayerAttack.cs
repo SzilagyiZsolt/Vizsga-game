@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public float timer=1;
     public float spamdef=1;
     public int click=0;
+    public float critRate;
+    public float critDMG;
     public Collider2D hitbox;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;

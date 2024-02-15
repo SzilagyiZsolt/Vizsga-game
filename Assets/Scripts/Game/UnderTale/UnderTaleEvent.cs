@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnderTaleEvent : MonoBehaviour
 {
     public float timer;
     public bool isOn=false;
-    public GameObject[] gameObjects;
     public Elevator elevator;
-    public GameObject UnderTale;
-    public GameObject UnderTaleCamera;
-    public GameObject VirtualCamera;
     void Update()
     {
         if (isOn)
@@ -19,13 +16,7 @@ public class UnderTaleEvent : MonoBehaviour
             timer+=Time.deltaTime;
             if (timer > 1)
             {
-                for (int i = 0; i < gameObjects.Length; i++)
-                {
-                    gameObjects[i].SetActive(false);
-                }
-                VirtualCamera.SetActive(false);
-                UnderTale.SetActive(true);
-                UnderTaleCamera.SetActive(true);
+                SceneManager.LoadScene("UnderTaleEvent");
             }
         }
     }
