@@ -102,7 +102,7 @@ MonoBehaviour:
   rb: {fileID: 5707032811398937360}
   playerHealth: {fileID: 0}
   brownSlimeMovement: {fileID: 0}
-  damage: 10
+  damage: 30
   speed: 3
 --- !u!50 &5707032811398937360
 Rigidbody2D:

@@ -1765,7 +1765,7 @@ Transform:
   m_GameObject: {fileID: 672607901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.218998, y: 0.9970002, z: -10}
+  m_LocalPosition: {x: -3.9910011, y: 0.9970002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1866,7 +1866,7 @@ Transform:
   m_GameObject: {fileID: 698764934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.72, y: -5.04, z: 0.41569364}
+  m_LocalPosition: {x: -56.93, y: -5.04, z: 0.41569364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1961,6 +1961,8 @@ MonoBehaviour:
   timer: 1
   spamdef: 1
   click: 0
+  critRate: 0
+  critDMG: 0
   hitbox: {fileID: 201925055}
   playerHealth: {fileID: 0}
   playerMovement: {fileID: 698764940}
@@ -11320,7 +11322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1120481501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11337,13 +11339,7 @@ MonoBehaviour:
   saveManager: {fileID: 1616598200}
   knight: {fileID: 698764934}
   background: {fileID: 175154184}
-  slimes:
-  - {fileID: 62255448}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  brownSlime: {fileID: 62255448}
   knightCamera: {fileID: 1862564406}
   camObj: {fileID: 0}
   freeLook: {fileID: 0}
@@ -11998,7 +11994,7 @@ MonoBehaviour:
   brownSlimeHealth: {fileID: 0}
   brownSlimeDamage: {fileID: 0}
   saveManager: {fileID: 1616598200}
-  brownSlimeCoin: 50
+  brownSlimeCoin: 1000
   brownSlimeLevel: 1
   counter: 0
 --- !u!114 &1349480577
@@ -12039,8 +12035,8 @@ MonoBehaviour:
   hpBar: {fileID: 1791102288}
   timer: 0
   timer2: 0
-  brownSlimeMaxHealth: 10000
-  brownSlimeHealth: 10000
+  brownSlimeMaxHealth: 100000
+  brownSlimeHealth: 100000
   brownSlimealive: 1
   kbForce: 3
   kbCounter: 0
@@ -26725,10 +26721,18 @@ MonoBehaviour:
   playerAttack: {fileID: 698764938}
   hpText: {fileID: 0}
   dmgText: {fileID: 0}
+  critDMGText: {fileID: 0}
+  critRateText: {fileID: 0}
   xpSkeletonKing: {fileID: 0}
   brownSlimeXP: {fileID: 1349480576}
+  SlimeKingDeath: {fileID: 0}
+  levelButtons: {fileID: 0}
+  CritRate: {fileID: 0}
+  CritDMG: {fileID: 0}
   DMGText: {fileID: 0}
   HPText: {fileID: 0}
+  CritRateText: {fileID: 0}
+  CritDMGText: {fileID: 0}
   coinText: {fileID: 0}
 --- !u!4 &1616598201
 Transform:
@@ -28204,7 +28208,7 @@ Transform:
   m_GameObject: {fileID: 1862564405}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.218998, y: 0.9970002, z: -10}
+  m_LocalPosition: {x: -3.9910011, y: 0.9970002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

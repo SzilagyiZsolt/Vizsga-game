@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SaveData
 {
     public PlayerData MyPlayerData {  get; set; }
+    public PlayerWithCritData MyPlayerWithCritData {  get; set; }
     public PlayerCoin MyPlayerCoin {  get; set; }
     public ShopData MyShopData { get; set; }
     public ShopCritData MyShopCritData { get; set; }
@@ -25,10 +26,25 @@ public class PlayerData
 {
     public float MyMaxHP { get; set; }
     public float MyDamage { get; set; }
+    public int MyCoin { get; set; }
+    public PlayerData(int coin,float MaxHP, float Damage) 
+    {
+        this.MyCoin = coin;
+        this.MyMaxHP=MaxHP;
+        this.MyDamage=Damage;
+    }
+}
+
+
+[Serializable]
+public class PlayerWithCritData
+{
+    public float MyMaxHP { get; set; }
+    public float MyDamage { get; set; }
     public float MyCritRate { get; set; }
     public float MyCritDMG { get; set; }
     public int MyCoin { get; set; }
-    public PlayerData(int coin,float MaxHP, float Damage, float critRate, float critDMG) 
+    public PlayerWithCritData(int coin, float MaxHP, float Damage, float critRate, float critDMG)
     {
         this.MyCoin = coin;
         this.MyMaxHP=MaxHP;

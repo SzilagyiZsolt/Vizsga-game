@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7754497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690c7c6d4eacd154fa84dc97983fd460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
+  price: 1
   critRate: 5
   coin: 0
   priceText: {fileID: 1008834636}
@@ -497,7 +497,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 474701483}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: SavePlayer
+        m_MethodName: SaveCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -509,7 +509,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 474701483}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: SaveShop
+        m_MethodName: CritShopSaveCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1457,8 +1457,8 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   hpText: {fileID: 1597332507}
   dmgText: {fileID: 46275127}
-  critDMGText: {fileID: 0}
-  critRateText: {fileID: 0}
+  critDMGText: {fileID: 1925808990}
+  critRateText: {fileID: 7754501}
   xpSkeletonKing: {fileID: 0}
   brownSlimeXP: {fileID: 0}
   SlimeKingDeath: {fileID: 0}
@@ -1467,8 +1467,8 @@ MonoBehaviour:
   CritDMG: {fileID: 1925808985}
   DMGText: {fileID: 523336111}
   HPText: {fileID: 1630931762}
-  CritRateText: {fileID: 0}
-  CritDMGText: {fileID: 0}
+  CritRateText: {fileID: 38535185}
+  CritDMGText: {fileID: 982279338}
   coinText: {fileID: 1403022297}
 --- !u!4 &474701484
 Transform:
@@ -2966,7 +2966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &949335760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3962,7 +3962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 5
 --- !u!222 &1325756836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5431,7 +5431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1925808986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5663,19 +5663,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 474701483}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: loadWorldBoss1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 474701483}
-        m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: WorldBoss1Check
+        m_MethodName: CritShopLoadCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5700,6 +5688,18 @@ MonoBehaviour:
       - m_Target: {fileID: 474701483}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: LoadCoinShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 474701483}
+        m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
+        m_MethodName: loadWorldBoss1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

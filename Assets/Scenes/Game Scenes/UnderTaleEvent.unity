@@ -396,11 +396,18 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   hpText: {fileID: 0}
   dmgText: {fileID: 0}
+  critDMGText: {fileID: 0}
+  critRateText: {fileID: 0}
   xpSkeletonKing: {fileID: 0}
   brownSlimeXP: {fileID: 0}
   SlimeKingDeath: {fileID: 2133284138}
+  levelButtons: {fileID: 0}
+  CritRate: {fileID: 0}
+  CritDMG: {fileID: 0}
   DMGText: {fileID: 0}
   HPText: {fileID: 0}
+  CritRateText: {fileID: 0}
+  CritDMGText: {fileID: 0}
   coinText: {fileID: 0}
 --- !u!4 &246362136
 Transform:
@@ -3816,7 +3823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2133284137}
-  timer: 174
+  timer: 0
   slimeKingAlive: 1
   saveManager: {fileID: 246362135}
   text: {fileID: 386792686}

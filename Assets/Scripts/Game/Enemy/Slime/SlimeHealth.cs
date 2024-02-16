@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,8 @@ public class SlimeHealth : MonoBehaviour
     public PlayerAttack playerAttack;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
+    public GameObject showDMG;
+    public TextMeshProUGUI showDMGText;
     public Animator anim;
     public Slider hpBar;
     public Rigidbody2D rb;
@@ -20,6 +24,7 @@ public class SlimeHealth : MonoBehaviour
     public float kbCounter;
     public float kbTotalTime;
     public bool knockFromRight;
+    public int random;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,6 +35,7 @@ public class SlimeHealth : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         hpBar.maxValue = slimeMaxHealth;
         rb=GetComponent<Rigidbody2D>();
+        showDMGText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
     void Update()
     {
@@ -39,6 +45,10 @@ public class SlimeHealth : MonoBehaviour
         if (timer > 0.3)
         {
             anim.SetBool("Hurt", false);
+        }
+        if (timer > 0.4)
+        {
+            showDMG.SetActive(false);
         }
     }
     public void TakeDamage(float damage)
@@ -54,6 +64,8 @@ public class SlimeHealth : MonoBehaviour
                 playerAttack.timer -= Time.deltaTime;
                 if (timer2>=1&&playerAttack.timer <= 0.5 && playerAttack.click <= 1)
                 {
+                    showDMGText.color = Color.white;
+                    random=Random.Range(1, 101);
                     if (knockFromRight)
                     {
                         rb.velocity = new Vector2(-kbForce, 1);
@@ -64,7 +76,14 @@ public class SlimeHealth : MonoBehaviour
                         rb.velocity = new Vector2(kbForce, 1);
                     }
                     kbCounter -= Time.deltaTime;
+                    if (random <= playerAttack.critRate)
+                    {
+                        damage*=(1+(playerAttack.critDMG/100));
+                        showDMGText.color= Color.red;
+                    }
                     slimeHealth -= damage;
+                    showDMG.SetActive(true);
+                    showDMGText.text=Mathf.Round(damage).ToString();
                     anim.SetBool("Hurt", true);
                     timer = 0;
                     playerAttack.timer = 0.75f;

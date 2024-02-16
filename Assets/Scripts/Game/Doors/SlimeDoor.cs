@@ -10,7 +10,7 @@ public class SlimeDoor : MonoBehaviour
     public SaveManager saveManager;
     public GameObject knight;
     public GameObject background;
-    public GameObject[] slimes;
+    public GameObject brownSlime;
     public CinemachineVirtualCamera knightCamera;
     public GameObject camObj;
     public CinemachineFreeLook freeLook;
@@ -27,10 +27,7 @@ public class SlimeDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                for (int i = 0; i < slimes.Length; i++)
-                {
-                    slimes[i].SetActive(true);
-                }
+                brownSlime.SetActive(true);
                 saveManager.SaveCoin();
                 background.SetActive(false);
                 CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();

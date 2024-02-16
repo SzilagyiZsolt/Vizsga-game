@@ -38,6 +38,7 @@ public class LogicManager : MonoBehaviour
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Coin.dat");
         SceneManager.LoadScene("Tutorial");
     }
@@ -54,7 +55,7 @@ public class LogicManager : MonoBehaviour
     }
     public void Level1()
     {
-        saveManager.LoadPlayerStats();
+        saveManager.LoadPlayerStatsCheck();
         SceneManager.LoadScene("Arena1");
     }
 }
