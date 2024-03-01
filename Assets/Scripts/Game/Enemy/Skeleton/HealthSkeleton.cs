@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class HealthSkeleton : MonoBehaviour
     [HideInInspector] public PlayerAttack playerAttack;
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
+    public GameObject showDMG;
+    public TextMeshProUGUI showDMGText;
     [HideInInspector] public Animator anim;
     public Rigidbody2D rb;
     public Slider hpBar;
@@ -20,6 +23,7 @@ public class HealthSkeleton : MonoBehaviour
     public float kbCounter;
     public float kbTotalTime;
     public bool knockFromRight;
+    public int random;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,6 +34,7 @@ public class HealthSkeleton : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         hpBar.maxValue = skeletonMaxHealth;
         rb=GetComponent<Rigidbody2D>();
+        showDMGText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
     void Update()
     {
@@ -39,6 +44,10 @@ public class HealthSkeleton : MonoBehaviour
         if (timer > 0.3)
         {
             anim.SetBool("Hurt", false);
+        }
+        if (timer > 0.4)
+        {
+            showDMG.SetActive(false);
         }
     }
     public void TakeDamage(float damage)
@@ -52,9 +61,11 @@ public class HealthSkeleton : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 playerAttack.timer -= Time.deltaTime;
-                if (timer2>=1 && playerAttack.timer <= 0.5 && playerAttack.click <= 1)
+                if (timer2>=1&&playerAttack.timer <= 0.5 && playerAttack.click <= 1)
                 {
-                    if(knockFromRight)
+                    showDMGText.color = Color.white;
+                    random=Random.Range(1, 101);
+                    if (knockFromRight)
                     {
                         rb.velocity = new Vector2(-kbForce, 1);
                     }
@@ -64,10 +75,17 @@ public class HealthSkeleton : MonoBehaviour
                         rb.velocity = new Vector2(kbForce, 1);
                     }
                     kbCounter -= Time.deltaTime;
+                    if (random <= playerAttack.critRate)
+                    {
+                        damage*=(1+(playerAttack.critDMG/100));
+                        showDMGText.color= Color.red;
+                    }
                     skeletonHealth -= damage;
+                    showDMG.SetActive(true);
+                    showDMGText.text=Mathf.Round(damage).ToString();
                     anim.SetBool("Hurt", true);
                     timer = 0;
-                    playerAttack.timer = 1;
+                    playerAttack.timer = 0.75f;
                     playerAttack.spamdef = 0;
                 }
             }

@@ -64,8 +64,8 @@ public class Pause : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //deadpanel.SetActive(false);
-        //Time.timeScale = 1f;
+        deadpanel.SetActive(false);
+        Time.timeScale = 1f;
     }
     public void Inventory()
     {

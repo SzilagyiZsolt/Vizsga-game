@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BossDoor : MonoBehaviour
 {
     [HideInInspector] public Animator anim;
+    public SaveManager saveManager;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -15,9 +16,9 @@ public class BossDoor : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("Open", true);
-
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.SaveCoin();
                 SceneManager.LoadScene("Level Selector");
             }
         }

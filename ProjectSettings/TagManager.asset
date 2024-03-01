@@ -36,6 +36,8 @@ TagManager:
   - SpawnPointUp
   - SlimeDMGText
   - SlimeCV
+  - SkeletonDMGText
+  - SkeletonCV
   layers:
   - Default
   - TransparentFX

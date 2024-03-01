@@ -45,12 +45,29 @@ public class XPSkeleton : MonoBehaviour
     }
     public void SkeletonLevelUp()
     {
-        while (countDown.min < minutes)
+        while (countDown.min<minutes)
         {
             skeletonLevel++;
             skeletonCoin*=skeletonLevel;
-            healthSkeleton.skeletonMaxHealth *= skeletonLevel;
-            damageSkeleton.damage *= skeletonLevel;
+            switch (skeletonLevel)
+            {
+                case 1:
+                    healthSkeleton.skeletonMaxHealth*=6;
+                    break;
+                case 2:
+                    healthSkeleton.skeletonMaxHealth*=4;
+                    break;
+                case 3:
+                    healthSkeleton.skeletonMaxHealth*=2;
+                    break;
+                case 4:
+                    healthSkeleton.skeletonMaxHealth*=2;
+                    break;
+                case 5:
+                    healthSkeleton.skeletonMaxHealth*=2;
+                    break;
+            }
+            damageSkeleton.damage*=skeletonLevel;
             minutes--;
         }
     }

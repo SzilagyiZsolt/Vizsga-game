@@ -126,7 +126,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   playerHealth: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
-  damage: 10
+  damage: 500
   timer: 0
   timer2: 0
   speed: 5
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

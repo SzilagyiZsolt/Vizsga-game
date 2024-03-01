@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class SkeletonDoor : MonoBehaviour
 {
     public Animator anim;
-    public SaveManager saveManager;
     public GameObject knight;
     public GameObject background;
     public CinemachineVirtualCamera knightCamera;
@@ -27,7 +26,6 @@ public class SkeletonDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                saveManager.SaveCoin();
                 background.SetActive(false);
                 CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;

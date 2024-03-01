@@ -14,16 +14,22 @@ public class SaveManager : MonoBehaviour
     public ShopDMGText dmgText;
     public ShopCritDMGText critDMGText;
     public ShopCritRateText critRateText;
+    public ShopManaRegenText manaRegen;
+    public ShopHPRegenText hpRegen;
     public XPSkeletonKing xpSkeletonKing;
     public XPBrownSlime brownSlimeXP;
     public SlimeKingDeath SlimeKingDeath;
     public LevelButtons levelButtons;
     public GameObject CritRate;
     public GameObject CritDMG;
+    public GameObject HPRegen;
+    public GameObject ManaRegen;
     public Text DMGText;
     public Text HPText;
     public Text CritRateText;
     public Text CritDMGText;
+    public Text HPRegenText;
+    public Text ManaRegenText;
     public Text coinText;
 
 
@@ -34,7 +40,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             TutorialSavePlayerData(data);
             bf.Serialize(file, data);
             file.Close();
@@ -57,7 +62,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SavePlayerStatsData(data);
             bf.Serialize(file, data);
             file.Close();
@@ -75,9 +79,13 @@ public class SaveManager : MonoBehaviour
 
     public void LoadPlayerStatsCheck()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             LoadPlayerStatsWithCrit();
+        }
+        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
+        {
+            LoadPlayerStatsWithRegen();
         }
         else 
         {
@@ -91,7 +99,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
-            Debug.Log("Quick load");
             LoadPlayerData(data);
             file.Close();
         }
@@ -106,6 +113,8 @@ public class SaveManager : MonoBehaviour
         playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
         playerAttack.damage=data.MyPlayerData.MyDamage;
     }
+
+
     public void LoadPlayerStatsWithCrit()
     {
         try
@@ -113,7 +122,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
-            Debug.Log("Quick load");
             LoadPlayerWithCritData(data);
             file.Close();
         }
@@ -127,16 +135,47 @@ public class SaveManager : MonoBehaviour
         playerXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
         playerHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
         playerAttack.damage=data.MyPlayerWithCritData.MyDamage;
-        playerAttack.critRate=data.MyPlayerWithCritData.MyCritRate;
-        playerAttack.critDMG=data.MyPlayerWithCritData.MyCritDMG;
+        playerAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+        playerAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
+    }
+
+
+    public void LoadPlayerStatsWithRegen()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            LoadPlayerWithRegenData(data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void LoadPlayerWithRegenData(SaveData data)
+    {
+        playerXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
+        playerHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
+        playerAttack.damage=data.MyPlayerWithCritData.MyDamage;
+        playerAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+        playerAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
+        playerHealth.manaRegen=float.Parse(data.MyPlayerWithRegenData.MyManaRegen);
+        playerHealth.hpRegen=float.Parse(data.MyPlayerWithRegenData.MyHPRegen);
     }
 
 
     public void SaveCheck()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             SavePlayerWithCrit();
+        }
+        else if(File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
+        {
+            SavePlayerWithRegen();
         }
         else if (!File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
         {
@@ -150,7 +189,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SavePlayerData(data);
             bf.Serialize(file, data);
             file.Close();
@@ -173,7 +211,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SavePlayerWithCritData(data);
             bf.Serialize(file, data);
             file.Close();
@@ -185,7 +222,29 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerWithCritData(SaveData data)
     {
-        data.MyPlayerWithCritData=new PlayerWithCritData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text), float.Parse(critRateText.CritRateText.text), float.Parse(critDMGText.CritDMGText.text));
+        data.MyPlayerWithCritData=new PlayerWithCritData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text), critRateText.CritRateText.text, critDMGText.CritDMGText.text);
+    }
+
+
+    public void SavePlayerWithRegen()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
+            SaveData data = new SaveData();
+            SavePlayerWithRegenData(data);
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void SavePlayerWithRegenData(SaveData data)
+    {
+        data.MyPlayerWithRegenData=new PlayerWithRegenData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text), critRateText.CritRateText.text, critDMGText.CritDMGText.text, hpRegen.HPRegenText.text, manaRegen.ManaRegenText.text);
     }
 
 
@@ -198,7 +257,6 @@ public class SaveManager : MonoBehaviour
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("CritShop Quick load");
                 LoadCritShopdataDefault(Shopdata);
                 file.Close();
             }
@@ -217,16 +275,42 @@ public class SaveManager : MonoBehaviour
     }
 
 
+    public void LoadRegenShopDefault()
+    {
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
+        {
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
+                SaveData Shopdata = (SaveData)bf.Deserialize(file);
+                LoadRegenShopdataDefault(Shopdata);
+                file.Close();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+    }
+    public void LoadRegenShopdataDefault(SaveData CritShopdata)
+    {
+        dmgText.price=CritShopdata.MyShopData.DMGPrice;
+        hpText.price=CritShopdata.MyShopData.HPPrice;
+        hpText.HP=CritShopdata.MyShopData.HPText;
+        dmgText.DMG=CritShopdata.MyShopData.DMGText;
+    }
+
+
     public void LoadCritShop()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             try
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("CritShop Quick load");
                 LoadCritShopdata(Shopdata);
                 file.Close();
             }
@@ -242,22 +326,65 @@ public class SaveManager : MonoBehaviour
         hpText.price=CritShopdata.MyShopCritData.HPPrice;
         hpText.HP=CritShopdata.MyShopCritData.HPText;
         dmgText.DMG=CritShopdata.MyShopCritData.DMGText;
-        critDMGText.critDMG=CritShopdata.MyShopCritData.CritDMGText;
-        critRateText.critRate=CritShopdata.MyShopCritData.CritRateText;
+        critDMGText.critDMG=float.Parse(CritShopdata.MyShopCritData.CritDMGText);
+        critRateText.critRate=float.Parse(CritShopdata.MyShopCritData.CritRateText);
         critDMGText.price=CritShopdata.MyShopCritData.DMGPrice;
         critRateText.price=CritShopdata.MyShopCritData.CritRatePrice;
     }
 
 
+    public void LoadRegenShop()
+    {
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
+        {
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat", FileMode.Open);
+                SaveData Shopdata = (SaveData)bf.Deserialize(file);
+                LoadRegenShopdata(Shopdata);
+                file.Close();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+    }
+    public void LoadRegenShopdata(SaveData RegenShopdata)
+    {
+        dmgText.price=RegenShopdata.MyShopRegenData.DMGPrice;
+        hpText.price=RegenShopdata.MyShopRegenData.HPPrice;
+        hpText.HP=RegenShopdata.MyShopRegenData.HPText;
+        dmgText.DMG=RegenShopdata.MyShopRegenData.DMGText;
+        critDMGText.critDMG=float.Parse(RegenShopdata.MyShopRegenData.CritDMGText);
+        critRateText.critRate=float.Parse(RegenShopdata.MyShopRegenData.CritRateText);
+        critDMGText.price=RegenShopdata.MyShopRegenData.DMGPrice;
+        critRateText.price=RegenShopdata.MyShopRegenData.CritRatePrice;
+        hpRegen.hpRegen=float.Parse(RegenShopdata.MyShopRegenData.HPRegenText);
+        manaRegen.manaRegen=float.Parse(RegenShopdata.MyShopRegenData.ManaRegenText);
+        hpRegen.price=RegenShopdata.MyShopRegenData.HPRegenPrice;
+        manaRegen.price=RegenShopdata.MyShopRegenData.ManaRegenPrice;
+    }
+
+
     public void CritShopLoadCheck()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             LoadCritShop();
         }
         else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat"))
         {
             LoadCritShopDefault();
+        }
+        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
+        {
+            LoadRegenShop();
+        }
+        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
+        {
+            LoadRegenShopDefault();
         }
         else if(!File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}Shop.dat"))
         {
@@ -266,9 +393,13 @@ public class SaveManager : MonoBehaviour
     }
     public void CritShopSaveCheck()
     {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             SaveCritShop();
+        }
+        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
+        {
+            SaveRegenShop();
         }
         else
         {
@@ -284,7 +415,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
             SaveData Shopdata = new SaveData();
-            Debug.Log("Quick Shop save");
             SaveShopData(Shopdata);
             bf.Serialize(file, Shopdata);
             file.Close();
@@ -298,6 +428,8 @@ public class SaveManager : MonoBehaviour
     {
         Shopdata.MyShopData=new ShopData(hpText.price, dmgText.price, float.Parse(DMGText.text), float.Parse(HPText.text));
     }
+
+
     public void SaveCritShop()
     {
         try
@@ -305,7 +437,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat");
             SaveData Shopdata = new SaveData();
-            Debug.Log("Quick Shop save");
             SaveShopCritData(Shopdata);
             bf.Serialize(file, Shopdata);
             file.Close();
@@ -317,7 +448,29 @@ public class SaveManager : MonoBehaviour
     }
     public void SaveShopCritData(SaveData Shopdata)
     {
-        Shopdata.MyShopCritData=new ShopCritData(hpText.price, dmgText.price, float.Parse(DMGText.text), float.Parse(HPText.text), float.Parse(CritRateText.text), float.Parse(CritDMGText.text), critRateText.price, critDMGText.price);
+        Shopdata.MyShopCritData=new ShopCritData(hpText.price, dmgText.price, float.Parse(DMGText.text), float.Parse(HPText.text), CritRateText.text, CritDMGText.text, critRateText.price, critDMGText.price);
+    }
+
+
+    public void SaveRegenShop()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat");
+            SaveData Shopdata = new SaveData();
+            SaveShopRegenData(Shopdata);
+            bf.Serialize(file, Shopdata);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void SaveShopRegenData(SaveData Shopdata)
+    {
+        Shopdata.MyShopRegenData=new ShopRegenData(hpText.price, dmgText.price, float.Parse(DMGText.text), float.Parse(HPText.text), CritRateText.text, CritDMGText.text, critRateText.price, critDMGText.price, HPRegenText.text, ManaRegenText.text, hpRegen.price, manaRegen.price);
     }
 
 
@@ -330,7 +483,6 @@ public class SaveManager : MonoBehaviour
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("First Quick load");
                 LoadDefaultShopdata(Shopdata);
                 file.Close();
             }
@@ -357,7 +509,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}Coin.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SavePlayerCoin(data);
             bf.Serialize(file, data);
             file.Close();
@@ -380,7 +531,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}Coin.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SavePlayerCoinShop(data);
             bf.Serialize(file, data);
             file.Close();
@@ -405,7 +555,6 @@ public class SaveManager : MonoBehaviour
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Coin.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("First Shop load");
                 LoadCoinDataShop(Shopdata);
                 file.Close();
             }
@@ -430,7 +579,6 @@ public class SaveManager : MonoBehaviour
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Coin.dat", FileMode.Open);
                 SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                Debug.Log("First Shop load");
                 LoadCoinData(Shopdata);
                 file.Close();
             }
@@ -453,7 +601,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}Shop.dat", FileMode.Open);
             SaveData Shopdata2 = (SaveData)bf.Deserialize(file);
-            Debug.Log("Shop Quick load");
             LoadShopData(Shopdata2);
             file.Close();
             
@@ -479,7 +626,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}SecretBossSkeletonKing.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
-            Debug.Log("Quick load");
             file.Close();
             LoadSkeletonKing(data);
         }
@@ -501,7 +647,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}SecretBossSkeletonKing.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SaveSkeletonKing(data);
             bf.Serialize(file, data);
             file.Close();
@@ -524,7 +669,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}SecretBossBrownSlime.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
-            Debug.Log("Quick load");
             file.Close();
             LoadBrownSlime(data);
         }
@@ -546,7 +690,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}SecretBossBrownSlime.dat");
             SaveData data = new SaveData();
-            Debug.Log("Quick save");
             SaveBrownSlime(data);
             bf.Serialize(file, data);
             file.Close();
@@ -568,7 +711,6 @@ public class SaveManager : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat");
-            Debug.Log("WorldBoss1Defeated");
             file.Close();
         }
         catch (System.Exception)
@@ -582,6 +724,29 @@ public class SaveManager : MonoBehaviour
         {
             CritRate.SetActive(true);
             CritDMG.SetActive(true);
+        }
+    }
+
+
+    public void saveWorldBoss2()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat");
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void loadWorldBoss2()
+    {
+        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
+        {
+            HPRegen.SetActive(true);
+            ManaRegen.SetActive(true);
         }
     }
 }
