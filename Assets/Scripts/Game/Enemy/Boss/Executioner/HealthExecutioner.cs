@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthExecutioner : MonoBehaviour
 {
-    public PlayerAttack playerAttack;
-    public PlayerMovement playerMovement;
+    public KnightAttack knightAttack;
+    public KnightMovement knightMovement;
     public Animator anim;
     public Rigidbody2D rb;
     public Slider hpBar;
@@ -24,8 +24,8 @@ public class HealthExecutioner : MonoBehaviour
         anim = GetComponent<Animator>();
         executionerHealth = executionerMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
-        playerMovement=player.GetComponent<PlayerMovement>();
-        playerAttack = player.GetComponent<PlayerAttack>();
+        knightMovement=player.GetComponent<KnightMovement>();
+        knightAttack = player.GetComponent<KnightAttack>();
         rb = GetComponent<Rigidbody2D>();
         hpBar.maxValue = executionerMaxHealth;
     }
@@ -39,11 +39,11 @@ public class HealthExecutioner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            playerAttack.click++;
+            knightAttack.click++;
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (timer2 >= 1 && playerAttack.click <= 1)
+            if (timer2 >= 1 && knightAttack.click <= 1)
             {
                 if (knockFromRight)
                 {
@@ -57,7 +57,7 @@ public class HealthExecutioner : MonoBehaviour
                 kbCounter -= Time.deltaTime;
                 executionerHealth -= damage;
                 timer2 = 0.5f;
-                playerAttack.spamdef = 0;
+                knightAttack.spamdef = 0;
             }
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -70,7 +70,7 @@ public class HealthExecutioner : MonoBehaviour
         timer=0;
         if (collision.gameObject.CompareTag("Hitbox") && executioneralive && timer<=1)
         {
-            TakeDamage(playerAttack.damage);
+            TakeDamage(knightAttack.damage);
         }
     }
 }

@@ -1,24 +1,37 @@
 <?php
-  $con= mysqli_connect('localhost','root','','gamedb');
-  if(mysqli_connect_errno()){
+
+// Kapcsolódás az adatbázishoz
+$con = mysqli_connect('localhost', 'root', '', 'gamedb');
+
+// Kapcsolat ellenőrzése
+if(mysqli_connect_errno()) {
     echo "Connection failed.";
     exit();
-  }
-  $username = $_POST["username"];
-  $password = $_POST["password"];
+}
 
-  $namecheckquery="SELECT username FROM users WHERE username = '".$username."';";
+// Felhasználónév és jelszó fogadása az űrlapról
+$username = $_POST["username"];
+$password = $_POST["password"];
 
-  $namecheck=mysqli_query($con,$namecheckquery) or die("Name check failed.");
+// Ellenőrzi, hogy a felhasználónév már létezik-e az adatbázisban
+$namecheckquery = "SELECT username FROM users WHERE username = '".$username."';";
+$namecheck = mysqli_query($con, $namecheckquery) or die("Name check failed.");
 
-  if(mysqli_num_rows($namecheck)>0)
-  {
+// Ha már létezik felhasználó ilyen névvel, akkor kilép
+if(mysqli_num_rows($namecheck) > 0) {
     echo "3: Name already exists";
     exit();
-  }
-  $salt="\$5\$rounds=5000\$"."steamedhams".$username."\$";
-  $hash=crypt($password, $salt);
-  $insertuserquery="INSERT INTO users (username, hash, salt) values ('".$username."','".$hash."','".$salt."');";
-  mysqli_query($con, $insertuserquery) or die("Insert player query failed");
-  echo("0");
-?>
+}
+
+// Salt létrehozása a jelszó hash-hez
+$salt = "\$5\$rounds=5000\$"."steamedhams".$username."\$";
+
+// Jelszó hash-elése
+$hash = crypt($password, $salt);
+
+// Új felhasználó beszúrása az adatbázisba
+$insertuserquery = "INSERT INTO users (username, hash, salt) VALUES ('".$username."','".$hash."','".$salt."');";
+mysqli_query($con, $insertuserquery) or die("Insert player query failed");
+
+// Sikeres művelet esetén kiírja a "0"-t
+echo("0");

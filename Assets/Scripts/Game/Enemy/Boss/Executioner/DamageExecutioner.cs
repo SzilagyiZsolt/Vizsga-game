@@ -7,9 +7,9 @@ public class DamageExecutioner : MonoBehaviour
     public HealthExecutioner executionerHealth;
     public int damage;
     public float timer;
-    public PlayerHealth playerHealth;
-    public PlayerAttack playerAttack;
-    public PlayerMovement playerMovement;
+    public KnightHealth knightHealth;
+    public KnightAttack knightAttack;
+    public KnightMovement knightMovement;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public Collider2D hitbox;
@@ -18,9 +18,9 @@ public class DamageExecutioner : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         executionerHealth = GetComponent<HealthExecutioner>();
-        playerHealth = player.GetComponent<PlayerHealth>();
-        playerAttack = player.GetComponent<PlayerAttack>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        knightHealth = player.GetComponent<KnightHealth>();
+        knightAttack = player.GetComponent<KnightAttack>();
+        knightMovement = player.GetComponent<KnightMovement>();
         anim = GetComponent<Animator>();
     }
     private void Update()
@@ -38,16 +38,16 @@ public class DamageExecutioner : MonoBehaviour
         {
             timer=0;
             anim.SetBool("Skill", true);
-            playerMovement.kbCounter = playerMovement.kbTotalTime;
+            knightMovement.kbCounter = knightMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {
-                playerMovement.knockFromRight = true;
+                knightMovement.knockFromRight = true;
             }
             if (collision.transform.position.x >= transform.position.x)
             {
-                playerMovement.knockFromRight = false;
+                knightMovement.knockFromRight = false;
             }
-            playerHealth.TakeDamage(damage);
+            knightHealth.TakeDamage(damage);
         }
     }
 }

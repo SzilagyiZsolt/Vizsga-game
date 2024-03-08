@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TutorialSlimeXP : MonoBehaviour
 {
-    public PlayerXP playerXP;
+    public KnightXP knightXP;
+    public ArcherXP archerXP;
+    public ClassLoader classLoader;
     public SlimeHealth slimeHealth;
     public SlimeDamage slimeDamage;
     public int slimeXP = 1;
@@ -13,28 +15,42 @@ public class TutorialSlimeXP : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        playerXP=player.GetComponent<PlayerXP>();
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
+        if (classLoader.isKnight)
+        {
+            knightXP = player.GetComponent<KnightXP>();
+        }
+        else
+        {
+            archerXP = player.GetComponent<ArcherXP>();
+        }
         slimeHealth = GetComponent<SlimeHealth>();
         slimeDamage = GetComponent<SlimeDamage>();
     }
 
     public void SlimeGiveXP()
     {
-        if (!slimeHealth.slimealive)
+        if (!slimeHealth.slimealive && classLoader.isKnight)
         {
-            {
-                playerXP.playerXP+=slimeXP;
-            }
+            knightXP.playerXP += slimeXP;
+        }
+        else if (!slimeHealth.slimealive && !classLoader.isKnight)
+        {
+            archerXP.playerXP += slimeXP;
         }
     }
     public void SlimeGiveGold()
     {
-        if (!slimeHealth.slimealive)
+        if (!slimeHealth.slimealive && classLoader.isKnight)
         {
-            {
-                playerXP.coinAmount+=slimeCoin;
-                playerXP.coinText.text= playerXP.coinAmount.ToString();
-            }
+            knightXP.coinAmount += slimeCoin;
+            knightXP.coinText.text = knightXP.coinAmount.ToString();
+        }
+        else if (!slimeHealth.slimealive && !classLoader.isKnight)
+        {
+            archerXP.coinAmount += slimeCoin;
+            archerXP.coinText.text = archerXP.coinAmount.ToString();
         }
     }
 }

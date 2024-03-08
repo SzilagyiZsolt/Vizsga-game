@@ -21,6 +21,7 @@ public class CountDown : MonoBehaviour
         else
         {
             door.SetActive(true);
+            this.gameObject.SetActive(false);
         }
         double b=System.Math.Round(countDown,0);
         min=Mathf.FloorToInt(countDown/60);

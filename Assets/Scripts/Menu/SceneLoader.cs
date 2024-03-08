@@ -40,7 +40,9 @@ public class LogicManager : MonoBehaviour
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Coin.dat");
-        SceneManager.LoadScene("Tutorial");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}class.dat");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat");
+        SceneManager.LoadScene("Character Selector");
     }
     public void LoadGame()
     {

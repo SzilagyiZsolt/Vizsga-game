@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class TutorialSlimeMovement : MonoBehaviour
 {
-     public SlimeHealth slimeHealth;
-     public Transform playerTransform;
+    public SlimeHealth slimeHealth;
+    public Transform playerTransform;
     public float moveSpeed;
     public bool chasing;
     public int chasingDistanceX;
@@ -30,13 +30,13 @@ public class TutorialSlimeMovement : MonoBehaviour
 
                 if (transform.position.x >playerTransform.position.x)
                 {
-                    transform.localScale = new Vector3((float)0.25, (float)0.25, 1);
+                    transform.localScale = new Vector3((float)0.25, (float)0.35, 1);
                     transform.position += Vector3.left*moveSpeed*Time.deltaTime;
                 }
 
                 if (transform.position.x < playerTransform.position.x)
                 {
-                    transform.localScale = new Vector3((float)-0.25, (float)0.25, 1);
+                    transform.localScale = new Vector3((float)-0.25, (float)0.35, 1);
                     transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 }
             }

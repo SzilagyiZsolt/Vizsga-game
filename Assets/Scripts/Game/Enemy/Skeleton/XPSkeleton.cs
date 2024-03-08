@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class XPSkeleton : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public CountDown countDown;
-    public PlayerXP playerXP;
+    public KnightXP knightXP;
+    public ArcherXP archerXP;
     public HealthSkeleton healthSkeleton;
     public DamageSkeleton damageSkeleton;
     public int skeletonXP = 1;
@@ -16,7 +18,14 @@ public class XPSkeleton : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        playerXP=player.GetComponent<PlayerXP>();
+        if (classLoader.isKnight)
+        {
+            knightXP=player.GetComponent<KnightXP>();
+        }
+        else
+        {
+            archerXP=player.GetComponent<ArcherXP>();
+        }
         healthSkeleton = GetComponent<HealthSkeleton>();
         damageSkeleton = GetComponent<DamageSkeleton>();
         GameObject count = GameObject.FindWithTag("CountDown");
@@ -26,21 +35,26 @@ public class XPSkeleton : MonoBehaviour
 
     public void SkeletonGiveXP()
     {
-        if (!healthSkeleton.skeletonalive)
+        if (!healthSkeleton.skeletonalive && classLoader.isKnight)
         {
-            {
-                playerXP.playerXP+=skeletonXP;
-            }
+            knightXP.playerXP+=skeletonXP;
+        }
+        else if (!healthSkeleton.skeletonalive && !classLoader.isKnight)
+        {
+            archerXP.playerXP+=skeletonXP;
         }
     }
     public void SkeletonGiveGold()
     {
-        if (!healthSkeleton.skeletonalive)
+        if (!healthSkeleton.skeletonalive && classLoader.isKnight)
         {
-            {
-                playerXP.coinAmount+=skeletonCoin;
-                playerXP.coinText.text= playerXP.coinAmount.ToString();
-            }
+            knightXP.coinAmount+=skeletonCoin;
+            knightXP.coinText.text= knightXP.coinAmount.ToString();
+        }
+        else if (!healthSkeleton.skeletonalive && !classLoader.isKnight)
+        {
+            archerXP.coinAmount+=skeletonCoin;
+            archerXP.coinText.text= archerXP.coinAmount.ToString();
         }
     }
     public void SkeletonLevelUp()

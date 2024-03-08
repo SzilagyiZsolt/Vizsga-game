@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [Serializable]
 public class SaveData
 {
+    public ClassData MyClassData { get; set; }
     public PlayerData MyPlayerData {  get; set; }
     public PlayerWithCritData MyPlayerWithCritData {  get; set; }
     public PlayerWithRegenData MyPlayerWithRegenData {  get; set; }
@@ -24,6 +25,17 @@ public SaveData()
     }
 
 }
+[Serializable]
+public class ClassData
+{
+    public bool MyClass { get; set; }
+    public ClassData(bool myclass)
+    {
+        this.MyClass = myclass;
+    }
+}
+
+
 [Serializable]
 public class PlayerData
 {

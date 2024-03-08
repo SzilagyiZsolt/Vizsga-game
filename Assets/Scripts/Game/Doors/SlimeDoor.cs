@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class SlimeDoor : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public Animator anim;
     public SaveManager saveManager;
-    public GameObject knight;
+    public GameObject player;
     public GameObject background;
     public GameObject brownSlime;
-    public CinemachineVirtualCamera knightCamera;
+    public CinemachineVirtualCamera camera;
     public GameObject camObj;
     public CinemachineFreeLook freeLook;
     public CinemachineComposer comp;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -30,10 +32,10 @@ public class SlimeDoor : MonoBehaviour
                 brownSlime.SetActive(true);
                 saveManager.SaveCoin();
                 background.SetActive(false);
-                CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+                CinemachineFramingTransposer composer = camera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;
-                knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
-                knight.transform.position = new Vector2(25, 0);
+                camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
+                player.transform.position = new Vector2(25, 0);
             }
         }
     }

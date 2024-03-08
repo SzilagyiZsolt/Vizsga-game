@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class XPSkeletonKing : MonoBehaviour
 {
-    public PlayerXP playerXP;
+    public KnightXP knightXP;
     public HealthSkeletonKing healthSkeletonKing;
     public DamageSkeletonKing damageSkeletonKing;
     public SaveManager saveManager;
@@ -15,7 +15,7 @@ public class XPSkeletonKing : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        playerXP=player.GetComponent<PlayerXP>();
+        knightXP=player.GetComponent<KnightXP>();
         healthSkeletonKing = GetComponent<HealthSkeletonKing>();
         damageSkeletonKing = GetComponent<DamageSkeletonKing>();
         GameObject save = GameObject.FindWithTag("SaveManager");
@@ -32,8 +32,8 @@ public class XPSkeletonKing : MonoBehaviour
     {
         if (!healthSkeletonKing.skeletonKingalive)
         {
-            playerXP.coinAmount+=skeletonKingCoin;
-            playerXP.coinText.text= playerXP.coinAmount.ToString();
+            knightXP.coinAmount+=skeletonKingCoin;
+            knightXP.coinText.text= knightXP.coinAmount.ToString();
             skeletonKingLevel++;
             saveManager.saveSkeletonKing();
         }

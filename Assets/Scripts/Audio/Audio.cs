@@ -8,11 +8,11 @@ using Unity.VisualScripting;
 
 public class Menumusic : MonoBehaviour
 {
-    [SerializeField] private AudioMixer myMixer;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Text musicText = null;
-    [HideInInspector] public AudioClip[] music;
-    [HideInInspector] public new AudioSource audio;
+    private AudioMixer myMixer;
+    private Slider musicSlider;
+    private Text musicText = null;
+    public AudioClip[] music;
+    public new AudioSource audio;
     private float timer;
     private float newMusic;
     private int random;

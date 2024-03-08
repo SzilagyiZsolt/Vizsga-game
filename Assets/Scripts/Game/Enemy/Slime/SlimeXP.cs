@@ -5,7 +5,9 @@ using UnityEngine;
 public class SlimeXP : MonoBehaviour
 {
     public CountDown countDown;
-    public PlayerXP playerXP;
+    public ClassLoader classLoader;
+    public KnightXP knightXP;
+    public ArcherXP archerXP;
     public SlimeHealth slimeHealth;
     public SlimeDamage slimeDamage;
     public int slimeXP = 1;
@@ -16,7 +18,14 @@ public class SlimeXP : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        playerXP=player.GetComponent<PlayerXP>();
+        if (classLoader.isKnight)
+        {
+            knightXP=player.GetComponent<KnightXP>();
+        }
+        else
+        {
+            archerXP=player.GetComponent<ArcherXP>();
+        }
         slimeHealth = GetComponent<SlimeHealth>();
         slimeDamage = GetComponent<SlimeDamage>();
         GameObject count = GameObject.FindWithTag("CountDown");
@@ -26,21 +35,26 @@ public class SlimeXP : MonoBehaviour
 
     public void SlimeGiveXP()
     {
-        if (!slimeHealth.slimealive)
+        if (!slimeHealth.slimealive && classLoader.isKnight)
         {
-            {
-                playerXP.playerXP+=slimeXP;
-            }
+            knightXP.playerXP+=slimeXP;
+        }
+        else if (!slimeHealth.slimealive && !classLoader.isKnight)
+        {
+            archerXP.playerXP+=slimeXP;
         }
     }
     public void SlimeGiveGold()
     {
-        if (!slimeHealth.slimealive)
+        if (!slimeHealth.slimealive && classLoader.isKnight)
         {
-            {
-                playerXP.coinAmount+=slimeCoin;
-                playerXP.coinText.text= playerXP.coinAmount.ToString();
-            }
+            knightXP.coinAmount+=slimeCoin;
+            knightXP.coinText.text= knightXP.coinAmount.ToString();
+        }
+        else if (!slimeHealth.slimealive && !classLoader.isKnight)
+        {
+            archerXP.coinAmount+=slimeCoin;
+            archerXP.coinText.text= archerXP.coinAmount.ToString();
         }
     }
     public void SlimeLevelUp()

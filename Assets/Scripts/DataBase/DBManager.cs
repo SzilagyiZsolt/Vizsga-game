@@ -4,12 +4,23 @@ using UnityEngine;
 
 public static class DBManager
 {
+    // Statikus változó a felhasználónév tárolására
     public static string username;
 
-    public static bool LoggedIn { get { return username !=null; } }
-
-    public static void LogOut() 
+    // Logika az bejelentkezés állapot ellenõrzésére
+    public static bool LoggedIn
     {
-        username = null;  
+        get
+        {
+            // Ha a felhasználónév értéke nem null, akkor a felhasználó be van jelentkezve
+            return username != null;
+        }
+    }
+
+    // Metódus a felhasználó kijelentkeztetésére
+    public static void LogOut()
+    {
+        // Felhasználónév értékének törlése
+        username = null;
     }
 }

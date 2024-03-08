@@ -7,9 +7,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
-    public PlayerXP playerXP;
-    public PlayerHealth playerHealth;
-    public PlayerAttack playerAttack;
+    public CharacterSelect characterSelect;
+    public ClassLoader classLoader;
+    public KnightXP knightXP;
+    public KnightHealth knightHealth;
+    public KnightAttack knightAttack;
     public ShopHPText hpText;
     public ShopDMGText dmgText;
     public ShopCritDMGText critDMGText;
@@ -32,6 +34,46 @@ public class SaveManager : MonoBehaviour
     public Text ManaRegenText;
     public Text coinText;
 
+    public void ClassSelected()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}class.dat");
+            SaveData data = new SaveData();
+            Classselected(data);
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void Classselected(SaveData data)
+    {
+        data.MyClassData=new ClassData(characterSelect.knightSelected);
+    }
+    public void ClassLoad()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}class.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            ClassLoadData(data);
+            file.Close();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    public void ClassLoadData(SaveData data)
+    {
+        classLoader.isKnight = data.MyClassData.MyClass;
+    }
+
 
     public void TutorialSave()
     {
@@ -51,7 +93,7 @@ public class SaveManager : MonoBehaviour
     }
     public void TutorialSavePlayerData(SaveData data)
     {
-        data.MyPlayerData=new PlayerData(playerXP.coinAmount, playerXP.playerHealth.maxHealth, playerXP.playerAttack.damage);
+        data.MyPlayerData=new PlayerData(knightXP.coinAmount, knightXP.knightHealth.maxHealth, knightXP.knightAttack.damage);
     }
 
 
@@ -73,7 +115,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerStatsData(SaveData data)
     {
-        data.MyPlayerCoin=new PlayerCoin(playerXP.coinAmount);
+        data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
     }
 
 
@@ -109,9 +151,9 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayerData(SaveData data)
     {
-        playerXP.coinAmount=data.MyPlayerData.MyCoin;
-        playerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
-        playerAttack.damage=data.MyPlayerData.MyDamage;
+        knightXP.coinAmount=data.MyPlayerData.MyCoin;
+        knightHealth.maxHealth=data.MyPlayerData.MyMaxHP;
+        knightAttack.damage=data.MyPlayerData.MyDamage;
     }
 
 
@@ -132,11 +174,11 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayerWithCritData(SaveData data)
     {
-        playerXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
-        playerHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
-        playerAttack.damage=data.MyPlayerWithCritData.MyDamage;
-        playerAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
-        playerAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
+        knightXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
+        knightHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
+        knightAttack.damage=data.MyPlayerWithCritData.MyDamage;
+        knightAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+        knightAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
     }
 
 
@@ -157,13 +199,13 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayerWithRegenData(SaveData data)
     {
-        playerXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
-        playerHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
-        playerAttack.damage=data.MyPlayerWithCritData.MyDamage;
-        playerAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
-        playerAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
-        playerHealth.manaRegen=float.Parse(data.MyPlayerWithRegenData.MyManaRegen);
-        playerHealth.hpRegen=float.Parse(data.MyPlayerWithRegenData.MyHPRegen);
+        knightXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
+        knightHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
+        knightAttack.damage=data.MyPlayerWithCritData.MyDamage;
+        knightAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+        knightAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
+        knightHealth.manaRegen=float.Parse(data.MyPlayerWithRegenData.MyManaRegen);
+        knightHealth.hpRegen=float.Parse(data.MyPlayerWithRegenData.MyHPRegen);
     }
 
 
@@ -520,7 +562,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerCoin(SaveData data)
     {
-        data.MyPlayerCoin=new PlayerCoin(playerXP.coinAmount);
+        data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
     }
 
 
@@ -590,7 +632,7 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadCoinData(SaveData Shopdata)
     {
-        playerXP.coinAmount=Shopdata.MyPlayerCoin.MyCoin;
+        knightXP.coinAmount=Shopdata.MyPlayerCoin.MyCoin;
     }
 
 

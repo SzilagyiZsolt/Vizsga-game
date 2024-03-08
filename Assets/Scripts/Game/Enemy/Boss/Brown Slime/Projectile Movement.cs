@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public PlayerHealth playerHealth;
+    public KnightHealth knightHealth;
     public MovementBrownSlime brownSlimeMovement;
     public int damage;
     public float speed;
@@ -14,7 +14,7 @@ public class ProjectileMovement : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         GameObject brownSlime = GameObject.FindWithTag("BrownSlime");
         rb=GetComponent<Rigidbody2D>();
-        playerHealth=player.GetComponent<PlayerHealth>();
+        knightHealth=player.GetComponent<KnightHealth>();
         brownSlimeMovement=brownSlime.GetComponent<MovementBrownSlime>();
         if (!brownSlimeMovement.rightLook)
         {
@@ -29,7 +29,7 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(damage);
+            knightHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

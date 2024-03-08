@@ -7,24 +7,28 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
-    public PlayerMovement playerMovement;
+    public KnightHealth knightHealth;
+    public ArcherHealth archerHealth;
+    public KnightMovement knightMovement;
+    public ArcherMovement archerMovement;
     public bool disable =false;
-    public bool inventoryOpen=false;
     public Animator anim;
     public SaveManager saveManager;
     public GameObject settings;
     public GameObject pause;
     public GameObject deadpanel;
-    public GameObject inventory;
+    private void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        anim = player.GetComponent<Animator>();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !disable && !inventoryOpen && playerMovement.alive)
+        if (Input.GetKeyDown(KeyCode.Escape) && !disable && knightMovement.alive || Input.GetKeyDown(KeyCode.Escape) && !disable && archerMovement.alive)
         {
             disable = true;
             PauseGame();
         }
-        Inventory();
     }
     
     public void Exit()
@@ -66,23 +70,6 @@ public class Pause : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         deadpanel.SetActive(false);
         Time.timeScale = 1f;
-    }
-    public void Inventory()
-    {
-        if(Input.GetKeyDown(KeyCode.I)&&!inventoryOpen && !disable) 
-        {
-            inventoryOpen = true;
-            inventory.gameObject.SetActive(true);
-            Time.timeScale = 0f;
-            anim.SetBool("Pause", true);
-        }
-        else if(Input.GetKeyDown(KeyCode.I) && inventoryOpen && !disable)
-        {
-            inventoryOpen = false;
-            inventory.gameObject.SetActive(false);
-            Time.timeScale = 1f;
-            anim.SetBool("Pause", false);
-        }
     }
     public void LevelSelector()
     {

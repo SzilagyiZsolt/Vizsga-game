@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class XPBrownSlime : MonoBehaviour
 {
-    public PlayerXP playerXP;
+    public KnightXP knightXP;
     public HealthBrownSlime brownSlimeHealth;
     public DamageBrownSlime brownSlimeDamage;
     public SaveManager saveManager;
@@ -15,7 +15,7 @@ public class XPBrownSlime : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        playerXP=player.GetComponent<PlayerXP>();
+        knightXP=player.GetComponent<KnightXP>();
         brownSlimeHealth = GetComponent<HealthBrownSlime>();
         brownSlimeDamage = GetComponent<DamageBrownSlime>();
         GameObject save = GameObject.FindWithTag("SaveManager");
@@ -32,8 +32,8 @@ public class XPBrownSlime : MonoBehaviour
     {
         if (!brownSlimeHealth.brownSlimealive)
         {
-            playerXP.coinAmount+=brownSlimeCoin;
-            playerXP.coinText.text= playerXP.coinAmount.ToString();
+            knightXP.coinAmount+=brownSlimeCoin;
+            knightXP.coinText.text= knightXP.coinAmount.ToString();
             brownSlimeLevel++;
             saveManager.saveBrownSlime();
         }

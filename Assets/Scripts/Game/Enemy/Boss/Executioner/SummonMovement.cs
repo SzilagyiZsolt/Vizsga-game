@@ -7,7 +7,7 @@ public class SummonMovement : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
     public Transform Player;
-    public PlayerHealth playerHealth;
+    public KnightHealth knightHealth;
     public Vector3 direction;
     public int damage;
     public float timer;
@@ -19,7 +19,7 @@ public class SummonMovement : MonoBehaviour
         Player = player.GetComponent<Transform>();
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody2D>();
-        playerHealth=player.GetComponent<PlayerHealth>();
+        knightHealth=player.GetComponent<KnightHealth>();
     }
     private void Update()
     {
@@ -53,7 +53,7 @@ public class SummonMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(damage);
+            knightHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if(collision.gameObject.CompareTag("Trigger"))

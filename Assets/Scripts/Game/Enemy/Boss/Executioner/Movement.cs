@@ -8,9 +8,9 @@ public class Movement : MonoBehaviour
     public Animator anim;
     public HealthExecutioner healthExecutioner;
     public Transform playerTransform;
-    public PlayerHealth playerHealth;
+    public KnightHealth knightHealth;
     public DamageExecutioner damageExecutioner;
-    public PlayerMovement playerMovement;
+    public KnightMovement knightMovement;
     public GameObject player;
     public float moveSpeed;
     public bool chasing;
@@ -22,10 +22,10 @@ public class Movement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         GameObject Player = GameObject.FindWithTag("Player");
-        playerHealth=Player.GetComponent<PlayerHealth>();
+        knightHealth=Player.GetComponent<KnightHealth>();
         healthExecutioner = GetComponent<HealthExecutioner>();
         damageExecutioner = GetComponent<DamageExecutioner>();
-        playerMovement = Player.GetComponent<PlayerMovement>();
+        knightMovement = Player.GetComponent<KnightMovement>();
         playerTransform = Player.GetComponent<Transform>();
     }
     private void Update()
@@ -38,15 +38,15 @@ public class Movement : MonoBehaviour
                     timer+=Time.deltaTime;
                     if (timer > 0.35)
                     {
-                        playerHealth.TakeDamage(damageExecutioner.damage);
-                        playerMovement.kbCounter = playerMovement.kbTotalTime;
+                        knightHealth.TakeDamage(damageExecutioner.damage);
+                        knightMovement.kbCounter = knightMovement.kbTotalTime;
                         if (player.transform.position.x <= transform.position.x)
                         {
-                            playerMovement.knockFromRight = true;
+                            knightMovement.knockFromRight = true;
                         }
                         if (player.transform.position.x >= transform.position.x)
                         {
-                            playerMovement.knockFromRight = false;
+                            knightMovement.knockFromRight = false;
                         }
                         timer=0;
                     }

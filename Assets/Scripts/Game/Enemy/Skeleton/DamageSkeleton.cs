@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class DamageSkeleton : MonoBehaviour
 {
-    [HideInInspector] public PlayerHealth playerHealth;
-    [HideInInspector] public PlayerMovement playerMovement;
-    [HideInInspector] public HealthSkeleton skeletonHealth;
+    public ClassLoader classLoader;
+    public KnightHealth knightHealth;
+    public ArcherHealth archerHealth;
+    public KnightMovement knightMovement;
+    public ArcherMovement archerMovement;
+    public HealthSkeleton skeletonHealth;
     public int damage;
     public float timer;
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
         skeletonHealth = GetComponent<HealthSkeleton>();
-        playerHealth = player.GetComponent<PlayerHealth>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        if (classLoader.isKnight)
+        {
+            knightHealth = player.GetComponent<KnightHealth>();
+            knightMovement = player.GetComponent<KnightMovement>();
+        }
+        else
+        {
+            archerHealth = player.GetComponent<ArcherHealth>();
+            archerMovement = player.GetComponent<ArcherMovement>();
+        }
+        
     }
     private void Update()
     {
@@ -23,19 +35,33 @@ public class DamageSkeleton : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && skeletonHealth.skeletonalive && timer>=0.5)
+        if (collision.gameObject.CompareTag("Player") && skeletonHealth.skeletonalive && timer>=0.5 && classLoader.isKnight)
         {
             timer=0;
-            playerMovement.kbCounter = playerMovement.kbTotalTime;
+            knightMovement.kbCounter = knightMovement.kbTotalTime;
             if (collision.transform.position.x <= transform.position.x)
             {
-                playerMovement.knockFromRight = true;
+                knightMovement.knockFromRight = true;
             }
             if (collision.transform.position.x >= transform.position.x)
             {
-                playerMovement.knockFromRight = false;
+                knightMovement.knockFromRight = false;
             }
-            playerHealth.TakeDamage(damage);
+            knightHealth.TakeDamage(damage);
+        }
+        else if (collision.gameObject.CompareTag("Player") && skeletonHealth.skeletonalive && timer>=0.5 && !classLoader.isKnight)
+        {
+            timer=0;
+            archerMovement.kbCounter = archerMovement.kbTotalTime;
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                archerMovement.knockFromRight = true;
+            }
+            if (collision.transform.position.x >= transform.position.x)
+            {
+                archerMovement.knockFromRight = false;
+            }
+            archerHealth.TakeDamage(damage);
         }
     }
 }

@@ -38,6 +38,8 @@ TagManager:
   - SlimeCV
   - SkeletonDMGText
   - SkeletonCV
+  - Anim
+  - Arrow
   layers:
   - Default
   - TransparentFX
