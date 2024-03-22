@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 public class ShopCritRateText : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public int price;
     public float critRate;
     public int coin;
@@ -13,8 +14,18 @@ public class ShopCritRateText : MonoBehaviour
     public Text coinText;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader=logic.GetComponent<ClassLoader>();
         priceText.text=price.ToString();
         CritRateText.text=critRate.ToString();
+        if (classLoader.isKnight)
+        {
+            critRate=5;
+        }
+        else
+        {
+            critRate=10;
+        }
     }
     private void Update()
     {

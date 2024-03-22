@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public KnightHealth knightHealth;
     public ArcherHealth archerHealth;
     public KnightMovement knightMovement;
@@ -19,12 +20,19 @@ public class Pause : MonoBehaviour
     public GameObject deadpanel;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         anim = player.GetComponent<Animator>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !disable && knightMovement.alive || Input.GetKeyDown(KeyCode.Escape) && !disable && archerMovement.alive)
+        if (Input.GetKeyDown(KeyCode.Escape) && !disable && knightMovement.alive && classLoader.isKnight)
+        {
+            disable = true;
+            PauseGame();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && !disable && archerMovement.alive && !classLoader.isKnight)
         {
             disable = true;
             PauseGame();

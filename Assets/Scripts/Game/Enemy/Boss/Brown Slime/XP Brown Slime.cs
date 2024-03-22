@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class XPBrownSlime : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public KnightXP knightXP;
+    public ArcherXP archerXP;
     public HealthBrownSlime brownSlimeHealth;
     public DamageBrownSlime brownSlimeDamage;
     public SaveManager saveManager;
@@ -14,8 +16,17 @@ public class XPBrownSlime : MonoBehaviour
     public int counter;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
-        knightXP=player.GetComponent<KnightXP>();
+        if (classLoader.isKnight)
+        {
+            knightXP=player.GetComponent<KnightXP>();
+        }
+        else
+        {
+            archerXP=player.GetComponent<ArcherXP>();
+        }
         brownSlimeHealth = GetComponent<HealthBrownSlime>();
         brownSlimeDamage = GetComponent<DamageBrownSlime>();
         GameObject save = GameObject.FindWithTag("SaveManager");
@@ -30,10 +41,17 @@ public class XPBrownSlime : MonoBehaviour
     }
     public void BrownSlimeGiveGold()
     {
-        if (!brownSlimeHealth.brownSlimealive)
+        if (!brownSlimeHealth.brownSlimealive && classLoader.isKnight)
         {
             knightXP.coinAmount+=brownSlimeCoin;
             knightXP.coinText.text= knightXP.coinAmount.ToString();
+            brownSlimeLevel++;
+            saveManager.saveBrownSlime();
+        }
+        else if(!brownSlimeHealth.brownSlimealive && !classLoader.isKnight)
+        {
+            archerXP.coinAmount+=brownSlimeCoin;
+            archerXP.coinText.text= archerXP.coinAmount.ToString();
             brownSlimeLevel++;
             saveManager.saveBrownSlime();
         }

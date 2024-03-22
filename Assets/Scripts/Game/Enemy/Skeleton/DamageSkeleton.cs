@@ -16,6 +16,8 @@ public class DamageSkeleton : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         skeletonHealth = GetComponent<HealthSkeleton>();
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         if (classLoader.isKnight)
         {
             knightHealth = player.GetComponent<KnightHealth>();

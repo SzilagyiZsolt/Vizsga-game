@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 public class SkeletonDoor : MonoBehaviour
 {
     public Animator anim;
-    public GameObject knight;
+    public SaveManager saveManager;
+    public GameObject player;
     public GameObject background;
-    public CinemachineVirtualCamera knightCamera;
+    public CinemachineVirtualCamera camera;
     public GameObject camObj;
     public CinemachineFreeLook freeLook;
     public CinemachineComposer comp;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -26,11 +28,12 @@ public class SkeletonDoor : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.SaveCoin();
                 background.SetActive(false);
-                CinemachineFramingTransposer composer = knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+                CinemachineFramingTransposer composer = camera.GetCinemachineComponent<CinemachineFramingTransposer>();
                 composer.m_DeadZoneHeight = 0.05f;
-                knightCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
-                knight.transform.position = new Vector2(25, 0);
+                camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0f, 0.5f, 0f);
+                player.transform.position = new Vector2(25, 0);
             }
         }
     }

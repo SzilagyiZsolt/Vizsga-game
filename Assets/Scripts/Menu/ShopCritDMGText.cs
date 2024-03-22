@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 public class ShopCritDMGText : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public int price;
     public float critDMG;
     public int coin;
@@ -13,8 +14,18 @@ public class ShopCritDMGText : MonoBehaviour
     public Text coinText;
     private void Start()
     {
+        GameObject logic=GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader=logic.GetComponent<ClassLoader>();
         priceText.text=price.ToString();
         CritDMGText.text=critDMG.ToString();
+        if (classLoader.isKnight)
+        {
+            critDMG=5;
+        }
+        else
+        {
+            critDMG=10;
+        }
     }
     private void Update()
     {

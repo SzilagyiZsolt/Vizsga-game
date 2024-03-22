@@ -9,11 +9,9 @@ public class SaveData
     public ClassData MyClassData { get; set; }
     public PlayerData MyPlayerData {  get; set; }
     public PlayerWithCritData MyPlayerWithCritData {  get; set; }
-    public PlayerWithRegenData MyPlayerWithRegenData {  get; set; }
     public PlayerCoin MyPlayerCoin {  get; set; }
     public ShopData MyShopData { get; set; }
     public ShopCritData MyShopCritData { get; set; }
-    public ShopRegenData MyShopRegenData { get; set; }
     public SkeletonKingData SkeletonKingData { get; set; }
     public BrownSlimeData BrownSlimeData { get; set; }
     public WorldBoss1Data WorldBoss1Data { get; set; }
@@ -68,27 +66,7 @@ public class PlayerWithCritData
         this.MyCritDMG=critDMG;
     }
 }
-[Serializable]
-public class PlayerWithRegenData
-{
-    public float MyMaxHP { get; set; }
-    public float MyDamage { get; set; }
-    public string MyCritRate { get; set; }
-    public string MyCritDMG { get; set; }
-    public string MyHPRegen { get; set; }
-    public string MyManaRegen { get; set; }
-    public int MyCoin { get; set; }
-    public PlayerWithRegenData(int coin, float MaxHP, float Damage, string critRate, string critDMG, string hpRegen, string manaRegen)
-    {
-        this.MyCoin = coin;
-        this.MyMaxHP=MaxHP;
-        this.MyDamage=Damage;
-        this.MyCritRate=critRate;
-        this.MyCritDMG=critDMG;
-        this.MyHPRegen=hpRegen;
-        this.MyManaRegen=manaRegen;
-    }
-}
+
 [Serializable]
 public class PlayerCoin
 {
@@ -153,37 +131,6 @@ public class ShopCritData
         this.HPText=hptext;
         this.CritRateText=critratetext;
         this.CritDMGText=critdmgtext;
-    }
-}
-[Serializable]
-public class ShopRegenData
-{
-    public int HPPrice { get; set; }
-    public int DMGPrice { get; set; }
-    public int CritDMGPrice { get; set; }
-    public int CritRatePrice { get; set; }
-    public int HPRegenPrice { get; set; }
-    public int ManaRegenPrice { get; set; }
-    public float DMGText { get; set; }
-    public float HPText { get; set; }
-    public string CritRateText { get; set; }
-    public string CritDMGText { get; set; }
-    public string HPRegenText { get; set; }
-    public string ManaRegenText { get; set; }
-    public ShopRegenData(int hpprice, int dmgprice, float dmgtext, float hptext, string critratetext, string critdmgtext, int critrateprice, int critdmgprice, string hpregentext, string manaregentext, int hpregenprice, int manaregenprice)
-    {
-        this.HPPrice=hpprice;
-        this.DMGPrice=dmgprice;
-        this.CritRatePrice=critrateprice;
-        this.CritDMGPrice=critdmgprice;
-        this.DMGText=dmgtext;
-        this.HPText=hptext;
-        this.CritRateText=critratetext;
-        this.CritDMGText=critdmgtext;
-        this.HPRegenText=hpregentext;
-        this.ManaRegenText=manaregentext;
-        this.HPRegenPrice=hpregenprice;
-        this.ManaRegenPrice=manaregenprice;
     }
 }
 

@@ -35,6 +35,8 @@ public class HealthSkeleton : MonoBehaviour
         skeletonHealth = skeletonMaxHealth;
         GameObject player = GameObject.FindWithTag("Player");
         playerTransform = player.GetComponent<Transform>();
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         if (classLoader.isKnight)
         {
             knightAttack = player.GetComponent<KnightAttack>();
@@ -141,6 +143,7 @@ public class HealthSkeleton : MonoBehaviour
             showDMG.SetActive(true);
             showDMGText.text=Mathf.Round(damage).ToString();
             anim.SetBool("Hurt", true);
+            timer=0;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

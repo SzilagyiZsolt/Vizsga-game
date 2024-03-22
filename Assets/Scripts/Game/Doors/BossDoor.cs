@@ -9,6 +9,7 @@ public class BossDoor : MonoBehaviour
     public SaveManager saveManager;
     void Start()
     {
+        saveManager = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveManager>();
         anim = gameObject.GetComponent<Animator>();
     }
     private void OnTriggerStay2D(Collider2D collision)

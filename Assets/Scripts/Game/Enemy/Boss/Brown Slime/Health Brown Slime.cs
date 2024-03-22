@@ -33,6 +33,8 @@ public class HealthBrownSlime : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         brownSlimeHealth = brownSlimeMaxHealth;
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
         playerTransform = player.GetComponent<Transform>();
         if (classLoader.isKnight)
@@ -59,7 +61,10 @@ public class HealthBrownSlime : MonoBehaviour
             brownSlime.color = Color.white;
             anim.SetBool("Hurt", false);
         }
-
+        if (timer > 0.4)
+        {
+            showDMG.SetActive(false);
+        }
     }
     public void TakeDamage(float damage)
     {
@@ -139,6 +144,7 @@ public class HealthBrownSlime : MonoBehaviour
             showDMG.SetActive(true);
             showDMGText.text=Mathf.Round(damage).ToString();
             anim.SetBool("Hurt", true);
+            timer=0;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

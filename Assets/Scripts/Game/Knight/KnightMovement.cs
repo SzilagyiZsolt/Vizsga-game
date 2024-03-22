@@ -92,11 +92,11 @@ public class KnightMovement : MonoBehaviour
         {
             if (horizontal > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(0.17f, 0.17f, 1);
             }
             else if (horizontal < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-0.17f, 0.17f, 1);
             }
         }
     }

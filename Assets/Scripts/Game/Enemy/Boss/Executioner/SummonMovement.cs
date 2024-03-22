@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SummonMovement : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public Animator anim;
     public Rigidbody2D rb;
     public Transform Player;
     public KnightHealth knightHealth;
+    public ArcherHealth archerHealth;
     public Vector3 direction;
     public int damage;
     public float timer;
@@ -15,11 +17,20 @@ public class SummonMovement : MonoBehaviour
     public float speed;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
         Player = player.GetComponent<Transform>();
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody2D>();
-        knightHealth=player.GetComponent<KnightHealth>();
+        if (classLoader.isKnight)
+        {
+            knightHealth=player.GetComponent<KnightHealth>();
+        }
+        else
+        {
+            archerHealth=player.GetComponent<ArcherHealth>();
+        }
     }
     private void Update()
     {
@@ -53,7 +64,14 @@ public class SummonMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            knightHealth.TakeDamage(damage);
+            if (classLoader.isKnight)
+            {
+                knightHealth.TakeDamage(damage);
+            }
+            else
+            {
+                archerHealth.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
         else if(collision.gameObject.CompareTag("Trigger"))

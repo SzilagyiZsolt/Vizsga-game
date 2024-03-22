@@ -40,6 +40,8 @@ TagManager:
   - SkeletonCV
   - Anim
   - Arrow
+  - Projectile
+  - Lava
   layers:
   - Default
   - TransparentFX
@@ -54,7 +56,7 @@ TagManager:
   - Boss
   - Summon
   - Attack
-  - 
+  - Arrow
   - 
   - 
   - 

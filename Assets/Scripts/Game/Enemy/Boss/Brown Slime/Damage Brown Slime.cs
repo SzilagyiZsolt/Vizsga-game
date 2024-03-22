@@ -14,6 +14,8 @@ public class DamageBrownSlime : MonoBehaviour
     public ArcherMovement archerMovement;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
         brownSlimeHealth = GetComponent<HealthBrownSlime>();
         if (classLoader.isKnight)

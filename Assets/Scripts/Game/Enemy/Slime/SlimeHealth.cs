@@ -80,7 +80,7 @@ public class SlimeHealth : MonoBehaviour
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
                     knightAttack.timer -= Time.deltaTime;
-                    if (timer2>=1&&knightAttack.timer <= 0.5 && knightAttack.click <= 1)
+                    if (timer2 >= 1 && knightAttack.timer <= 0.5 && knightAttack.click <= 1)
                     {
                         showDMGText.color = Color.white;
                         random=Random.Range(1, 101);
@@ -104,13 +104,13 @@ public class SlimeHealth : MonoBehaviour
                         showDMGText.text=Mathf.Round(damage).ToString();
                         anim.SetBool("Hurt", true);
                         timer = 0;
-                        knightAttack.timer = 0.75f;
+                        knightAttack.timer = 0.55f;
                         knightAttack.spamdef = 0;
                     }
                 }
                 if (Input.GetKeyUp(KeyCode.Mouse0))
                 {
-                    knightAttack.timer = (float)0.5;
+                    knightAttack.timer = 0.5f;
                 }
             }
         }
@@ -136,11 +136,11 @@ public class SlimeHealth : MonoBehaviour
                 damage*=(1+(archerAttack.critDMG/100));
                 showDMGText.color= Color.red;
             }
-
             slimeHealth -= damage;
             showDMG.SetActive(true);
             showDMGText.text=Mathf.Round(damage).ToString();
             anim.SetBool("Hurt", true);
+            timer = 0;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

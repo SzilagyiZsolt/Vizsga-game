@@ -17,7 +17,9 @@ public class SlimeXP : MonoBehaviour
     public int minutes=10;
     private void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (classLoader.isKnight)
         {
             knightXP=player.GetComponent<KnightXP>();

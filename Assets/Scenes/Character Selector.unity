@@ -396,6 +396,9 @@ MonoBehaviour:
   knightXP: {fileID: 0}
   knightHealth: {fileID: 0}
   knightAttack: {fileID: 0}
+  archerXP: {fileID: 0}
+  archerHealth: {fileID: 0}
+  archerAttack: {fileID: 0}
   hpText: {fileID: 0}
   dmgText: {fileID: 0}
   critDMGText: {fileID: 0}
@@ -629,7 +632,7 @@ MonoBehaviour:
 
     Crit Rate: 5
 
-    Crit Damage: 50
+    Crit Damage: 10
 
 
     Skill:
@@ -737,14 +740,14 @@ RectTransform:
   m_GameObject: {fileID: 732457560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1569246187}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 110}
+  m_AnchoredPosition: {x: 0, y: 113}
   m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732457562
@@ -767,7 +770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 139a806695d18524781fc68b90c8cf28, type: 3}
+  m_Sprite: {fileID: -1383468710, guid: 426d77ee9b5894b4f9922deae3781dc7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1280,7 +1283,7 @@ MonoBehaviour:
 
     Crit Rate: 10
 
-    Crit Damage: 75
+    Crit Damage: 25
 
 
     Skill:

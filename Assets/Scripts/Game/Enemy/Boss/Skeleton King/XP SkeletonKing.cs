@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class XPSkeletonKing : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public KnightXP knightXP;
+    public ArcherXP archerXP;
     public HealthSkeletonKing healthSkeletonKing;
     public DamageSkeletonKing damageSkeletonKing;
     public SaveManager saveManager;
@@ -14,8 +16,17 @@ public class XPSkeletonKing : MonoBehaviour
     public int counter;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
-        knightXP=player.GetComponent<KnightXP>();
+        if (classLoader.isKnight)
+        {
+            knightXP=player.GetComponent<KnightXP>();
+        }
+        else
+        {
+            archerXP=player.GetComponent<ArcherXP>();
+        }
         healthSkeletonKing = GetComponent<HealthSkeletonKing>();
         damageSkeletonKing = GetComponent<DamageSkeletonKing>();
         GameObject save = GameObject.FindWithTag("SaveManager");
@@ -30,10 +41,17 @@ public class XPSkeletonKing : MonoBehaviour
     }
     public void SkeletonKingGiveGold()
     {
-        if (!healthSkeletonKing.skeletonKingalive)
+        if (!healthSkeletonKing.skeletonKingalive && classLoader.isKnight)
         {
             knightXP.coinAmount+=skeletonKingCoin;
             knightXP.coinText.text= knightXP.coinAmount.ToString();
+            skeletonKingLevel++;
+            saveManager.saveSkeletonKing();
+        }
+        else if(!healthSkeletonKing.skeletonKingalive && !classLoader.isKnight)
+        {
+            archerXP.coinAmount+=skeletonKingCoin;
+            archerXP.coinText.text= archerXP.coinAmount.ToString();
             skeletonKingLevel++;
             saveManager.saveSkeletonKing();
         }

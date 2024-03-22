@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SlimeDoor : MonoBehaviour
 {
-    public ClassLoader classLoader;
     public Animator anim;
     public SaveManager saveManager;
     public GameObject player;

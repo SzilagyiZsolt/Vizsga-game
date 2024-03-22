@@ -8,7 +8,6 @@ public class SlimeMovement : MonoBehaviour
 {
     public SlimeHealth slimeHealth;
     public Transform playerTransform;
-    public GameObject canvas;
     public float moveSpeed;
     public bool chasing;
     private void Start()

@@ -52,14 +52,6 @@ public class KnightAttack : MonoBehaviour
         {
             timer=0;
             healthExecutioner.kbCounter = healthExecutioner.kbTotalTime;
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                healthExecutioner.knockFromRight = true;
-            }
-            if (collision.transform.position.x >= transform.position.x)
-            {
-                healthExecutioner.knockFromRight = false;
-            }
         }
     }
 }

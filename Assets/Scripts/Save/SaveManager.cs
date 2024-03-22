@@ -12,26 +12,23 @@ public class SaveManager : MonoBehaviour
     public KnightXP knightXP;
     public KnightHealth knightHealth;
     public KnightAttack knightAttack;
+    public ArcherXP archerXP;
+    public ArcherHealth archerHealth;
+    public ArcherAttack archerAttack;
     public ShopHPText hpText;
     public ShopDMGText dmgText;
     public ShopCritDMGText critDMGText;
     public ShopCritRateText critRateText;
-    public ShopManaRegenText manaRegen;
-    public ShopHPRegenText hpRegen;
     public XPSkeletonKing xpSkeletonKing;
     public XPBrownSlime brownSlimeXP;
     public SlimeKingDeath SlimeKingDeath;
     public LevelButtons levelButtons;
     public GameObject CritRate;
     public GameObject CritDMG;
-    public GameObject HPRegen;
-    public GameObject ManaRegen;
     public Text DMGText;
     public Text HPText;
     public Text CritRateText;
     public Text CritDMGText;
-    public Text HPRegenText;
-    public Text ManaRegenText;
     public Text coinText;
 
     public void ClassSelected()
@@ -93,7 +90,15 @@ public class SaveManager : MonoBehaviour
     }
     public void TutorialSavePlayerData(SaveData data)
     {
-        data.MyPlayerData=new PlayerData(knightXP.coinAmount, knightXP.knightHealth.maxHealth, knightXP.knightAttack.damage);
+        if (classLoader.isKnight)
+        {
+            data.MyPlayerData=new PlayerData(knightXP.coinAmount, knightXP.knightHealth.maxHealth, knightXP.knightAttack.damage);
+        }
+        else
+        {
+            data.MyPlayerData=new PlayerData(archerXP.coinAmount, archerXP.archerHealth.maxHealth, archerXP.archerAttack.damage);
+        }
+        
     }
 
 
@@ -115,7 +120,14 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerStatsData(SaveData data)
     {
-        data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
+        if (classLoader.isKnight)
+        {
+            data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
+        }
+        else
+        {
+            data.MyPlayerCoin=new PlayerCoin(archerXP.coinAmount);
+        }
     }
 
 
@@ -124,10 +136,6 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             LoadPlayerStatsWithCrit();
-        }
-        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
-        {
-            LoadPlayerStatsWithRegen();
         }
         else 
         {
@@ -151,9 +159,18 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayerData(SaveData data)
     {
-        knightXP.coinAmount=data.MyPlayerData.MyCoin;
-        knightHealth.maxHealth=data.MyPlayerData.MyMaxHP;
-        knightAttack.damage=data.MyPlayerData.MyDamage;
+        if (classLoader.isKnight)
+        {
+            knightXP.coinAmount=data.MyPlayerData.MyCoin;
+            knightHealth.maxHealth=data.MyPlayerData.MyMaxHP;
+            knightAttack.damage=data.MyPlayerData.MyDamage;
+        }
+        else
+        {
+            archerXP.coinAmount=data.MyPlayerData.MyCoin;
+            archerHealth.maxHealth=data.MyPlayerData.MyMaxHP;
+            archerAttack.damage=data.MyPlayerData.MyDamage;
+        }
     }
 
 
@@ -174,38 +191,22 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadPlayerWithCritData(SaveData data)
     {
-        knightXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
-        knightHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
-        knightAttack.damage=data.MyPlayerWithCritData.MyDamage;
-        knightAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
-        knightAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
-    }
-
-
-    public void LoadPlayerStatsWithRegen()
-    {
-        try
+        if(classLoader.isKnight)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            LoadPlayerWithRegenData(data);
-            file.Close();
+            knightXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
+            knightHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
+            knightAttack.damage=data.MyPlayerWithCritData.MyDamage;
+            knightAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+            knightAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
         }
-        catch (System.Exception)
+        else
         {
-            throw;
+            archerXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
+            archerHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
+            archerAttack.damage=data.MyPlayerWithCritData.MyDamage;
+            archerAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
+            archerAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
         }
-    }
-    public void LoadPlayerWithRegenData(SaveData data)
-    {
-        knightXP.coinAmount=data.MyPlayerWithCritData.MyCoin;
-        knightHealth.maxHealth=data.MyPlayerWithCritData.MyMaxHP;
-        knightAttack.damage=data.MyPlayerWithCritData.MyDamage;
-        knightAttack.critRate=float.Parse(data.MyPlayerWithCritData.MyCritRate);
-        knightAttack.critDMG=float.Parse(data.MyPlayerWithCritData.MyCritDMG);
-        knightHealth.manaRegen=float.Parse(data.MyPlayerWithRegenData.MyManaRegen);
-        knightHealth.hpRegen=float.Parse(data.MyPlayerWithRegenData.MyHPRegen);
     }
 
 
@@ -214,10 +215,6 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             SavePlayerWithCrit();
-        }
-        else if(File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
-        {
-            SavePlayerWithRegen();
         }
         else if (!File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat"))
         {
@@ -265,28 +262,6 @@ public class SaveManager : MonoBehaviour
     public void SavePlayerWithCritData(SaveData data)
     {
         data.MyPlayerWithCritData=new PlayerWithCritData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text), critRateText.CritRateText.text, critDMGText.CritDMGText.text);
-    }
-
-
-    public void SavePlayerWithRegen()
-    {
-        try
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}.dat");
-            SaveData data = new SaveData();
-            SavePlayerWithRegenData(data);
-            bf.Serialize(file, data);
-            file.Close();
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
-    }
-    public void SavePlayerWithRegenData(SaveData data)
-    {
-        data.MyPlayerWithRegenData=new PlayerWithRegenData(int.Parse(hpText.coinText.text), float.Parse(hpText.MaxHPText.text), float.Parse(dmgText.DMGText.text), critRateText.CritRateText.text, critDMGText.CritDMGText.text, hpRegen.HPRegenText.text, manaRegen.ManaRegenText.text);
     }
 
 
@@ -375,41 +350,6 @@ public class SaveManager : MonoBehaviour
     }
 
 
-    public void LoadRegenShop()
-    {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
-        {
-            try
-            {
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream file = File.Open(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat", FileMode.Open);
-                SaveData Shopdata = (SaveData)bf.Deserialize(file);
-                LoadRegenShopdata(Shopdata);
-                file.Close();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-    }
-    public void LoadRegenShopdata(SaveData RegenShopdata)
-    {
-        dmgText.price=RegenShopdata.MyShopRegenData.DMGPrice;
-        hpText.price=RegenShopdata.MyShopRegenData.HPPrice;
-        hpText.HP=RegenShopdata.MyShopRegenData.HPText;
-        dmgText.DMG=RegenShopdata.MyShopRegenData.DMGText;
-        critDMGText.critDMG=float.Parse(RegenShopdata.MyShopRegenData.CritDMGText);
-        critRateText.critRate=float.Parse(RegenShopdata.MyShopRegenData.CritRateText);
-        critDMGText.price=RegenShopdata.MyShopRegenData.DMGPrice;
-        critRateText.price=RegenShopdata.MyShopRegenData.CritRatePrice;
-        hpRegen.hpRegen=float.Parse(RegenShopdata.MyShopRegenData.HPRegenText);
-        manaRegen.manaRegen=float.Parse(RegenShopdata.MyShopRegenData.ManaRegenText);
-        hpRegen.price=RegenShopdata.MyShopRegenData.HPRegenPrice;
-        manaRegen.price=RegenShopdata.MyShopRegenData.ManaRegenPrice;
-    }
-
-
     public void CritShopLoadCheck()
     {
         if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
@@ -419,10 +359,6 @@ public class SaveManager : MonoBehaviour
         else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat"))
         {
             LoadCritShopDefault();
-        }
-        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
-        {
-            LoadRegenShop();
         }
         else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat"))
         {
@@ -438,10 +374,6 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat") && !File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
         {
             SaveCritShop();
-        }
-        else if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
-        {
-            SaveRegenShop();
         }
         else
         {
@@ -494,28 +426,6 @@ public class SaveManager : MonoBehaviour
     }
 
 
-    public void SaveRegenShop()
-    {
-        try
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.OpenWrite(Application.dataPath+"/"+$"{DBManager.username}RegenShop.dat");
-            SaveData Shopdata = new SaveData();
-            SaveShopRegenData(Shopdata);
-            bf.Serialize(file, Shopdata);
-            file.Close();
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
-    }
-    public void SaveShopRegenData(SaveData Shopdata)
-    {
-        Shopdata.MyShopRegenData=new ShopRegenData(hpText.price, dmgText.price, float.Parse(DMGText.text), float.Parse(HPText.text), CritRateText.text, CritDMGText.text, critRateText.price, critDMGText.price, HPRegenText.text, ManaRegenText.text, hpRegen.price, manaRegen.price);
-    }
-
-
     public void LoadDefaultShop()
     {
         if (!File.Exists(Application.dataPath+"/"+$"{DBManager.username}Shop.dat"))
@@ -562,7 +472,15 @@ public class SaveManager : MonoBehaviour
     }
     public void SavePlayerCoin(SaveData data)
     {
-        data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
+        if (classLoader.isKnight)
+        {
+            data.MyPlayerCoin=new PlayerCoin(knightXP.coinAmount);
+        }
+        else
+        {
+            data.MyPlayerCoin=new PlayerCoin(archerXP.coinAmount);
+        }
+        
     }
 
 
@@ -781,14 +699,6 @@ public class SaveManager : MonoBehaviour
         catch (System.Exception)
         {
             throw;
-        }
-    }
-    public void loadWorldBoss2()
-    {
-        if (File.Exists(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat"))
-        {
-            HPRegen.SetActive(true);
-            ManaRegen.SetActive(true);
         }
     }
 }

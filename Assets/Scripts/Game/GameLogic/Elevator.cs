@@ -14,6 +14,8 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (classLoader.isKnight)
         {

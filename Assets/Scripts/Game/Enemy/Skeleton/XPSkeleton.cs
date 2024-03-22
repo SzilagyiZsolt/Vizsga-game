@@ -17,6 +17,8 @@ public class XPSkeleton : MonoBehaviour
     public int minutes = 5;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         GameObject player = GameObject.FindWithTag("Player");
         if (classLoader.isKnight)
         {

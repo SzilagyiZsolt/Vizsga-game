@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public ClassLoader classLoader;
     public Animator anim;
     public HealthExecutioner healthExecutioner;
     public Transform playerTransform;
     public KnightHealth knightHealth;
+    public ArcherHealth archerHealth;
     public DamageExecutioner damageExecutioner;
     public KnightMovement knightMovement;
+    public ArcherMovement archerMovement;
     public GameObject player;
     public float moveSpeed;
     public bool chasing;
@@ -20,12 +23,22 @@ public class Movement : MonoBehaviour
     public float timer;
     private void Start()
     {
+        GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
+        classLoader = logic.GetComponent<ClassLoader>();
         anim = GetComponent<Animator>();
         GameObject Player = GameObject.FindWithTag("Player");
-        knightHealth=Player.GetComponent<KnightHealth>();
+        if (classLoader.isKnight)
+        {
+            knightHealth=Player.GetComponent<KnightHealth>();
+            knightMovement = Player.GetComponent<KnightMovement>();
+        }
+        else
+        {
+            archerHealth = Player.GetComponent<ArcherHealth>();
+            archerMovement = Player.GetComponent<ArcherMovement>();
+        }
         healthExecutioner = GetComponent<HealthExecutioner>();
         damageExecutioner = GetComponent<DamageExecutioner>();
-        knightMovement = Player.GetComponent<KnightMovement>();
         playerTransform = Player.GetComponent<Transform>();
     }
     private void Update()
@@ -38,17 +51,34 @@ public class Movement : MonoBehaviour
                     timer+=Time.deltaTime;
                     if (timer > 0.35)
                     {
-                        knightHealth.TakeDamage(damageExecutioner.damage);
-                        knightMovement.kbCounter = knightMovement.kbTotalTime;
-                        if (player.transform.position.x <= transform.position.x)
+                        if (classLoader.isKnight)
                         {
-                            knightMovement.knockFromRight = true;
+                            knightHealth.TakeDamage(damageExecutioner.damage);
+                            knightMovement.kbCounter = knightMovement.kbTotalTime;
+                            if (player.transform.position.x <= transform.position.x)
+                            {
+                                knightMovement.knockFromRight = true;
+                            }
+                            if (player.transform.position.x >= transform.position.x)
+                            {
+                                knightMovement.knockFromRight = false;
+                            }
+                            timer=0;
                         }
-                        if (player.transform.position.x >= transform.position.x)
+                        else
                         {
-                            knightMovement.knockFromRight = false;
+                            archerHealth.TakeDamage(damageExecutioner.damage);
+                            archerMovement.kbCounter = archerMovement.kbTotalTime;
+                            if (player.transform.position.x <= transform.position.x)
+                            {
+                                archerMovement.knockFromRight = true;
+                            }
+                            if (player.transform.position.x >= transform.position.x)
+                            {
+                                archerMovement.knockFromRight = false;
+                            }
+                            timer=0;
                         }
-                        timer=0;
                     }
                     if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)
                     {
@@ -72,13 +102,13 @@ public class Movement : MonoBehaviour
 
                     if (transform.position.x > playerTransform.position.x)
                     {
-                        transform.localScale = new Vector3(-1, 1, 1);
+                        transform.localScale = new Vector3(-1.3f, 1.3f, 1);
                         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                     }
 
                     if (transform.position.x < playerTransform.position.x)
                     {
-                        transform.localScale = new Vector3(1, 1, 1);
+                        transform.localScale = new Vector3(1.3f, 1.3f, 1);
                         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                     }
                 }

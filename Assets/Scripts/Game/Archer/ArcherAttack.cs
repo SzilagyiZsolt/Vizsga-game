@@ -13,7 +13,6 @@ public class ArcherAttack : MonoBehaviour
     public ArcherHealth archerHealth;
     public ArcherMovement archerMovement;
     public HealthExecutioner healthExecutioner;
-    public Movement movementExecutioner;
     public ArrowSpawner arrowSpawner;
 
     private void Start()
@@ -55,14 +54,6 @@ public class ArcherAttack : MonoBehaviour
         {
             timer=0;
             healthExecutioner.kbCounter = healthExecutioner.kbTotalTime;
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                healthExecutioner.knockFromRight = true;
-            }
-            if (collision.transform.position.x >= transform.position.x)
-            {
-                healthExecutioner.knockFromRight = false;
-            }
         }
     }
 }
