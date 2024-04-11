@@ -22,9 +22,9 @@ public class SlimeKingDeath : MonoBehaviour
         {
             anim.SetBool("Death", true);
             slimeKingAlive = false;
-            saveManager.saveWorldBoss1();
             if (timer>177)
             {
+                saveManager.saveWorldBoss1();
                 text.SetActive(true);
             }
             if (timer>180)

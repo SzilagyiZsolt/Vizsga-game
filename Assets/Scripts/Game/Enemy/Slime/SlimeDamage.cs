@@ -5,19 +5,24 @@ using UnityEngine;
 public class SlimeDamage : MonoBehaviour
 {
     public ClassLoader classLoader;
-    public SlimeHealth slimeHealth;
     public KnightHealth knightHealth;
     public ArcherHealth archerHealth;
     public KnightMovement knightMovement;
     public ArcherMovement archerMovement;
+    public GameObject player;
+    public SlimeHealth slimeHealth;
     public int damage;
     public float timer;
-    private void Start()
+    void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        slimeHealth = GetComponent<SlimeHealth>();
+    }
+    private void Update()
+    {
+        player = GameObject.FindWithTag("Player");
         GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
         classLoader = logic.GetComponent<ClassLoader>();
-        slimeHealth = GetComponent<SlimeHealth>();
+        Debug.Log(classLoader.isKnight);
         if (classLoader.isKnight)
         {
             knightHealth = player.GetComponent<KnightHealth>();
@@ -28,10 +33,6 @@ public class SlimeDamage : MonoBehaviour
             archerHealth = player.GetComponent<ArcherHealth>();
             archerMovement = player.GetComponent<ArcherMovement>();
         }
-        
-    }
-    private void Update()
-    {
         timer+=Time.deltaTime;
     }
 

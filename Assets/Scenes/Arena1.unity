@@ -1407,7 +1407,7 @@ Transform:
   m_GameObject: {fileID: 422544614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.046, y: -0.42, z: 0}
+  m_LocalPosition: {x: -23.046, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26577,7 +26577,7 @@ Transform:
   m_GameObject: {fileID: 1429867362}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.04, y: -0.41, z: 0}
+  m_LocalPosition: {x: 16.04, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26897,22 +26897,16 @@ MonoBehaviour:
   dmgText: {fileID: 0}
   critDMGText: {fileID: 0}
   critRateText: {fileID: 0}
-  manaRegen: {fileID: 0}
-  hpRegen: {fileID: 0}
   xpSkeletonKing: {fileID: 0}
   brownSlimeXP: {fileID: 1349480576}
   SlimeKingDeath: {fileID: 0}
   levelButtons: {fileID: 0}
   CritRate: {fileID: 0}
   CritDMG: {fileID: 0}
-  HPRegen: {fileID: 0}
-  ManaRegen: {fileID: 0}
   DMGText: {fileID: 0}
   HPText: {fileID: 0}
   CritRateText: {fileID: 0}
   CritDMGText: {fileID: 0}
-  HPRegenText: {fileID: 0}
-  ManaRegenText: {fileID: 0}
   coinText: {fileID: 0}
 --- !u!4 &1616598201
 Transform:

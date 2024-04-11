@@ -13,6 +13,7 @@ public class ClassLoader : MonoBehaviour
     void Start()
     {
         saveManager.ClassLoad();
+        Debug.Log(isKnight);
         if (isKnight)
         {
             virtualCamera.Follow=knight.transform;

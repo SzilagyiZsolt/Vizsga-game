@@ -345,7 +345,7 @@ public class SaveManager : MonoBehaviour
         dmgText.DMG=CritShopdata.MyShopCritData.DMGText;
         critDMGText.critDMG=float.Parse(CritShopdata.MyShopCritData.CritDMGText);
         critRateText.critRate=float.Parse(CritShopdata.MyShopCritData.CritRateText);
-        critDMGText.price=CritShopdata.MyShopCritData.DMGPrice;
+        critDMGText.price=CritShopdata.MyShopCritData.CritDMGPrice;
         critRateText.price=CritShopdata.MyShopCritData.CritRatePrice;
     }
 
