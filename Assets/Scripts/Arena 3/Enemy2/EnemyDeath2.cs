@@ -10,6 +10,7 @@ public class EnemyDeath2 : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
     public SpriteRenderer expSprite;
+    public GameObject canvas;
     public float timer;
     private void Start()
     {
@@ -26,6 +27,7 @@ public class EnemyDeath2 : MonoBehaviour
         {
             Destroy(boxCollider);
             timer += Time.deltaTime;
+            Destroy(canvas);
             anim.SetBool("Death", true);
             if (timer > 2)
             {

@@ -42,6 +42,21 @@ TagManager:
   - Arrow
   - Projectile
   - Lava
+  - Crosshair
+  - Enemy1
+  - Enemy2
+  - BlueCrystal
+  - Sprite
+  - BulletSpawner
+  - Bullet
+  - EnemyCanvas1
+  - EnemyCanvas2
+  - EnemyCanvas3
+  - EnemyCanvas4
+  - Enemy3
+  - Enemy4
+  - FireBall
+  - Boss1
   layers:
   - Default
   - TransparentFX
@@ -78,7 +93,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Platform
-    uniqueID: 3131986405
     locked: 0

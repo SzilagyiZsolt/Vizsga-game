@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     public Vector3 direction;
     public int speed;
-    public float timer;
     void Start()
     {
         GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
@@ -19,19 +18,9 @@ public class Bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer > 8)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy1") || collision.gameObject.CompareTag("Enemy2") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy3"))
+        if (collision.gameObject.CompareTag("Enemy1") || collision.gameObject.CompareTag("Enemy2") || collision.gameObject.CompareTag("Boss1") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy3") || collision.gameObject.CompareTag("Enemy4"))
         {
             Destroy(gameObject);
         }

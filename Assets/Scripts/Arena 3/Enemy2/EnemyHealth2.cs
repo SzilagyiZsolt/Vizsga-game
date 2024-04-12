@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth2 : MonoBehaviour
 {
     public PlayerStats playerStats;
     public Animator anim;
+    public Slider hpbar;
     public float health;
     public bool alive = true;
     private float timer;
@@ -15,9 +17,12 @@ public class EnemyHealth2 : MonoBehaviour
         anim = GetComponent<Animator>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
+        hpbar = GetComponentInChildren<Slider>();
+        hpbar.maxValue = health;
     }
     void Update()
     {
+        hpbar.value = health;
         if (health <= 0)
         {
             alive = false;

@@ -8,18 +8,14 @@ using UnityEngine.SceneManagement;
 public class GamePause : MonoBehaviour
 {
     public bool disable = false;
-    public Animator anim;
+    public PlayerHealt playerHealt;
     public GameObject settings;
     public GameObject pause;
     public GameObject deadpanel;
-    private void Start()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        anim = player.GetComponent<Animator>();
-    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && playerHealt.alive)
         {
             disable = true;
             Cursor.visible = true;
@@ -40,20 +36,17 @@ public class GamePause : MonoBehaviour
     public void Continue()
     {
         pause.SetActive(false);
-        Time.timeScale = 1f;
-        anim.SetBool("Pause", false);
         disable = false;
         Cursor.visible = false;
+        Time.timeScale = 1f;
     }
     public void PauseGame()
     {
         pause.SetActive(true);
         Time.timeScale = 0f;
-        anim.SetBool("Pause", true);
     }
     public void Back()
     {
-        disable = false;
         settings.gameObject.SetActive(false);
         pause.SetActive(true);
     }

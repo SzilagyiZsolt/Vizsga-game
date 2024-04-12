@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
+    public PlayerHealt playerHealth;
     public Animator anim;
     public GameObject deadpanel;
     public BoxCollider2D boxCollider;
     public float timer;
     private void Start()
     {
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<PlayerHealt>();
         anim = GetComponentInChildren<Animator>();
         boxCollider = GetComponentInChildren<BoxCollider2D>();
     }

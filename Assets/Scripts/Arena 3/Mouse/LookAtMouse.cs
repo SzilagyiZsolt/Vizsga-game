@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtMouse : MonoBehaviour
+public class LookatMouse : MonoBehaviour
 {
     public Transform m_Transform;
     public Transform crosshair;
