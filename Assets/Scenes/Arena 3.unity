@@ -667,37 +667,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206419462}
   m_CullTransparentMesh: 1
---- !u!1 &236112924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 236112925}
-  m_Layer: 10
-  m_Name: LaserSpawnerLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &236112925
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236112924}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 0, z: -0.06286077}
-  m_LocalScale: {x: 10, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2032025800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257403747
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,37 +837,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9110722090770703561, guid: 93ba8596c8ecaa3448ea3029dee59faf, type: 3}
   m_PrefabInstance: {fileID: 1258928061}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &319590127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 319590128}
-  m_Layer: 10
-  m_Name: LaserSpawnerDown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &319590128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319590127}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -11, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2032025800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &363372271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,37 +3353,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dad9a8724656cf45ad0524ea3dbcc1a, type: 3}
---- !u!1 &1258181730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1258181731}
-  m_Layer: 10
-  m_Name: LaserSpawnerUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1258181731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258181730}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 11, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2032025800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1258928061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5187,37 +5094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876917401}
   m_CullTransparentMesh: 1
---- !u!1 &1891281179
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1891281180}
-  m_Layer: 10
-  m_Name: LaserSpawnerRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1891281180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891281179}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: -0.06286077}
-  m_LocalScale: {x: 10, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2032025800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974568799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5625,66 +5501,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021514465}
   m_CullTransparentMesh: 1
---- !u!1 &2032025799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2032025800}
-  - component: {fileID: 2032025801}
-  m_Layer: 0
-  m_Name: LaserSpawners
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2032025800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032025799}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.06286077}
-  m_LocalScale: {x: 0.10000002, y: 0.10000002, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 236112925}
-  - {fileID: 1891281180}
-  - {fileID: 1258181731}
-  - {fileID: 319590128}
-  m_Father: {fileID: 4275251671471421381}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2032025801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032025799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7c1a7467a7e1343af985e7afe31ff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laser:
-  - {fileID: 129402036757933785, guid: 2ff680f288c945942abbddeff06c6406, type: 3}
-  - {fileID: 1640585923598333828, guid: 24bf0a9fe7db1e34895fef2555dfbf84, type: 3}
-  - {fileID: 5307299365776748883, guid: adbaaac04ab9f604784800cc793a72d6, type: 3}
-  - {fileID: 3432193122975841431, guid: f69892e99b51ad1499698ca773582d98, type: 3}
-  bossMovement: {fileID: 6912892570066153084}
-  bossHealth: {fileID: 6912892570066153085}
-  laserSpawn:
-  - {fileID: 236112925}
-  - {fileID: 1891281180}
-  - {fileID: 1258181731}
-  - {fileID: 319590128}
 --- !u!1 &2040928348
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,11 +5738,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125337047}
   m_CullTransparentMesh: 1
---- !u!4 &4275251671471421381 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6691682699676525910, guid: 7cee685f56703db448429252552d2d78, type: 3}
-  m_PrefabInstance: {fileID: 4970611648206573946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4970611648206573946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5951,34 +5762,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.06
       objectReference: {fileID: 0}
-    - target: {fileID: 4985588141117703401, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
       propertyPath: fist
       value: 
       objectReference: {fileID: 4230284048646940907, guid: da9b7403bda6e0849bd0bd8f2d6b3402, type: 3}
-    - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: laser.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: laser.Array.data[0]
-      value: 
-      objectReference: {fileID: 129402036757933785, guid: 2ff680f288c945942abbddeff06c6406, type: 3}
-    - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: laser.Array.data[1]
-      value: 
-      objectReference: {fileID: 1640585923598333828, guid: 24bf0a9fe7db1e34895fef2555dfbf84, type: 3}
-    - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: laser.Array.data[2]
-      value: 
-      objectReference: {fileID: 5307299365776748883, guid: adbaaac04ab9f604784800cc793a72d6, type: 3}
-    - target: {fileID: 5304438419602616486, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      propertyPath: laser.Array.data[3]
-      value: 
-      objectReference: {fileID: 3432193122975841431, guid: f69892e99b51ad1499698ca773582d98, type: 3}
     - target: {fileID: 5779042587092227500, guid: 7cee685f56703db448429252552d2d78, type: 3}
       propertyPath: m_Name
       value: Boss2
@@ -6037,10 +5824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6691682699676525910, guid: 7cee685f56703db448429252552d2d78, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2032025800}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cee685f56703db448429252552d2d78, type: 3}
 --- !u!1001 &5024217683365615130
@@ -6133,28 +5917,6 @@ PrefabInstance:
       insertIndex: 5
       addedObject: {fileID: 64694449}
   m_SourcePrefab: {fileID: 100100000, guid: 3f35bf85516966a45b2a53e7e43f9b0d, type: 3}
---- !u!114 &6912892570066153084 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4985588141117703401, guid: 7cee685f56703db448429252552d2d78, type: 3}
-  m_PrefabInstance: {fileID: 4970611648206573946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe479abdd0f2884db24cb059c8241cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6912892570066153085 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1154980941685747665, guid: 7cee685f56703db448429252552d2d78, type: 3}
-  m_PrefabInstance: {fileID: 4970611648206573946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d8f0f318998f664282b08a75f7bf790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8144466043720853420
 PrefabInstance:
   m_ObjectHideFlags: 0
