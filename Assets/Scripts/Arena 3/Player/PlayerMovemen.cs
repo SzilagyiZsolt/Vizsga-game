@@ -6,9 +6,8 @@ using UnityEngine.UIElements;
 public class PlayerMovemen: MonoBehaviour
 {
     //Movement
-    public float moveSpeed;
     public float horizontal;
-    public float vertical;
+    public float vertical=0;
     public PlayerStats playerStats;
     public PlayerHealt playerHealth;
     public Rigidbody2D rb;
@@ -34,8 +33,25 @@ public class PlayerMovemen: MonoBehaviour
         {
             //Movement
             horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-            rb.velocity = new Vector2(horizontal * playerStats.Speed, vertical * moveSpeed);
+            if(Input.GetKey(KeyCode.W)) 
+            {
+                vertical = 1;
+            }
+            if(Input.GetKey(KeyCode.S)) 
+            {
+                vertical = -1;
+            }
+            if(Input.GetKeyUp(KeyCode.W)) 
+            {
+                vertical = 0;
+            }
+            if(Input.GetKeyUp(KeyCode.S)) 
+            {
+                vertical = 0;
+            }
+
+            //vertical = Input.GetAxisRaw("Vertical");
+            rb.velocity = new Vector2(horizontal * playerStats.Speed, vertical * playerStats.Speed);
             
             //Animation
             if (horizontal != 0 || vertical != 0)

@@ -48,7 +48,16 @@ public class PlayerHealt : MonoBehaviour
         if (collision.gameObject.CompareTag("FireBall"))
         {
             anim.SetBool("Hurt", true);
-            TakeDamage(enemyDamage.enemyDamage4);
+            TakeDamage(enemyDamage.fireBallDamage);
+        }
+        else if (collision.gameObject.CompareTag("Fist"))
+        {
+            if (timer > 0.5)
+            {
+                anim.SetBool("Hurt", true);
+                TakeDamage(enemyDamage.fistDamage);
+                timer = 0;
+            }
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -86,6 +95,24 @@ public class PlayerHealt : MonoBehaviour
             {
                 anim.SetBool("Hurt", true);
                 TakeDamage(enemyDamage.enemyDamage4);
+                timer = 0;
+            }
+        }
+        else if (collision.gameObject.CompareTag("Boss1"))
+        {
+            if (timer > 0.5)
+            {
+                anim.SetBool("Hurt", true);
+                TakeDamage(enemyDamage.bossDamage1);
+                timer = 0;
+            }
+        }
+        else if (collision.gameObject.CompareTag("Boss2"))
+        {
+            if (timer > 0.5)
+            {
+                anim.SetBool("Hurt", true);
+                TakeDamage(enemyDamage.bossDamage2);
                 timer = 0;
             }
         }

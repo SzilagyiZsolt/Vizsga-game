@@ -14,17 +14,17 @@ public class BossAttack1 : MonoBehaviour
     {
         bossMovement=GetComponent<BossMovement1>();
     }
-    private void Update()
-    {
-        if (!bossMovement.chasing)
-        {
-            timer+=Time.deltaTime;
-            if (timer > 1 && bossHealth.alive)
-            {
-                Spawn();
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if (!bossMovement.chasing)
+    //    {
+    //        timer+=Time.deltaTime;
+    //        if (timer > 1 && bossHealth.alive)
+    //        {
+    //            Spawn();
+    //        }
+    //    }
+    //}
     public void Spawn()
     {
         Instantiate(projectile, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), transform.rotation);

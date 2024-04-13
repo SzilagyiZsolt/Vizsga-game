@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy1") || collision.gameObject.CompareTag("Enemy2") || collision.gameObject.CompareTag("Boss1") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy3") || collision.gameObject.CompareTag("Enemy4"))
+        if (collision.gameObject.CompareTag("Enemy1") || collision.gameObject.CompareTag("Enemy2") || collision.gameObject.CompareTag("Boss1") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy3") || collision.gameObject.CompareTag("Enemy4") || collision.gameObject.CompareTag("Boss2"))
         {
             Destroy(gameObject);
         }

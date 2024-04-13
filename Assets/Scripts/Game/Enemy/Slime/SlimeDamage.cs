@@ -22,7 +22,6 @@ public class SlimeDamage : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         GameObject logic = GameObject.FindGameObjectWithTag("LogicManager");
         classLoader = logic.GetComponent<ClassLoader>();
-        Debug.Log(classLoader.isKnight);
         if (classLoader.isKnight)
         {
             knightHealth = player.GetComponent<KnightHealth>();

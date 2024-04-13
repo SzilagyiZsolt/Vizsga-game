@@ -30,10 +30,10 @@ public class LaserSummonUp : MonoBehaviour
         playerDirection.Normalize();
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         GameObject warning = Instantiate(warningPrefab, transform.position, Quaternion.identity);
-        float angle = Mathf.Atan2(playerDirection.y, playerDirection.x)*Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         laser.transform.rotation = rotation;
         warning.transform.rotation = rotation;
-        timerUp=0;
+        timerUp = 0;
     }
 }

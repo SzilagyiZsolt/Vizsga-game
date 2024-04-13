@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class BossMovement1 : MonoBehaviour
+public class BossMovement2 : MonoBehaviour
 {
-    public BossHealth1 bossHealth;
+    public BossHealth2 bossHealth;
     public GameObject player;
     public SpriteRenderer sprite;
     public Transform playerTransform;
-    public int chasingDistance;
-    public bool chasing;
+    public GameObject laserSpawn;
+    public bool attacking;
     public float moveSpeed;
     public float timer;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         sprite = GetComponent<SpriteRenderer>();
-        bossHealth = GetComponent<BossHealth1>();
+        bossHealth = GetComponent<BossHealth2>();
         playerTransform = player.GetComponent<Transform>();
     }
 
@@ -27,24 +27,22 @@ public class BossMovement1 : MonoBehaviour
         timer += Time.deltaTime;
         if (bossHealth.alive)
         {
-            if (Vector2.Distance(transform.position, playerTransform.position) < chasingDistance)
+            if (timer > 5)
             {
                 bossHealth.anim.SetBool("Attack", true);
-                chasing = false;
-                timer = 0;
+                attacking = true;
+                laserSpawn.SetActive(true);
+                if(timer > 10)
+                {
+                    timer = 0;
+                }
             }
             else
             {
-                if (Vector2.Distance(transform.position, playerTransform.position) > chasingDistance)
-                {
-                    
-                    if (timer > 1)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-                    }
-                    bossHealth.anim.SetBool("Attack", false);
-                    chasing = true;
-                }
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                bossHealth.anim.SetBool("Attack", false);
+                attacking = false;
+                laserSpawn.SetActive(false);
             }
 
             if (transform.position.x < player.transform.position.x)
