@@ -312,8 +312,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   spriteRenderer: {fileID: 0}
   boxCollider: {fileID: 0}
-  expSprite: {fileID: 0}
   canvas: {fileID: 3646890136054793404}
+  xp: {fileID: 5664990924163031125}
   timer: 0
 --- !u!114 &1378075513785968219
 MonoBehaviour:
@@ -468,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5244104815473939773
 Transform:
   m_ObjectHideFlags: 0

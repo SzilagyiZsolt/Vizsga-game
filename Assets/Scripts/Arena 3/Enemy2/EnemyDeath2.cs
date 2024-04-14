@@ -9,12 +9,11 @@ public class EnemyDeath2 : MonoBehaviour
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
-    public SpriteRenderer expSprite;
     public GameObject canvas;
+    public GameObject xp;
     public float timer;
     private void Start()
     {
-        expSprite = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         enemyHealth = GetComponent<EnemyHealth2>();
@@ -32,7 +31,7 @@ public class EnemyDeath2 : MonoBehaviour
             if (timer > 2)
             {
                 Destroy(spriteRenderer);
-                expSprite.sortingOrder = 2;
+                xp.SetActive(true);
             }
         }
     }

@@ -12,10 +12,11 @@ public class GamePause : MonoBehaviour
     public GameObject settings;
     public GameObject pause;
     public GameObject deadpanel;
+    public Upgrade upgrade; 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && playerHealt.alive)
+        if (Input.GetKeyDown(KeyCode.Escape) && playerHealt.alive && !upgrade.isOpen)
         {
             disable = true;
             Cursor.visible = true;

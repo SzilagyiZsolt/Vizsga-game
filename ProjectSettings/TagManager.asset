@@ -58,6 +58,10 @@ TagManager:
   - FireBall
   - Boss1
   - Boss2
+  - Laser
+  - Pistol
+  - Rifle
+  - Fist
   layers:
   - Default
   - TransparentFX

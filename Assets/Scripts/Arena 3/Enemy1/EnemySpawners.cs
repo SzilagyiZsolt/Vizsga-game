@@ -6,7 +6,9 @@ using UnityEngine;
 public class EnemySpawners : MonoBehaviour
 {
     public GameObject boss1;
+    public GameObject boss2;
     public GameObject[] enemy;
+    public GameObject count;
     public CountDownArena3 countDown;
     public float timer;
     public int randomLeft;
@@ -17,20 +19,27 @@ public class EnemySpawners : MonoBehaviour
     public int randomUpEnemy;
     public int randomRightEnemy;
     public int randomLeftEnemy;
+    public bool boss1Spawned=false;
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 10)
+        if (timer > countDown.min+1)
         {
             Left();
             Right();
             Up();
             Down();
         }
-        if(countDown.countDown < 601)
+        if(countDown.countDown < 300 && !boss1Spawned)
         {
             boss1.SetActive(true);
+            count.SetActive(false);
+            boss1Spawned= true;
+        }
+        if (countDown.countDown < 1)
+        {
+            boss2.SetActive(true);
         }
     }
 

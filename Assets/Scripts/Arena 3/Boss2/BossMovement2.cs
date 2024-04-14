@@ -14,6 +14,7 @@ public class BossMovement2 : MonoBehaviour
     public bool attacking;
     public float moveSpeed;
     public float timer;
+    public bool laserOn=false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -27,31 +28,61 @@ public class BossMovement2 : MonoBehaviour
         timer += Time.deltaTime;
         if (bossHealth.alive)
         {
-            if (timer > 5)
+            if (bossHealth.health >= 13)
             {
-                bossHealth.anim.SetBool("Attack", true);
-                attacking = true;
-                laserSpawn.SetActive(true);
-                if(timer > 10)
+                if (timer > 10)
                 {
-                    timer = 0;
+                    bossHealth.anim.SetBool("Attack", true);
+                    attacking = true;
+                    if (timer > 15)
+                    {
+                        timer = 0;
+                    }
+                }
+                else
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                    bossHealth.anim.SetBool("Attack", false);
+                    attacking = false;
                 }
             }
-            else
+            else if (bossHealth.health < 13)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-                bossHealth.anim.SetBool("Attack", false);
-                attacking = false;
-                laserSpawn.SetActive(false);
+                if (timer > 10 && !attacking)
+                {
+                    bossHealth.anim.SetBool("Attack2", true);
+                    if (timer > 11.1)
+                    {
+                        laserSpawn.SetActive(true);
+                        laserOn = true;
+                    }
+                    if (timer > 19.1)
+                    {
+                        timer = 0;
+                    }
+                }
+                else
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                    bossHealth.anim.SetBool("Attack2", false);
+                    bossHealth.anim.SetBool("Attack", false);
+                    laserSpawn.SetActive(false);
+                    laserSpawn.transform.eulerAngles = Vector3.zero;
+                    laserOn= false;
+                    attacking= false;
+                }
             }
 
-            if (transform.position.x < player.transform.position.x)
+            if (!laserOn)
             {
-                transform.localScale = new Vector3(10, 10, 0);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-10, 10, 0);
+                if (transform.position.x < player.transform.position.x)
+                {
+                    transform.localScale = new Vector3(10, 10, 0);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-10, 10, 0);
+                }
             }
         }
     }

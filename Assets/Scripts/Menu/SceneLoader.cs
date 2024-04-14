@@ -37,6 +37,7 @@ public class LogicManager : MonoBehaviour
     {
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}WorldBosses.dat");
+        File.Delete(Application.dataPath+"/"+$"{DBManager.username}WorldBosses2.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Shop.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}CritShop.dat");
         File.Delete(Application.dataPath+"/"+$"{DBManager.username}Coin.dat");

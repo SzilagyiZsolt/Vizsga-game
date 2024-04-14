@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Open : MonoBehaviour
-{
-    public BossDeath1 bossDeath;
-    public GameObject rifle;
+{   
     public GameObject pistol;
+    public GameObject rifle;
     public Animator anim;
     public float timer;
     public bool open = false;
 
-    private void Start()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
-        bossDeath = GetComponentInParent<BossDeath1>();
-    }
     private void Update()
     {
         if (open)
@@ -30,7 +23,7 @@ public class Open : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sprite") && bossDeath.timer > 2)
+        if (collision.gameObject.CompareTag("Sprite"))
         {
             anim.SetBool("Open", true);
             open = true;
@@ -41,6 +34,6 @@ public class Open : MonoBehaviour
     {
         pistol.SetActive(false);
         rifle.SetActive(true);
-        Destroy(bossDeath.gameObject);
+        Destroy(gameObject);
     }
 }

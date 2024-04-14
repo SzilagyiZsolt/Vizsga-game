@@ -19,6 +19,7 @@ public class BossDoor : MonoBehaviour
             anim.SetBool("Open", true);
             if (Input.GetKey(KeyCode.E))
             {
+                saveManager.saveWorldBoss2();
                 saveManager.SaveCoin();
                 SceneManager.LoadScene("Level Selector");
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossDeath2 : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class BossDeath2 : MonoBehaviour
     public BoxCollider2D boxCollider;
     public SpriteRenderer expSprite;
     public GameObject canvas;
+    public GameObject THEEND;
+    public GameObject laser;
+    public GameObject pause;
     public float timer;
+    
     private void Start()
     {
         expSprite = GetComponentInChildren<SpriteRenderer>();
@@ -28,9 +33,12 @@ public class BossDeath2 : MonoBehaviour
             Destroy(boxCollider);
             timer += Time.deltaTime;
             Destroy(canvas);
+            Destroy(laser);
+            Destroy(pause);
             anim.SetBool("Death", true);
             if (timer > 2)
             {
+                THEEND.SetActive(true);
                 Destroy(spriteRenderer);
                 expSprite.sortingOrder = 2;
             }

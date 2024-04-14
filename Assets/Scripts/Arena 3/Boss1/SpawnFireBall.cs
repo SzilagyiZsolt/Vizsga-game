@@ -8,6 +8,7 @@ public class SpawnFireBall : MonoBehaviour
     public BossMovement1 bossMovement;
     public BossHealth1 bossHealth;
     public GameObject fireBall;
+    public GamePause pause;
     public Transform playerTransform;
     public Vector3 playerDirection;
     public float timer;
@@ -23,7 +24,7 @@ public class SpawnFireBall : MonoBehaviour
         if (!bossMovement.chasing)
         {
             timer += Time.deltaTime;
-            if (timer > 0.2 && bossHealth.alive)
+            if (timer > 0.2 && bossHealth.alive && !pause.disable)
             {
                 FireBall();
             }

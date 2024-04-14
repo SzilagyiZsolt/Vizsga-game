@@ -23,7 +23,6 @@ public class PlayerEXP : MonoBehaviour
             EXPNeeded += 5;
             LevelText.text = playerLevel.ToString();
             lvlUP.SetActive(true);
-            Cursor.visible = true;
             Time.timeScale = 0f;
         }
     }

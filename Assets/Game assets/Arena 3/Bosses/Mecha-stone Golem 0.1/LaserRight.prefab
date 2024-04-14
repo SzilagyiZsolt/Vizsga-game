@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2169140248689043960}
   - component: {fileID: 8478954317873740961}
   - component: {fileID: 2007080480891600058}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: LaserRight
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1640585923598333828}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.16, y: 0.12, z: 0}
+  m_LocalPosition: {x: 1.16, y: -1, z: 0}
   m_LocalScale: {x: -15, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,7 +114,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.17079407, y: 0.0023731955}

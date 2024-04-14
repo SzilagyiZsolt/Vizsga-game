@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -403,22 +403,16 @@ MonoBehaviour:
   dmgText: {fileID: 0}
   critDMGText: {fileID: 0}
   critRateText: {fileID: 0}
-  manaRegen: {fileID: 0}
-  hpRegen: {fileID: 0}
   xpSkeletonKing: {fileID: 0}
   brownSlimeXP: {fileID: 0}
   SlimeKingDeath: {fileID: 0}
   levelButtons: {fileID: 0}
   CritRate: {fileID: 0}
   CritDMG: {fileID: 0}
-  HPRegen: {fileID: 0}
-  ManaRegen: {fileID: 0}
   DMGText: {fileID: 0}
   HPText: {fileID: 0}
   CritRateText: {fileID: 0}
   CritDMGText: {fileID: 0}
-  HPRegenText: {fileID: 0}
-  ManaRegenText: {fileID: 0}
   coinText: {fileID: 0}
 --- !u!4 &488549074
 Transform:

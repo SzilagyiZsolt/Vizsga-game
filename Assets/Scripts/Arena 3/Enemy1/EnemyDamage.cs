@@ -13,5 +13,6 @@ public class EnemyDamage : MonoBehaviour
     public int bossDamage2;
     public int fireBallDamage;
     public int fistDamage;
+    public int laserDamage;
 }
 

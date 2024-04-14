@@ -28,10 +28,6 @@ public class EnemyHealth3 : MonoBehaviour
             alive = false;
         }
         timer += Time.deltaTime;
-        if (timer > 0.3)
-        {
-            anim.SetBool("Hurt", false);
-        }
     }
 
     public void TakeDamage(int damage)

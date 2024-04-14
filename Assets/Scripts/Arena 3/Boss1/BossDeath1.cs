@@ -9,12 +9,12 @@ public class BossDeath1 : MonoBehaviour
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
-    public SpriteRenderer expSprite;
     public GameObject canvas;
+    public GameObject count;
+    public Transform chest;
     public float timer;
     private void Start()
     {
-        expSprite = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         bossHealth = GetComponent<BossHealth1>();
@@ -31,8 +31,9 @@ public class BossDeath1 : MonoBehaviour
             anim.SetBool("Death", true);
             if (timer > 2)
             {
-                Destroy(spriteRenderer);
-                expSprite.sortingOrder = 2;
+                count.SetActive(true);
+                chest.position = new Vector2(transform.position.x, transform.position.y);
+                Destroy(gameObject);
             }
         }
     }

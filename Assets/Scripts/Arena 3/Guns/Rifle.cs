@@ -7,6 +7,7 @@ public class Rifle : MonoBehaviour
     public PlayerStats playerStats;
     public BulletSpawner bulletSpawner;
     public GameObject crosshair;
+    public float timer;
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -17,11 +18,11 @@ public class Rifle : MonoBehaviour
 
     void Update()
     {
-        playerStats.firerate += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && playerStats.firerate > 1.5)
+        timer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.Mouse0) && timer > playerStats.firerate)
         {
             bulletSpawner.Bullet();
-            playerStats.firerate = 1;
+            timer = 0.5f;
         }
 
         if (crosshair.transform.position.x < transform.position.x)

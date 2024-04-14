@@ -21,7 +21,6 @@ public class CountDownArena3 : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        double b = System.Math.Round(countDown, 0);
         min = Mathf.FloorToInt(countDown / 60);
         float sec = Mathf.FloorToInt(countDown % 60);
         minutes.text = min.ToString();
