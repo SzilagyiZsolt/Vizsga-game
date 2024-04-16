@@ -9,8 +9,16 @@ public class KnightDeath : MonoBehaviour
     public KnightMovement knightMovement;
     public GameObject deadpanel;
     public GameObject HUD;
+    public GameObject music;
     public KnightHealth knightHealth;
+    public AudioManager audioManager;
 
+
+    private void Start()
+    {
+        music.SetActive(false);
+        audioManager.playSFX(audioManager.knightEffects[2]);
+    }
     private void Update()
     {
         if (knightHealth.health <= 0)

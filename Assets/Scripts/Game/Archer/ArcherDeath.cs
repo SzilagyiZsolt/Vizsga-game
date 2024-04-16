@@ -9,8 +9,15 @@ public class ArcherDeath : MonoBehaviour
     public ArcherMovement archerMovement;
     public GameObject deadpanel;
     public GameObject HUD;
+    public GameObject music;
     public ArcherHealth archerHealth;
+    public AudioManager audioManager;
 
+    private void Start()
+    {
+        music.SetActive(false);
+        audioManager.playSFX(audioManager.archerEffects[2]);
+    }
     private void Update()
     {
         if (archerHealth.health <= 0)

@@ -7,6 +7,7 @@ public class Pistol : MonoBehaviour
     public PlayerStats playerStats;
     public BulletSpawner bulletSpawner;
     public GameObject crosshair;
+    public AudioManager audioManager;
     public float timer;
     void Start()
     {
@@ -21,6 +22,7 @@ public class Pistol : MonoBehaviour
         timer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && timer > playerStats.firerate)
         {
+            audioManager.playSFX(audioManager.arena3Effects[0]);
             bulletSpawner.Bullet();
             timer = 0;
         }

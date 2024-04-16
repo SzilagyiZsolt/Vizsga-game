@@ -18,16 +18,16 @@ public class SlimeKingDeath : MonoBehaviour
     void Update()
     {
         timer+=Time.deltaTime;
-        if (timer > 175)
+        if (timer > 118)
         {
             anim.SetBool("Death", true);
             slimeKingAlive = false;
-            if (timer>177)
+            if (timer>120)
             {
                 saveManager.saveWorldBoss1();
                 text.SetActive(true);
             }
-            if (timer>180)
+            if (timer>123)
             {
                 SceneManager.LoadScene("Level Selector");
             }

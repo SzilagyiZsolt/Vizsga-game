@@ -31,7 +31,11 @@ public class ArcherMovement : MonoBehaviour
     public float kbCounter;
     public float kbTotalTime;
     public bool knockFromRight;
-    
+
+    //SoundEffect
+    public AudioManager audioManager;
+    public float movementTimer;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -43,10 +47,16 @@ public class ArcherMovement : MonoBehaviour
     {
         if (kbCounter <= 0)
         {
+            horizontal = Input.GetAxisRaw("Horizontal");
             if (alive && !anim.GetBool("Attack"))
             {
-                horizontal = Input.GetAxisRaw("Horizontal");
+                movementTimer += Time.deltaTime;
                 rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+                if (Input.GetKey(KeyCode.A) && movementTimer > 0.5 || Input.GetKey(KeyCode.D) && movementTimer > 0.5)
+                {
+                    audioManager.playSFX(audioManager.archerEffects[0]);
+                    movementTimer = 0;
+                }
             }
 
             

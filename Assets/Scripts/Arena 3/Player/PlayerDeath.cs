@@ -9,12 +9,13 @@ public class PlayerDeath : MonoBehaviour
     public Animator anim;
     public GameObject deadpanel;
     public BoxCollider2D boxCollider;
+    public AudioManager audioManager;
+    public GameObject music;
     public float timer;
     private void Start()
     {
-        playerHealth = GetComponent<PlayerHealt>();
-        anim = GetComponentInChildren<Animator>();
-        boxCollider = GetComponentInChildren<BoxCollider2D>();
+        music.SetActive(false);
+        audioManager.playSFX(audioManager.arena3Effects[3]);
     }
 
     void Update()
@@ -24,7 +25,7 @@ public class PlayerDeath : MonoBehaviour
             timer += Time.deltaTime;
             anim.SetBool("Death", true);
             Destroy(boxCollider);
-            if (timer > 2)
+            if (timer > 1.5)
             {
                 Cursor.visible = true;
                 deadpanel.SetActive(true);

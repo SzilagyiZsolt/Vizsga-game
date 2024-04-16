@@ -32,7 +32,7 @@ public class LaserSpawnerDown : MonoBehaviour
                 }
             }
         }
-        if (timerDown >= 5)
+        if (timerDown >= 4.5)
         {
             warningDownCount = 0;
             for (int i = 0; i < spawnPoint.Length; i++)

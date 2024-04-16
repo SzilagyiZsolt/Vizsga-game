@@ -10,6 +10,7 @@ public class KnightHealth : MonoBehaviour
     public KnightMovement knightMovement;
     public DamageExecutioner damageExecutioner;
     public GameObject skill;
+    public GameObject death;
     public SpriteRenderer skillSprite;
     public Color skillColor;
     public float timer;
@@ -29,6 +30,10 @@ public class KnightHealth : MonoBehaviour
     private void Update()
     {
         timer2 += Time.deltaTime;
+        if(health <= 0)
+        {
+            death.SetActive(true);
+        }
         if (timer2 < 1)
         {
             health=maxHealth;

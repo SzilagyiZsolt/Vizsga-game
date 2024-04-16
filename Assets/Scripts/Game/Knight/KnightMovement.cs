@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.InputSystem;
+using System.Threading;
 
 public class KnightMovement : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class KnightMovement : MonoBehaviour
     public float kbCounter;
     public float kbTotalTime;
     public bool knockFromRight;
+
+    //SoundEffect
+    public AudioManager audioManager;
+    public float movementTimer;
     
     void Start()
     {
@@ -46,7 +51,13 @@ public class KnightMovement : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal");
             if (alive)
             {
+                movementTimer += Time.deltaTime;
                 rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+                if (Input.GetKey(KeyCode.A) && movementTimer > 0.5 || Input.GetKey(KeyCode.D) && movementTimer > 0.5)
+                {
+                    audioManager.playSFX(audioManager.knightEffects[0]);
+                    movementTimer = 0;
+                }
             }
 
             //Jump

@@ -11,6 +11,7 @@ public class PlayerHealt : MonoBehaviour
     public PlayerStats playerStats;
     public Animator anim;
     public Slider hpSlider;
+    public GameObject death;
     public bool alive = true;
     public float timer;
 
@@ -30,6 +31,7 @@ public class PlayerHealt : MonoBehaviour
         timer += Time.deltaTime;
         if (playerStats.HP <= 0)
         {
+            death.SetActive(true);
             alive = false;
         }
         if (timer > 0.4)

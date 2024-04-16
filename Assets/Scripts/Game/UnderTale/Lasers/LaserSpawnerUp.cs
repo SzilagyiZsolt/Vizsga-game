@@ -31,7 +31,7 @@ public class LaserSpawnerUp : MonoBehaviour
                 }
             }
         }
-        if (timerUp >= 6)
+        if (timerUp >= 5.5)
         {
             warningUpCount=0;
             for (int i = 0; i < spawnPoint.Length; i++)

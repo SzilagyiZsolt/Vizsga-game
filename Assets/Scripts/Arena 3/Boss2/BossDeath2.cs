@@ -15,6 +15,7 @@ public class BossDeath2 : MonoBehaviour
     public GameObject THEEND;
     public GameObject laser;
     public GameObject pause;
+    public GameObject enemySpawner;
     public float timer;
     
     private void Start()
@@ -30,6 +31,7 @@ public class BossDeath2 : MonoBehaviour
     {
         if (!bossHealth.alive)
         {
+            Destroy(enemySpawner);
             Destroy(boxCollider);
             timer += Time.deltaTime;
             Destroy(canvas);

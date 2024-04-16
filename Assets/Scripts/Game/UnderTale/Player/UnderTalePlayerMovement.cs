@@ -19,8 +19,23 @@ public class UnderTalePlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            vertical = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            vertical = -1;
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            vertical = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            vertical = 0;
+        }
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
         if (underTaleHP.HP>=0)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);

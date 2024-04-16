@@ -6,6 +6,7 @@ public class KnightAttack : MonoBehaviour
 {
     public float damage;
     public float timer=1;
+    public float attackTimer;
     public float spamdef=1;
     public int click=0;
     public float critRate;
@@ -16,6 +17,7 @@ public class KnightAttack : MonoBehaviour
     public HealthExecutioner healthExecutioner;
     public Movement movementExecutioner;
     public Transform attackPoint;
+    public AudioManager audioManager;
     public float attackRange = 0.5f;
 
     private void Start()
@@ -34,12 +36,18 @@ public class KnightAttack : MonoBehaviour
         {
             click = 0;
         }
+        attackTimer += Time.deltaTime;
     }
     public void Attack()
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {   
             knightMovement.anim.SetInteger("Attack", 3);
+            if(attackTimer > 0.54)
+            {
+                audioManager.playSFX(audioManager.knightEffects[1]);
+                attackTimer = 0;
+            }
         }
         else
         {

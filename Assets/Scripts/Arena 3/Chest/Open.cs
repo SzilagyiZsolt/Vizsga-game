@@ -7,6 +7,7 @@ public class Open : MonoBehaviour
     public GameObject pistol;
     public GameObject rifle;
     public Animator anim;
+    public AudioManager audioManager;
     public float timer;
     public bool open = false;
 
@@ -25,6 +26,7 @@ public class Open : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sprite"))
         {
+            audioManager.playSFX(audioManager.arena3Effects[2]);
             anim.SetBool("Open", true);
             open = true;
         }
