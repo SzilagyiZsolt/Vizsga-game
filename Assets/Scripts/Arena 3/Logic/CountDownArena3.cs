@@ -9,6 +9,7 @@ public class CountDownArena3 : MonoBehaviour
     public float min;
     public Text minutes;
     public Text seconds;
+    public GameObject[] enemySpawners;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +21,14 @@ public class CountDownArena3 : MonoBehaviour
         else
         {
             this.gameObject.SetActive(false);
+        }
+        if(min < 2)
+        {
+            enemySpawners[0].SetActive(false);
+        }
+        if(min < 1)
+        {
+            enemySpawners[1].SetActive(false);
         }
         min = Mathf.FloorToInt(countDown / 60);
         float sec = Mathf.FloorToInt(countDown % 60);

@@ -12,9 +12,6 @@ public class SkeletonDoor : MonoBehaviour
     public GameObject player;
     public GameObject background;
     public CinemachineVirtualCamera camera;
-    public GameObject camObj;
-    public CinemachineFreeLook freeLook;
-    public CinemachineComposer comp;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

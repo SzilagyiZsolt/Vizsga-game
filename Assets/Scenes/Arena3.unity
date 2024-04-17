@@ -3777,6 +3777,9 @@ MonoBehaviour:
   min: 0
   minutes: {fileID: 176114799}
   seconds: {fileID: 1608618576}
+  enemySpawners:
+  - {fileID: 1627305047}
+  - {fileID: 1928006818}
 --- !u!1 &517376488
 GameObject:
   m_ObjectHideFlags: 3
@@ -7512,6 +7515,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608618574}
   m_CullTransparentMesh: 1
+--- !u!1 &1627305047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627305049}
+  - component: {fileID: 1627305048}
+  m_Layer: 0
+  m_Name: EnemySpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1627305048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627305047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66be728ca1ed0274cbbcb9dee20fa4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss1: {fileID: 0}
+  boss2: {fileID: 0}
+  enemy:
+  - {fileID: 6672839425847901099, guid: 1720c466e5bbd954abc8659291221028, type: 3}
+  - {fileID: 863773183007169237, guid: 60720934f8b801f4c9bdd0a36cb37ba9, type: 3}
+  - {fileID: 5237885196537623603, guid: fa88bd5a7d79cc343b15396432bd4bc4, type: 3}
+  - {fileID: 1788881560457270807, guid: 79bd4376e661c7e4dba03a393322b232, type: 3}
+  count: {fileID: 507745606}
+  countDown: {fileID: 507745608}
+  timer: 0
+  randomLeft: 0
+  randomRight: 0
+  randomUp: 0
+  randomDown: 0
+  randomDownEnemy: 0
+  randomUpEnemy: 0
+  randomRightEnemy: 0
+  randomLeftEnemy: 0
+  boss1Spawned: 0
+--- !u!4 &1627305049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627305047}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627457996
 GameObject:
   m_ObjectHideFlags: 0
@@ -8196,6 +8262,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6587576516706449005, guid: 1720c466e5bbd954abc8659291221028, type: 3}
   m_PrefabInstance: {fileID: 1923725268}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1928006818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928006820}
+  - component: {fileID: 1928006819}
+  m_Layer: 0
+  m_Name: EnemySpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1928006819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928006818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66be728ca1ed0274cbbcb9dee20fa4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss1: {fileID: 0}
+  boss2: {fileID: 0}
+  enemy:
+  - {fileID: 6672839425847901099, guid: 1720c466e5bbd954abc8659291221028, type: 3}
+  - {fileID: 863773183007169237, guid: 60720934f8b801f4c9bdd0a36cb37ba9, type: 3}
+  - {fileID: 5237885196537623603, guid: fa88bd5a7d79cc343b15396432bd4bc4, type: 3}
+  - {fileID: 1788881560457270807, guid: 79bd4376e661c7e4dba03a393322b232, type: 3}
+  count: {fileID: 507745606}
+  countDown: {fileID: 507745608}
+  timer: 0
+  randomLeft: 0
+  randomRight: 0
+  randomUp: 0
+  randomDown: 0
+  randomDownEnemy: 0
+  randomUpEnemy: 0
+  randomRightEnemy: 0
+  randomLeftEnemy: 0
+  boss1Spawned: 0
+--- !u!4 &1928006820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928006818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974568799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8969,11 +9098,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4965196377870114059, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.46
+      value: 31.01
       objectReference: {fileID: 0}
     - target: {fileID: 4965196377870114059, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.84
+      value: -11.01
       objectReference: {fileID: 0}
     - target: {fileID: 4965196377870114059, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9027,6 +9156,18 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 375556950}
+    - target: {fileID: 7103672989943421438, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
+      propertyPath: enemySpawners.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103672989943421438, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
+      propertyPath: enemySpawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 1627305047}
+    - target: {fileID: 7103672989943421438, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
+      propertyPath: enemySpawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 1928006818}
     - target: {fileID: 8828212761974591836, guid: ddf5ba161a3a0b340ad3c3e1ceceb019, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -9137,7 +9278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154980941685747665, guid: 7cee685f56703db448429252552d2d78, type: 3}
       propertyPath: health
-      value: 250
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2509953572523464661, guid: 7cee685f56703db448429252552d2d78, type: 3}
       propertyPath: m_Name
@@ -9374,6 +9515,8 @@ SceneRoots:
   - {fileID: 5024217683365615130}
   - {fileID: 1528571352}
   - {fileID: 1283158824}
+  - {fileID: 1627305049}
+  - {fileID: 1928006820}
   - {fileID: 1323279708}
   - {fileID: 1085073514}
   - {fileID: 1663869958}

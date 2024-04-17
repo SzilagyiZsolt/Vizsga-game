@@ -102,7 +102,7 @@ MonoBehaviour:
   crosshairTransform: {fileID: 0}
   rb: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
-  speed: 10
+  speed: 25
 --- !u!70 &2187945516147350489
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

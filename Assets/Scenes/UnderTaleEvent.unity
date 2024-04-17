@@ -4107,6 +4107,7 @@ MonoBehaviour:
   slimeKingAlive: 1
   saveManager: {fileID: 246362135}
   text: {fileID: 386792686}
+  playerHP: {fileID: 1191887572}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

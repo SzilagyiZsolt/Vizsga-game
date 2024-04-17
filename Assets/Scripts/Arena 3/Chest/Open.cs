@@ -6,6 +6,7 @@ public class Open : MonoBehaviour
 {   
     public GameObject pistol;
     public GameObject rifle;
+    public GameObject[] enemySpawners;
     public Animator anim;
     public AudioManager audioManager;
     public float timer;
@@ -34,6 +35,8 @@ public class Open : MonoBehaviour
 
     public void GiveRifle()
     {
+        enemySpawners[0].SetActive(true);
+        enemySpawners[1].SetActive(true);
         pistol.SetActive(false);
         rifle.SetActive(true);
         Destroy(gameObject);
