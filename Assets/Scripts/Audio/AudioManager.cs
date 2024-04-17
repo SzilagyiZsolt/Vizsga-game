@@ -86,6 +86,8 @@ public class AudioManager : MonoBehaviour
             musicSource.volume = (float)0.5;
             musicSource.PlayOneShot(music[random]);
             newMusic = music[random].length;
+            LoadMusicValues();
+            LoadEffectValues();
         }
     }
     public void playSFX(AudioClip clip)

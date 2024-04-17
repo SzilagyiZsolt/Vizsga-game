@@ -10,7 +10,7 @@ public class DamageSkeleton : MonoBehaviour
     public KnightMovement knightMovement;
     public ArcherMovement archerMovement;
     public HealthSkeleton skeletonHealth;
-    public int damage;
+    public float damage;
     public float timer;
     private void Start()
     {

@@ -773,8 +773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveManager: {fileID: 1253467613}
-  LevelText: {fileID: 1056545821}
-  coinText: {fileID: 1056545822}
+  LevelText: {fileID: 1056545822}
+  coinText: {fileID: 1056545821}
   sliderXP: {fileID: 1056545820}
   archerHealth: {fileID: 98745044}
   archerAttack: {fileID: 98745045}
@@ -21028,7 +21028,7 @@ MonoBehaviour:
   hpBar: {fileID: 421903081}
   rb: {fileID: 0}
   timer: 0
-  skeletonKingMaxHealth: 1000000
+  skeletonKingMaxHealth: 200000
   skeletonKingHealth: 0
   skeletonKingalive: 1
   kbForce: 0
@@ -21065,7 +21065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classLoader: {fileID: 0}
   skeletonKingHealth: {fileID: 0}
-  damage: 400
+  damage: 300
   timer: 0
   knightHealth: {fileID: 0}
   archerHealth: {fileID: 0}
@@ -105387,7 +105387,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   timer: 0
   timer2: 0
-  executionerMaxHealth: 10000000
+  executionerMaxHealth: 500000
   executionerHealth: 0
   executioneralive: 1
   kbForce: 3
@@ -105424,7 +105424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classLoader: {fileID: 0}
   executionerHealth: {fileID: 0}
-  damage: 1000
+  damage: 500
   timer: 0
   knightHealth: {fileID: 0}
   archerHealth: {fileID: 0}
@@ -150962,7 +150962,7 @@ Transform:
   m_GameObject: {fileID: 1797265140}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0.018, z: 0.41325173}
+  m_LocalPosition: {x: 0.3, y: 0.06, z: 0.41325173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

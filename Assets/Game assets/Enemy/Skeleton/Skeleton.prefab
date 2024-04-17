@@ -141,8 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc35220466ec317429cff62ac4c23407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classLoader: {fileID: 0}
   countDown: {fileID: 0}
-  playerXP: {fileID: 0}
+  knightXP: {fileID: 0}
+  archerXP: {fileID: 0}
   healthSkeleton: {fileID: 8413714972209620052}
   damageSkeleton: {fileID: 0}
   skeletonXP: 3
@@ -162,8 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09760c6288dfcaf4aa542992b1ad0b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
-  playerMovement: {fileID: 0}
+  classLoader: {fileID: 0}
+  knightHealth: {fileID: 0}
+  archerHealth: {fileID: 0}
+  knightMovement: {fileID: 0}
+  archerMovement: {fileID: 0}
   skeletonHealth: {fileID: 0}
   damage: 200
   timer: 0
@@ -195,9 +200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcf5f5e02916094f81576551a52a2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttack: {fileID: 0}
-  playerHealth: {fileID: 0}
-  playerMovement: {fileID: 0}
+  classLoader: {fileID: 0}
+  playerTransform: {fileID: 0}
+  knightAttack: {fileID: 0}
+  archerAttack: {fileID: 0}
+  knightHealth: {fileID: 0}
+  archerHealth: {fileID: 0}
+  knightMovement: {fileID: 0}
+  archerMovement: {fileID: 0}
   showDMG: {fileID: 7444695041737169692}
   showDMGText: {fileID: 0}
   anim: {fileID: 0}
@@ -205,7 +215,7 @@ MonoBehaviour:
   hpBar: {fileID: 7044806544732359567}
   timer: 0
   timer2: 0
-  skeletonMaxHealth: 2000
+  skeletonMaxHealth: 1000
   skeletonHealth: 0
   skeletonalive: 1
   kbForce: 3

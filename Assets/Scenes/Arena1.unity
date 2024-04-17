@@ -29208,6 +29208,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 08dc6e531ace0a040a46fe0f9bad98da, type: 3}
     - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
+      propertyPath: music.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08dc6e531ace0a040a46fe0f9bad98da, type: 3}
+    - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
       propertyPath: archerEffects.Array.size
       value: 3
       objectReference: {fileID: 0}

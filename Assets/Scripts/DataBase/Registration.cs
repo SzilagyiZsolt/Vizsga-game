@@ -12,6 +12,6 @@ public class Registration : MonoBehaviour
     public void OpenWeb()
     {
         //Megnyitja a weboldalt
-        Application.OpenURL("http://localhost/MysticRealmWeb/");
+        Application.OpenURL("http://localhost/MysticRealm/");
     }
 }

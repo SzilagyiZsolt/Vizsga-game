@@ -334,7 +334,7 @@ MonoBehaviour:
   sliderXP: {fileID: 1116703033}
   lvlUP: {fileID: 89065581}
   playerEXP: 0
-  EXPNeeded: 5
+  EXPNeeded: 3
   playerLevel: 1
 --- !u!114 &64694452 stripped
 MonoBehaviour:
@@ -938,6 +938,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
+      propertyPath: gamePause
+      value: 
+      objectReference: {fileID: 1991004313}
+    - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
       propertyPath: musicText
       value: 
       objectReference: {fileID: 1258928063}
@@ -999,6 +1003,10 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f20bf586a4ff6e440a2fac7a0d3ff6c7, type: 3}
     - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
       propertyPath: music.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08dc6e531ace0a040a46fe0f9bad98da, type: 3}
+    - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
+      propertyPath: music.Array.data[11]
       value: 
       objectReference: {fileID: 8300000, guid: 08dc6e531ace0a040a46fe0f9bad98da, type: 3}
     - target: {fileID: 6563525749218067182, guid: a32449f5d91d387468eadfe171d82fc6, type: 3}
@@ -9266,7 +9274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 254109648390149003, guid: 3f35bf85516966a45b2a53e7e43f9b0d, type: 3}
       propertyPath: firerate
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1346858219454932960, guid: 3f35bf85516966a45b2a53e7e43f9b0d, type: 3}
       propertyPath: audioManager

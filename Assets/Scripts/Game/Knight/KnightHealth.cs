@@ -63,7 +63,7 @@ public class KnightHealth : MonoBehaviour
         ManaUsage();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (!skillActive)
         {

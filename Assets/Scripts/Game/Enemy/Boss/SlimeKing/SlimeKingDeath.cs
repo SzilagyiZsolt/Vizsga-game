@@ -11,13 +11,17 @@ public class SlimeKingDeath : MonoBehaviour
     public bool slimeKingAlive=true;
     public SaveManager saveManager;
     public GameObject text;
+    public UnderTaleHP playerHP;
     void Start()
     {
         anim=GetComponent<Animator>();
     }
     void Update()
     {
-        timer+=Time.deltaTime;
+        if(playerHP.HP > 0)
+        {
+            timer += Time.deltaTime;
+        }
         if (timer > 118)
         {
             anim.SetBool("Death", true);

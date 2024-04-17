@@ -67,23 +67,23 @@ public class XPSkeleton : MonoBehaviour
             skeletonCoin*=skeletonLevel;
             switch (skeletonLevel)
             {
-                case 1:
-                    healthSkeleton.skeletonMaxHealth*=6;
-                    break;
                 case 2:
-                    healthSkeleton.skeletonMaxHealth*=4;
+                    healthSkeleton.skeletonMaxHealth*=2;
+                    damageSkeleton.damage *= 1.5f;
                     break;
                 case 3:
                     healthSkeleton.skeletonMaxHealth*=2;
+                    damageSkeleton.damage *= 2;
                     break;
                 case 4:
                     healthSkeleton.skeletonMaxHealth*=2;
+                    damageSkeleton.damage *= 2;
                     break;
                 case 5:
-                    healthSkeleton.skeletonMaxHealth*=2;
+                    healthSkeleton.skeletonMaxHealth*=1.5f;
+                    damageSkeleton.damage *= 2;
                     break;
             }
-            damageSkeleton.damage*=skeletonLevel;
             minutes--;
         }
     }

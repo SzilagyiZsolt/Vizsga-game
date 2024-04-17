@@ -67,9 +67,6 @@ public class SlimeXP : MonoBehaviour
             slimeCoin*=slimeLevel;
             switch (slimeLevel)
             {
-                case 1:
-                    slimeHealth.slimeMaxHealth*=4;
-                    break;
                 case 2:
                     slimeHealth.slimeMaxHealth*=4;
                     break;

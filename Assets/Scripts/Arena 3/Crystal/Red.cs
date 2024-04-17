@@ -24,7 +24,7 @@ public class Red : MonoBehaviour
 
     public void GiveEXP()
     {
-        playerExp.playerEXP += 3;
+        playerExp.playerEXP += 5;
         Destroy(enemyDeath.gameObject);
     }
 }

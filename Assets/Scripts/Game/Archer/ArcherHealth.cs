@@ -38,7 +38,7 @@ public class ArcherHealth : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         timer = 0;
